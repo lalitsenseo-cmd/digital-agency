@@ -1,73 +1,142 @@
 // app/api/seo/route.ts
-// ─────────────────────────────────────────────────────────────
-// Yeh API route SEO data ko read/write karta hai
-// GET  → /api/seo         → saare pages ka SEO data return karta hai
-// POST → /api/seo         → page ka SEO data update karta hai
-//
-// NOTE: Vercel par file system write nahi hota (read-only)
-// Isliye production mein Vercel KV ya MongoDB use karein.
-// Local development ke liye file system kaam karta hai.
-// ─────────────────────────────────────────────────────────────
-
 import { NextResponse } from 'next/server'
+import { supabase } from '@/lib/supabase'
 import { defaultPages, defaultSettings } from '@/lib/seo-data'
 
-// In-memory store (development ke liye)
-// Production mein → Vercel KV / MongoDB / Supabase use karein
-let seoStore = {
-  pages: [...defaultPages],
-  settings: { ...defaultSettings },
-  robotsTxt: `User-agent: *\nAllow: /\n\nDisallow: /admin/\nDisallow: /api/\n\nSitemap: https://nexgen-digital-psi.vercel.app/sitemap.xml`,
-}
-
-// GET → seo data fetch karo
+// GET — saara SEO data fetch karo
 export async function GET() {
-  return NextResponse.json({
-    success: true,
-    data: seoStore,
-  })
+  try {
+    // Pages fetch karo
+    const { data: pages, error: pagesError } = await supabase
+      .from('seo_pages')
+      .select('*')
+
+    // Settings fetch karo
+    const { data: settingsArr, error: settingsError } = await supabase
+      .from('seo_settings')
+      .select('*')
+      .eq('id', 1)
+      .single()
+
+    // Agar pehli baar hai toh default data insert karo
+    if (!pages || pages.length === 0) {
+      await supabase.from('seo_pages').insert(
+        defaultPages.map(p => ({
+          id: p.id,
+          url: p.url,
+          title: p.title,
+          description: p.description,
+          keyword: p.keyword,
+          canonical: p.canonical,
+          robots: p.robots,
+          og_title: p.ogTitle,
+          og_description: p.ogDescription,
+          og_image: p.ogImage,
+          schema: p.schema,
+          content: p.content,
+          status: p.status,
+        }))
+      )
+    }
+
+    if (!settingsArr) {
+      await supabase.from('seo_settings').insert({
+        id: 1,
+        site_name: defaultSettings.siteName,
+        tagline: defaultSettings.tagline,
+        site_url: defaultSettings.siteUrl,
+        separator: defaultSettings.separator,
+        robots_txt: `User-agent: *\nAllow: /\n\nDisallow: /admin/\nDisallow: /api/\n\nSitemap: ${defaultSettings.siteUrl}/sitemap.xml`,
+        gsc_verification: '',
+        analytics_id: '',
+      })
+    }
+
+    // Fresh data return karo
+    const { data: freshPages } = await supabase.from('seo_pages').select('*')
+    const { data: freshSettings } = await supabase.from('seo_settings').select('*').eq('id', 1).single()
+
+    return NextResponse.json({
+      success: true,
+      data: {
+        pages: freshPages || defaultPages,
+        settings: freshSettings || defaultSettings,
+      }
+    })
+
+  } catch (error) {
+    console.error('GET error:', error)
+    return NextResponse.json({ success: false, error: 'Server error' }, { status: 500 })
+  }
 }
 
-// POST → seo data update karo
+// POST — data update karo
 export async function POST(request: Request) {
   try {
     const body = await request.json()
     const { type, payload } = body
 
-    switch (type) {
-      case 'UPDATE_PAGE':
-        const pageIndex = seoStore.pages.findIndex(p => p.id === payload.id)
-        if (pageIndex !== -1) {
-          seoStore.pages[pageIndex] = {
-            ...seoStore.pages[pageIndex],
-            ...payload,
-            lastModified: new Date().toISOString(),
-          }
-        }
-        break
+    if (type === 'UPDATE_PAGE') {
+      const { error } = await supabase
+        .from('seo_pages')
+        .update({
+          title: payload.title,
+          description: payload.description,
+          keyword: payload.keyword,
+          canonical: payload.canonical,
+          robots: payload.robots,
+          og_title: payload.ogTitle,
+          og_description: payload.ogDescription,
+          og_image: payload.ogImage,
+          last_modified: new Date().toISOString(),
+        })
+        .eq('id', payload.id)
 
-      case 'UPDATE_SETTINGS':
-        seoStore.settings = { ...seoStore.settings, ...payload }
-        break
-
-      case 'UPDATE_ROBOTS':
-        seoStore.robotsTxt = payload.robotsTxt
-        break
-
-      case 'UPDATE_CONTENT':
-        const contentIndex = seoStore.pages.findIndex(p => p.id === payload.id)
-        if (contentIndex !== -1) {
-          seoStore.pages[contentIndex].content = payload.content
-          seoStore.pages[contentIndex].lastModified = new Date().toISOString()
-        }
-        break
-
-      default:
-        return NextResponse.json({ success: false, error: 'Unknown type' }, { status: 400 })
+      if (error) throw error
     }
 
-    return NextResponse.json({ success: true, data: seoStore })
+    if (type === 'UPDATE_CONTENT') {
+      const { error } = await supabase
+        .from('seo_pages')
+        .update({
+          content: payload.content,
+          status: payload.status || 'published',
+          last_modified: new Date().toISOString(),
+        })
+        .eq('id', payload.id)
+
+      if (error) throw error
+    }
+
+    if (type === 'UPDATE_SETTINGS') {
+      const { error } = await supabase
+        .from('seo_settings')
+        .upsert({
+          id: 1,
+          site_name: payload.siteName,
+          tagline: payload.tagline,
+          site_url: payload.siteUrl,
+          separator: payload.separator,
+          gsc_verification: payload.gscVerification,
+          analytics_id: payload.analyticsId,
+        })
+
+      if (error) throw error
+    }
+
+    if (type === 'UPDATE_ROBOTS') {
+      const { error } = await supabase
+        .from('seo_settings')
+        .update({ robots_txt: payload.robotsTxt })
+        .eq('id', 1)
+
+      if (error) throw error
+    }
+
+    return NextResponse.json({ success: true })
+
   } catch (error) {
-    return NextResponse.json({ success: false, error: 'Server error' }, { status: 500 })
+    console.error('POST error:', error)
+    return NextResponse.json({ success: false, error: 'Save failed' }, { status: 500 })
   }
 }
