@@ -3,13 +3,17 @@ import Footer from "@/components/Footer";
 import Link from "next/link";
 import { getBlogPosts } from "@/lib/get-blog-posts";
 import type { Metadata } from "next";
+import { getPageData, buildMetadata } from "@/lib/get-page-data";
 
 export const revalidate = 0;
 
-export const metadata: Metadata = {
-  title: "Blog | NexGen Digital",
-  description: "Digital marketing tips, guides, and case studies.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const page = await getPageData("blog");
+  return buildMetadata(page, {
+    title: "Blog | NexGen Digital",
+    description: "Digital marketing tips, guides, and case studies.",
+  });
+}
 
 const categoryColors: Record<string, string> = {
   "SEO": "#2563eb",
