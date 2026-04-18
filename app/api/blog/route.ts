@@ -2,14 +2,12 @@ import { NextResponse } from 'next/server'
 import { supabaseAdmin } from '@/lib/supabase'
 import { revalidatePath } from 'next/cache'
 
-// GET — saare posts fetch karo
 export async function GET() {
   try {
-    const { data, error } = await supabase
+    const { data, error } = await supabaseAdmin
       .from('blog_posts')
       .select('*')
       .order('published_at', { ascending: false })
-
     if (error) throw error
     return NextResponse.json({ success: true, data: data || [] })
   } catch (error) {
@@ -18,7 +16,6 @@ export async function GET() {
   }
 }
 
-// POST — create ya update
 export async function POST(request: Request) {
   try {
     const body = await request.json()
@@ -43,7 +40,7 @@ export async function POST(request: Request) {
     }
 
     if (type === 'UPDATE') {
-      const { error } = await supabase
+      const { error } = await supabaseAdmin
         .from('blog_posts')
         .update({
           title: payload.title,
