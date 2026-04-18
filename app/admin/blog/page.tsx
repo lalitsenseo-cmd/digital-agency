@@ -37,6 +37,53 @@ export default function BlogManagerPage() {
 
   const [form, setForm] = useState<BlogPost>(empty);
 
+  const [uploading, setUploading] = useState(false);
+
+  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    setUploading(true);
+    const formData = new FormData();
+    formData.append("file", file);
+
+    try {
+      const res = await fetch("/api/upload", {
+        method: "POST",
+        body: formData,
+      });
+      const json = await res.json();
+      if (json.success) {
+        setForm(prev => ({ ...prev, cover_image: json.url }));
+      } else {
+        alert("Upload failed: " + json.error);
+      }
+    } catch (err) {
+      alert("Upload error");
+    }
+    setUploading(false);
+    e.target.value = ""; // Reset input
+  };
+
+  const handleImageRemove = async () => {
+    if (!form.cover_image) return;
+    if (!confirm("Image delete karna chahte ho?")) return;
+
+    // Only delete from storage if it's a Supabase URL
+    if (form.cover_image.includes("/blog-images/")) {
+      try {
+        await fetch("/api/upload", {
+          method: "DELETE",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ url: form.cover_image }),
+        });
+      } catch {
+        // Silent fail - image already cleared from form
+      }
+    }
+    setForm({ ...form, cover_image: "" });
+  };
+
   const loadPosts = async () => {
     setLoading(true);
     const res = await fetch("/api/blog");
@@ -79,15 +126,33 @@ export default function BlogManagerPage() {
     }
   };
 
-  const handleDelete = async (id: string) => {
+    const handleDelete = async (id: string) => {
     if (!confirm("Delete this post?")) return;
+
+    // Find post to get image URL
+    const post = posts.find(p => p.id === id);
+
+    // Delete post from database
     const res = await fetch("/api/blog", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ type: "DELETE", payload: { id } }),
     });
     const json = await res.json();
+    
     if (json.success) {
+      // Also delete image from storage if exists
+      if (post?.cover_image && post.cover_image.includes("/blog-images/")) {
+        try {
+          await fetch("/api/upload", {
+            method: "DELETE",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ url: post.cover_image }),
+          });
+        } catch {
+          // Silent fail
+        }
+      }
       alert("✅ Deleted!");
       loadPosts();
     }
@@ -178,12 +243,37 @@ export default function BlogManagerPage() {
 
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
               <div>
-                <label style={{ fontSize: "13px", fontWeight: 600, color: "#374151", marginBottom: "0.3rem", display: "block" }}>Cover Image URL (optional)</label>
-                <input
-                  value={form.cover_image || ""}
-                  onChange={(e) => setForm({ ...form, cover_image: e.target.value })}
-                  style={{ width: "100%", padding: "0.7rem", border: "1px solid #d1d5db", borderRadius: "8px", fontSize: "14px" }}
-                />
+              <label style={{ fontSize: "13px", fontWeight: 600, color: "#374151", marginBottom: "0.3rem", display: "block" }}>Cover Image</label>
+                <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
+                  <input
+                    value={form.cover_image || ""}
+                    onChange={(e) => setForm({ ...form, cover_image: e.target.value })}
+                    placeholder="URL ya upload karo"
+                    style={{ flex: 1, padding: "0.7rem", border: "1px solid #d1d5db", borderRadius: "8px", fontSize: "14px" }}
+                  />
+                  <label style={{ background: uploading ? "#9ca3af" : "#16a34a", color: "#fff", padding: "0.7rem 1rem", borderRadius: "8px", fontSize: "13px", fontWeight: 600, cursor: uploading ? "not-allowed" : "pointer", whiteSpace: "nowrap" }}>
+                    {uploading ? "Uploading..." : "📁 Upload"}
+                    <input
+                      type="file"
+                      accept="image/*"
+                      disabled={uploading}
+                      onChange={handleImageUpload}
+                      style={{ display: "none" }}
+                    />
+                  </label>
+                </div>
+                {form.cover_image && (
+                  <div style={{ marginTop: "8px", display: "flex", alignItems: "flex-start", gap: "10px" }}>
+                    <img src={form.cover_image} alt="Preview" style={{ maxWidth: "200px", maxHeight: "120px", borderRadius: "6px", border: "1px solid #e5e7eb", objectFit: "cover" }} />
+                    <button
+                      type="button"
+                      onClick={handleImageRemove}
+                      style={{ background: "#fee2e2", color: "#dc2626", border: "1px solid #fecaca", padding: "6px 12px", borderRadius: "6px", fontSize: "12px", fontWeight: 600, cursor: "pointer" }}
+                    >
+                      ❌ Remove
+                    </button>
+                  </div>
+                )}
               </div>
               <div>
                 <label style={{ fontSize: "13px", fontWeight: 600, color: "#374151", marginBottom: "0.3rem", display: "block" }}>Author</label>

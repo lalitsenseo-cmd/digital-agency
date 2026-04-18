@@ -55,7 +55,11 @@ export default async function BlogPage() {
                   return (
                     <Link key={post.id} href={`/blog/${post.slug}`} style={{ textDecoration: "none" }}>
                       <div style={{ background: "#fff", border: "1px solid #e5e7eb", borderRadius: "16px", overflow: "hidden", cursor: "pointer", transition: "transform 0.2s" }}>
-                        <div style={{ height: "8px", background: color }} />
+                        {post.cover_image ? (
+                          <img src={post.cover_image} alt={post.title} style={{ width: "100%", height: "180px", objectFit: "cover" }} />
+                        ) : (
+                          <div style={{ height: "8px", background: color }} />
+                        )}
                         <div style={{ padding: "1.5rem" }}>
                           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem" }}>
                             <span style={{ fontSize: "11px", fontWeight: 700, padding: "3px 10px", borderRadius: "999px", background: `${color}15`, color }}>{post.category}</span>
