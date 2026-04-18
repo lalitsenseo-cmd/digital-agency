@@ -1,16 +1,26 @@
-"use client";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { useAdmin } from "@/context/AdminContext";
+import Link from "next/link";
+import { getBlogPosts } from "@/lib/get-blog-posts";
+import type { Metadata } from "next";
 
-const categoryColors: Record<string, string> = {
-  "SEO": "#2563eb", "Google Ads": "#16a34a", "Social Media": "#7c3aed",
-  "Web Development": "#dc2626", "Python": "#d97706",
+export const revalidate = 0;
+
+export const metadata: Metadata = {
+  title: "Blog | NexGen Digital",
+  description: "Digital marketing tips, guides, and case studies.",
 };
 
-export default function BlogPage() {
-  const { content } = useAdmin();
-  const published = (content.blogPosts || []).filter(p => p.published);
+const categoryColors: Record<string, string> = {
+  "SEO": "#2563eb",
+  "Google Ads": "#16a34a",
+  "Social Media": "#7c3aed",
+  "Web Development": "#dc2626",
+  "Python": "#d97706",
+};
+
+export default async function BlogPage() {
+  const posts = await getBlogPosts();
 
   return (
     <>
@@ -28,27 +38,33 @@ export default function BlogPage() {
 
         <section style={{ padding: "4rem 2rem", background: "#fff" }}>
           <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
-            {published.length === 0 ? (
+            {posts.length === 0 ? (
               <div style={{ textAlign: "center", padding: "4rem", color: "#9ca3af" }}>
                 <p style={{ fontSize: "1.1rem" }}>No blog posts yet.</p>
                 <p style={{ fontSize: "14px", marginTop: "0.5rem" }}>Admin dashboard se articles add karo!</p>
               </div>
             ) : (
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "24px" }}>
-                {published.map((post) => (
-                  <div key={post.id} style={{ background: "#fff", border: "1px solid #e5e7eb", borderRadius: "16px", overflow: "hidden" }}>
-                    <div style={{ height: "8px", background: categoryColors[post.category] || "#2563eb" }} />
-                    <div style={{ padding: "1.5rem" }}>
-                      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem" }}>
-                        <span style={{ fontSize: "11px", fontWeight: 700, padding: "3px 10px", borderRadius: "999px", background: `${categoryColors[post.category] || "#2563eb"}15`, color: categoryColors[post.category] || "#2563eb" }}>{post.category}</span>
-                        <span style={{ fontSize: "12px", color: "#9ca3af" }}>{post.date}</span>
+                {posts.map((post) => {
+                  const color = categoryColors[post.category] || "#2563eb";
+                  const date = new Date(post.published_at).toISOString().split("T")[0];
+                  return (
+                    <Link key={post.id} href={`/blog/${post.slug}`} style={{ textDecoration: "none" }}>
+                      <div style={{ background: "#fff", border: "1px solid #e5e7eb", borderRadius: "16px", overflow: "hidden", cursor: "pointer", transition: "transform 0.2s" }}>
+                        <div style={{ height: "8px", background: color }} />
+                        <div style={{ padding: "1.5rem" }}>
+                          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem" }}>
+                            <span style={{ fontSize: "11px", fontWeight: 700, padding: "3px 10px", borderRadius: "999px", background: `${color}15`, color }}>{post.category}</span>
+                            <span style={{ fontSize: "12px", color: "#9ca3af" }}>{date}</span>
+                          </div>
+                          <h2 style={{ fontFamily: "Plus Jakarta Sans, sans-serif", fontSize: "16px", fontWeight: 700, color: "#0f1117", marginBottom: "0.75rem", lineHeight: 1.4 }}>{post.title}</h2>
+                          <p style={{ fontSize: "13px", color: "#6b7280", lineHeight: 1.6, marginBottom: "1.25rem" }}>{post.description}</p>
+                          <span style={{ fontSize: "13px", fontWeight: 600, color, cursor: "pointer" }}>Read More →</span>
+                        </div>
                       </div>
-                      <h2 style={{ fontFamily: "Plus Jakarta Sans, sans-serif", fontSize: "16px", fontWeight: 700, color: "#0f1117", marginBottom: "0.75rem", lineHeight: 1.4 }}>{post.title}</h2>
-                      <p style={{ fontSize: "13px", color: "#6b7280", lineHeight: 1.6, marginBottom: "1.25rem" }}>{post.desc}</p>
-                      <span style={{ fontSize: "13px", fontWeight: 600, color: categoryColors[post.category] || "#2563eb", cursor: "pointer" }}>Read More →</span>
-                    </div>
-                  </div>
-                ))}
+                    </Link>
+                  );
+                })}
               </div>
             )}
           </div>

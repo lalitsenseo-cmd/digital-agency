@@ -2,6 +2,7 @@
 import { NextResponse } from 'next/server'
 import { supabase } from '@/lib/supabase'
 import { defaultPages, defaultSettings } from '@/lib/seo-data'
+import { revalidatePath } from 'next/cache'
 
 // GET — saara SEO data fetch karo
 export async function GET() {
@@ -93,6 +94,8 @@ export async function POST(request: Request) {
         .eq('id', payload.id)
 
       if (error) throw error
+      revalidatePath(payload.url || '/')
+      revalidatePath('/', 'layout')
     }
 
     if (type === 'UPDATE_CONTENT') {
@@ -106,6 +109,9 @@ export async function POST(request: Request) {
         .eq('id', payload.id)
 
       if (error) throw error
+      const { data: pageData } = await supabase.from('seo_pages').select('url').eq('id', payload.id).single()
+      revalidatePath(pageData?.url || '/')
+      revalidatePath('/', 'layout')
     }
 
     if (type === 'UPDATE_SETTINGS') {
@@ -122,6 +128,7 @@ export async function POST(request: Request) {
         })
 
       if (error) throw error
+      revalidatePath('/', 'layout')
     }
 
     if (type === 'UPDATE_ROBOTS') {
@@ -131,6 +138,7 @@ export async function POST(request: Request) {
         .eq('id', 1)
 
       if (error) throw error
+      revalidatePath('/robots.txt')
     }
 
     return NextResponse.json({ success: true })

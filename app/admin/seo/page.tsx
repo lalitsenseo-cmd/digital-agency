@@ -246,15 +246,16 @@ export default function SEODashboard() {
   const avgScore = Math.round(scores.reduce((a, b) => a + b, 0) / scores.length)
   const sitemapXml = generateSitemap(pages, settings.siteUrl)
 
-  const navItems: { id: Section; label: string; group: string }[] = [
-    { id: 'dashboard', label: 'Dashboard', group: 'Overview' },
-    { id: 'content', label: 'Content Editor', group: 'Overview' },
-    { id: 'pages', label: 'Pages SEO', group: 'Overview' },
-    { id: 'sitemap', label: 'Sitemap', group: 'Tools' },
-    { id: 'robots', label: 'Robots.txt', group: 'Tools' },
-    { id: 'schema', label: 'Schema / OG', group: 'Tools' },
-    { id: 'settings', label: 'Settings', group: 'Config' },
-  ]
+const navItems: { id: Section; label: string; group: string; external?: string }[] = [
+      { id: 'dashboard', label: 'Dashboard', group: 'Overview' },
+      { id: 'content', label: 'Content Editor', group: 'Overview' },
+      { id: 'blog' as Section, label: 'Blog Manager', group: 'Overview', external: '/admin/blog' },
+      { id: 'pages', label: 'Pages SEO', group: 'Overview' },
+      { id: 'sitemap', label: 'Sitemap', group: 'Tools' },
+      { id: 'robots', label: 'Robots.txt', group: 'Tools' },
+      { id: 'schema', label: 'Schema / OG', group: 'Tools' },
+      { id: 'settings', label: 'Settings', group: 'Config' },
+    ]
 
   const S = {
     wrap: { display: 'flex', height: '100vh', fontFamily: 'system-ui,-apple-system,sans-serif', background: '#f4f5f7' } as React.CSSProperties,
@@ -285,7 +286,7 @@ export default function SEODashboard() {
             <div key={group}>
               <div style={{ padding: '10px 14px 3px', fontSize: 9, textTransform: 'uppercase', letterSpacing: '0.1em', color: '#3a5a78', fontWeight: 500 }}>{group}</div>
               {navItems.filter(n => n.group === group).map(item => (
-                <div key={item.id} onClick={() => { setSection(item.id); setEditingPage(null) }}
+                <div key={item.id} onClick={() => { if (item.external) { window.location.href = item.external; return; } setSection(item.id); setEditingPage(null) }}
                   style={{ padding: '8px 14px', fontSize: 12.5, cursor: 'pointer', color: section === item.id ? '#fff' : '#8aabcb', background: section === item.id ? 'rgba(91,163,232,0.12)' : 'transparent', borderLeft: `2px solid ${section === item.id ? '#5ba3e8' : 'transparent'}` }}>
                   {item.label}
                 </div>
