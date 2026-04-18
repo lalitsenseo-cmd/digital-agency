@@ -3,13 +3,17 @@ import Footer from "@/components/Footer";
 import { getSection } from "@/lib/get-section";
 import ContactPageClient from "@/components/ContactPageClient";
 import type { Metadata } from "next";
+import { getPageData, buildMetadata } from "@/lib/get-page-data";
 
 export const revalidate = 0;
 
-export const metadata: Metadata = {
-  title: "Contact Us | NexGen Digital",
-  description: "Free consultation. Get back within 24 hours.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const page = await getPageData("contact");
+  return buildMetadata(page, {
+    title: "Contact Us | NexGen Digital",
+    description: "Free consultation. Get back within 24 hours.",
+  });
+}
 
 export default async function ContactPage() {
   const d = await getSection("contact-main");

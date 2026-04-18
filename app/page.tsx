@@ -6,8 +6,18 @@ import Pricing from "@/components/Pricing";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import type { Metadata } from "next";
+import { getPageData, buildMetadata } from "@/lib/get-page-data";
 
 export const revalidate = 0;
+
+export async function generateMetadata(): Promise<Metadata> {
+  const page = await getPageData("home");
+  return buildMetadata(page, {
+    title: "NexGen Digital — Digital Marketing Agency in Faridabad",
+    description: "SEO, Google Ads, Social Media, Website Development & Python Automation for Indian businesses.",
+  });
+}
 
 export default function Home() {
   return (
