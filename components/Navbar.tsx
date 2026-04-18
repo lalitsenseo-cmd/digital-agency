@@ -48,36 +48,45 @@ export default function Navbar() {
             onMouseLeave={e => e.currentTarget.style.color = "#6b7280"}>Home</a>
 
           {/* Services dropdown */}
-          <div style={{ position: "relative" }}
+          <div style={{ position: "relative", paddingBottom: "20px", marginBottom: "-20px" }}
             onMouseEnter={() => setDropdown(true)}
             onMouseLeave={() => setDropdown(false)}>
             <button style={{
               background: "none", border: "none", cursor: "pointer",
-              fontSize: "14px", fontWeight: 500, color: "#6b7280",
+              fontSize: "14px", fontWeight: 500, color: dropdown ? "#0f1117" : "#6b7280",
               display: "flex", alignItems: "center", gap: "4px", fontFamily: "Inter, sans-serif",
+              transition: "color 0.2s",
             }}>
-              Services <ChevronDown size={14} />
+              Services <ChevronDown size={14} style={{ transform: dropdown ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.2s" }} />
             </button>
-            {dropdown && (
-              <div style={{
-                position: "absolute", top: "100%", left: "50%", transform: "translateX(-50%)",
-                background: "#fff", border: "1px solid rgba(0,0,0,0.08)",
-                borderRadius: "12px", padding: "8px", marginTop: "8px",
-                boxShadow: "0 10px 40px rgba(0,0,0,0.1)", minWidth: "220px",
-                animation: "fadeIn 0.15s ease",
-              }}>
-                {services.map(s => (
-                  <a key={s.href} href={s.href} style={{
-                    display: "block", padding: "10px 14px", borderRadius: "8px",
-                    fontSize: "14px", color: "#374151", fontWeight: 500,
-                    transition: "background 0.15s",
-                  }}
-                    onMouseEnter={e => { e.currentTarget.style.background = "#eff6ff"; e.currentTarget.style.color = "#2563eb"; }}
-                    onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#374151"; }}
-                  >{s.label}</a>
-                ))}
-              </div>
-            )}
+            <div style={{
+              position: "absolute",
+              top: "100%",
+              left: "50%",
+              transform: dropdown ? "translateX(-50%) translateY(0)" : "translateX(-50%) translateY(-8px)",
+              background: "#fff",
+              border: "1px solid rgba(0,0,0,0.08)",
+              borderRadius: "12px",
+              padding: "8px",
+              boxShadow: "0 10px 40px rgba(0,0,0,0.1)",
+              minWidth: "220px",
+              opacity: dropdown ? 1 : 0,
+              visibility: dropdown ? "visible" : "hidden",
+              transition: "opacity 0.2s, transform 0.2s, visibility 0.2s",
+              pointerEvents: dropdown ? "auto" : "none",
+            }}>
+              {services.map(s => (
+                <a key={s.href} href={s.href} style={{
+                  display: "block", padding: "10px 14px", borderRadius: "8px",
+                  fontSize: "14px", color: "#374151", fontWeight: 500,
+                  textDecoration: "none",
+                  transition: "background 0.15s, color 0.15s",
+                }}
+                  onMouseEnter={e => { e.currentTarget.style.background = "#eff6ff"; e.currentTarget.style.color = "#2563eb"; }}
+                  onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#374151"; }}
+                >{s.label}</a>
+              ))}
+            </div>
           </div>
 
           {["Blog", "About", "Contact"].map(item => (

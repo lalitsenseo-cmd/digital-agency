@@ -250,6 +250,7 @@ const navItems: { id: Section; label: string; group: string; external?: string }
       { id: 'dashboard', label: 'Dashboard', group: 'Overview' },
       { id: 'content', label: 'Content Editor', group: 'Overview' },
       { id: 'blog' as Section, label: 'Blog Manager', group: 'Overview', external: '/admin/blog' },
+      { id: 'sections' as Section, label: 'Pages Content', group: 'Overview', external: '/admin/sections' },
       { id: 'pages', label: 'Pages SEO', group: 'Overview' },
       { id: 'sitemap', label: 'Sitemap', group: 'Tools' },
       { id: 'robots', label: 'Robots.txt', group: 'Tools' },

@@ -7,6 +7,8 @@ import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
+export const revalidate = 0;
+
 export default function Home() {
   return (
     <main style={{ background: "#080808", minHeight: "100vh" }}>
