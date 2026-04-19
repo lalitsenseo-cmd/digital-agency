@@ -6,6 +6,7 @@ import Pricing from "@/components/Pricing";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import { WhatsAppButton } from "@/components/PremiumFeatures";
 import type { Metadata } from "next";
 import { getPageData, buildMetadata } from "@/lib/get-page-data";
 
@@ -22,6 +23,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default function Home() {
   return (
     <main style={{ background: "#080808", minHeight: "100vh" }}>
+      <WhatsAppButton />
       <Navbar />
       <Hero />
       <Services />
