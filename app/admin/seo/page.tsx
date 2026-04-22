@@ -5,7 +5,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { defaultPages, defaultSettings, calcSEOScore, generateSitemap, PageSEO, SiteSettings } from '@/lib/seo-data'
 
-const ADMIN_PASSWORD = 'Clickbriz2026'
+const ADMIN_PASSWORD = process.env.NEXT_PUBLIC_ADMIN_PASSWORD || ''
 
 type Section = 'dashboard' | 'content' | 'pages' | 'sitemap' | 'robots' | 'schema' | 'settings'
 type SchemaTab = 'og' | 'jsonld' | 'twitter'
