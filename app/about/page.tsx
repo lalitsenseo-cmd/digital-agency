@@ -673,7 +673,16 @@ export default async function AboutPage() {
               <div className="founder-image-wrapper">
                 <div className="founder-image-glow"></div>
                 <div className="founder-image">
-                  <span className="founder-initials">LS</span>
+                  <img 
+                    src="/founder.png" 
+                    alt="Lalit Sen - Founder & CEO"
+                    style={{ 
+                      width: "100%", 
+                      height: "100%", 
+                      objectFit: "cover",
+                      borderRadius: "50%"
+                    }}
+                  />
                 </div>
               </div>
               <div>

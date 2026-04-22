@@ -171,17 +171,17 @@ export default async function Hero() {
         }
         .founder-bg-image {
           position: absolute;
-          top: 50%;
+          top: 25%;
           left: 50%;
           transform: translate(-50%, -50%);
           width: 110%;
           height: auto;
           max-height: 600px;
           object-fit: contain;
-          opacity: 0.25;
+          opacity: 0.5;
           z-index: 1;
-          filter: grayscale(20%) contrast(1.1);
-          -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 75%);
+          filter: grayscale(10%) contrast(1.15);
+          -webkit-mask-image: radial-gradient(ellipse at center, black 55%, transparent 85%);
           mask-image: radial-gradient(ellipse at center, black 40%, transparent 75%);
           pointer-events: none;
         }
