@@ -120,14 +120,9 @@ export default function Navbar() {
       }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 2rem", height: "68px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
 
-          <a href="/" className="nav-logo-wrap" style={{ display: "flex", alignItems: "center", gap: "10px", textDecoration: "none" }}>
-            <div className="nav-logo-box">
-              <span style={{ fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 800, fontSize: "18px", color: "#fff" }}>N</span>
-            </div>
-            <span style={{ fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 800, fontSize: "20px", color: "#fff" }}>
-              Clickbriz<span style={{ background: "linear-gradient(135deg, #F97316, #FB923C)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>.</span>
-            </span>
-          </a>
+        <a href="/" className="nav-logo-wrap" style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
+        <img src="/logo.png" alt="Clickbriz" style={{ height: "50px", width: "auto" }} />
+        </a>
 
           <div style={{ display: "flex", alignItems: "center", gap: "2.25rem" }} className="hidden md:flex">
             <a href="/" className="nav-link">Home</a>
