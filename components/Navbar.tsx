@@ -118,10 +118,10 @@ export default function Navbar() {
         transition: "all 0.3s ease",
         boxShadow: scrolled ? "0 4px 30px rgba(0, 0, 0, 0.5)" : "none",
       }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 2rem", height: "68px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 2rem", height: "90px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
 
         <a href="/" className="nav-logo-wrap" style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
-        <img src="/logo.png" alt="Clickbriz" style={{ height: "50px", width: "auto" }} />
+        <img src="/logo.png" alt="Clickbriz" style={{ height: "90px", width: "auto" }} />
         </a>
 
           <div style={{ display: "flex", alignItems: "center", gap: "2.25rem" }} className="hidden md:flex">
