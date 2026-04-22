@@ -19,7 +19,7 @@ export default async function ServicePage({ slug, color, bg, cmsContent }: Props
   const offersHeading = d?.offersHeading || "What's Included";
   const offersSubheading = d?.offersSubheading || "Everything we do to grow your business";
   const offers: { title: string; desc: string }[] = d?.offers || [];
-  const benefitsHeading = d?.benefitsHeading || "Why Choose NexGen Digital?";
+  const benefitsHeading = d?.benefitsHeading || "Why Choose Clickbriz Digital?";
   const benefits: string[] = d?.benefits || [];
   const faqsHeading = d?.faqsHeading || "Frequently Asked Questions";
   const faqs: { q: string; a: string }[] = d?.faqs || [];

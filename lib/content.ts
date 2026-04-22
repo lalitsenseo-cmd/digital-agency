@@ -103,7 +103,7 @@ export const defaultContent: SiteContent = {
   ],
   testimonials: [
     { id: "t1", name: "Rahul Sharma", role: "Owner, FashionHub", text: "In just 3 months, our Google traffic tripled. Best investment we made for our store.", rating: 5 },
-    { id: "t2", name: "Priya Gupta", role: "Founder, EduEdge Coaching", text: "Our Google Ads now bring 40+ leads daily. NexGen completely transformed our admissions.", rating: 5 },
+    { id: "t2", name: "Priya Gupta", role: "Founder, EduEdge Coaching", text: "Our Google Ads now bring 40+ leads daily. Clickbriz completely transformed our admissions.", rating: 5 },
     { id: "t3", name: "Amit Verma", role: "Director, BuildRight Infra", text: "They built our website and handled all social media. Highly professional and results-driven.", rating: 5 },
     { id: "t4", name: "Sneha Joshi", role: "CEO, DataWorks Solutions", text: "The Python automation dashboard they built saved us 30+ hours every week. Incredible work.", rating: 5 },
   ],
@@ -112,7 +112,7 @@ export const defaultContent: SiteContent = {
     { id: "pr2", name: "Growth", priceMonthly: 24999, priceYearly: 19999, desc: "For businesses ready to scale aggressively.", features: ["Full SEO (On + Off + Technical)", "Google + Meta Ads Management", "3 Social Media Platforms", "Weekly Reports + Strategy Calls", "Landing Page Design", "WhatsApp Marketing Setup", "Email Automation", "Priority Support"], popular: true, color: "#2563eb" },
     { id: "pr3", name: "Enterprise", priceMonthly: 54999, priceYearly: 44999, desc: "Full-service digital transformation for serious brands.", features: ["Everything in Growth", "Custom Website Development", "Python Automation / Dashboard", "Dedicated Account Manager", "Daily Monitoring & Reporting", "A/B Testing & CRO", "Competitor Intelligence", "24/7 Priority Support"], popular: false, color: "#7c3aed" },
   ],
-  contact: { phone: "+91 85270 04901", email: "lalitsen.seo@gmail.com", whatsapp: "+91 85270 04901" },
+  contact: { phone: "+91 85270 04901", email: "clickbriz@gmail.com", whatsapp: "+91 85270 04901" },
   blogPosts: [
     { id: "b1", title: "10 SEO Tips to Rank Your Business on Google in 2025", category: "SEO", desc: "Learn the most effective SEO strategies that are working right now.", content: "Write your full article content here...", date: "2024-12-01", published: true, slug: "seo-tips-rank-google-2025" },
     { id: "b2", title: "How to Run Google Ads on a Small Budget in India", category: "Google Ads", desc: "A practical guide to running profitable Google Ads campaigns with budgets as low as ₹500/day.", content: "Write your full article content here...", date: "2024-11-15", published: true, slug: "google-ads-small-budget-india" },
@@ -224,7 +224,7 @@ export const defaultContent: SiteContent = {
 export function getContent(): SiteContent {
   if (typeof window === "undefined") return defaultContent;
   try {
-    const stored = localStorage.getItem("nexgen_content");
+    const stored = localStorage.getItem("Clickbriz_content");
     if (!stored) return defaultContent;
     const parsed = JSON.parse(stored);
     return {
@@ -238,23 +238,23 @@ export function getContent(): SiteContent {
 
 export function saveContent(content: SiteContent): void {
   if (typeof window === "undefined") return;
-  localStorage.setItem("nexgen_content", JSON.stringify(content));
+  localStorage.setItem("Clickbriz_content", JSON.stringify(content));
 }
 
 export function isAdminLoggedIn(): boolean {
   if (typeof window === "undefined") return false;
-  return sessionStorage.getItem("nexgen_admin") === "true";
+  return sessionStorage.getItem("Clickbriz_admin") === "true";
 }
 
 export function adminLogin(password: string): boolean {
-  const ADMIN_PASSWORD = "nexgen@admin123";
+  const ADMIN_PASSWORD = "Clickbriz@admin123";
   if (password === ADMIN_PASSWORD) {
-    sessionStorage.setItem("nexgen_admin", "true");
+    sessionStorage.setItem("Clickbriz_admin", "true");
     return true;
   }
   return false;
 }
 
 export function adminLogout(): void {
-  sessionStorage.removeItem("nexgen_admin");
+  sessionStorage.removeItem("Clickbriz_admin");
 }

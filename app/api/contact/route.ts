@@ -26,7 +26,7 @@ export async function POST(request: Request) {
     // 2. Send email notification
     try {
       await resend.emails.send({
-        from: 'NexGen Leads <onboarding@resend.dev>',
+        from: 'Clickbriz Leads <onboarding@resend.dev>',
         to: process.env.CONTACT_EMAIL!,
         subject: `New Lead: ${name} — ${service || 'General Inquiry'}`,
         html: `

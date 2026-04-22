@@ -5,7 +5,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { defaultPages, defaultSettings, calcSEOScore, generateSitemap, PageSEO, SiteSettings } from '@/lib/seo-data'
 
-const ADMIN_PASSWORD = 'nexgen2026'
+const ADMIN_PASSWORD = 'Clickbriz2026'
 
 type Section = 'dashboard' | 'content' | 'pages' | 'sitemap' | 'robots' | 'schema' | 'settings'
 type SchemaTab = 'og' | 'jsonld' | 'twitter'
@@ -39,9 +39,9 @@ function ScoreBadge({ score }: { score: number }) {
 }
 
 const SCHEMAS: Record<string, string> = {
-  Organization: `{\n  "@context": "https://schema.org",\n  "@type": "Organization",\n  "name": "NexGen Digital",\n  "url": "https://nexgen-digital-psi.vercel.app",\n  "founder": "Lalit Sen",\n  "telephone": "+91-85270-04901"\n}`,
-  LocalBusiness: `{\n  "@context": "https://schema.org",\n  "@type": "LocalBusiness",\n  "name": "NexGen Digital",\n  "address": {\n    "@type": "PostalAddress",\n    "addressLocality": "Faridabad",\n    "addressRegion": "Haryana",\n    "addressCountry": "IN"\n  },\n  "telephone": "+91-85270-04901"\n}`,
-  Service: `{\n  "@context": "https://schema.org",\n  "@type": "Service",\n  "name": "Digital Marketing Services",\n  "provider": { "@type": "Organization", "name": "NexGen Digital" }\n}`,
+  Organization: `{\n  "@context": "https://schema.org",\n  "@type": "Organization",\n  "name": "Clickbriz Digital",\n  "url": "https://Clickbriz-digital-psi.vercel.app",\n  "founder": "Lalit Sen",\n  "telephone": "+91-85270-04901"\n}`,
+  LocalBusiness: `{\n  "@context": "https://schema.org",\n  "@type": "LocalBusiness",\n  "name": "Clickbriz Digital",\n  "address": {\n    "@type": "PostalAddress",\n    "addressLocality": "Faridabad",\n    "addressRegion": "Haryana",\n    "addressCountry": "IN"\n  },\n  "telephone": "+91-85270-04901"\n}`,
+  Service: `{\n  "@context": "https://schema.org",\n  "@type": "Service",\n  "name": "Digital Marketing Services",\n  "provider": { "@type": "Organization", "name": "Clickbriz Digital" }\n}`,
 }
 
 export default function SEODashboard() {
@@ -54,7 +54,7 @@ export default function SEODashboard() {
   const [section, setSection] = useState<Section>('dashboard')
   const [pages, setPages] = useState<PageSEO[]>(defaultPages)
   const [settings, setSettings] = useState<SiteSettings>(defaultSettings)
-  const [robotsTxt, setRobotsTxt] = useState(`User-agent: *\nAllow: /\n\nDisallow: /admin/\nDisallow: /api/\nDisallow: /_next/\n\nSitemap: https://nexgen-digital-psi.vercel.app/sitemap.xml`)
+  const [robotsTxt, setRobotsTxt] = useState(`User-agent: *\nAllow: /\n\nDisallow: /admin/\nDisallow: /api/\nDisallow: /_next/\n\nSitemap: https://Clickbriz-digital-psi.vercel.app/sitemap.xml`)
   const [editingPage, setEditingPage] = useState<PageSEO | null>(null)
   const [pageFilter, setPageFilter] = useState('')
   const [scoreFilter, setScoreFilter] = useState('all')
@@ -296,7 +296,7 @@ const navItems: { id: Section; label: string; group: string; external?: string }
           ))}
         </nav>
         <div style={{ padding: '10px 14px', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-          <div style={{ fontSize: 10, color: '#3a5a78', wordBreak: 'break-all' }}>nexgen-digital-psi.vercel.app</div>
+          <div style={{ fontSize: 10, color: '#3a5a78', wordBreak: 'break-all' }}>Clickbriz-digital-psi.vercel.app</div>
           <div onClick={() => setAuthed(false)} style={{ fontSize: 10, color: '#5ba3e8', cursor: 'pointer', marginTop: 4 }}>Logout</div>
         </div>
       </aside>
@@ -549,7 +549,7 @@ const navItems: { id: Section; label: string; group: string; external?: string }
               )}
               {schemaTab === 'og' && (
                 <div style={{ maxWidth: 500 }}>
-                  {[['OG Title', 'NexGen Digital...'], ['OG Description', 'SEO, Google Ads...'], ['OG Image URL', 'https://.../og.jpg']].map(([label, ph]) => (
+                  {[['OG Title', 'Clickbriz Digital...'], ['OG Description', 'SEO, Google Ads...'], ['OG Image URL', 'https://.../og.jpg']].map(([label, ph]) => (
                     <div key={label} style={{ marginBottom: 12 }}><label style={S.lbl}>{label}</label><input style={S.inp} placeholder={ph} /></div>
                   ))}
                   <button style={S.btnP} onClick={() => toast('OG tags saved!')}>Save OG Tags</button>
@@ -557,7 +557,7 @@ const navItems: { id: Section; label: string; group: string; external?: string }
               )}
               {schemaTab === 'twitter' && (
                 <div style={{ maxWidth: 440 }}>
-                  {[['Handle', '@nexgendigital'], ['Title', 'NexGen Digital...'], ['Description', 'ROI-driven marketing...']].map(([label, ph]) => (
+                  {[['Handle', '@Clickbrizdigital'], ['Title', 'Clickbriz Digital...'], ['Description', 'ROI-driven marketing...']].map(([label, ph]) => (
                     <div key={label} style={{ marginBottom: 12 }}><label style={S.lbl}>{label}</label><input style={S.inp} placeholder={ph} /></div>
                   ))}
                   <button style={S.btnP} onClick={() => toast('Twitter tags saved!')}>Save</button>

@@ -12,7 +12,7 @@ export const revalidate = 0;
 export async function generateMetadata(): Promise<Metadata> {
   const page = await getPageData("blog");
   return buildMetadata(page, {
-    title: "Blog | NexGen Digital",
+    title: "Blog | Clickbriz Digital",
     description: "Digital marketing tips, guides, and case studies.",
   });
 }

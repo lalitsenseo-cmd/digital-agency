@@ -354,7 +354,7 @@ export default function Dashboard() {
             <div style={{ width: "28px", height: "28px", background: "#2563eb", borderRadius: "7px", display: "flex", alignItems: "center", justifyContent: "center" }}>
               <span style={{ fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 800, fontSize: "12px", color: "#fff" }}>N</span>
             </div>
-            <span style={{ fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 700, fontSize: "14px", color: "#0f1117" }}>NexGen Admin</span>
+            <span style={{ fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 700, fontSize: "14px", color: "#0f1117" }}>Clickbriz Admin</span>
           </div>
         </div>
         <nav style={{ flex: 1, padding: "0.75rem", display: "flex", flexDirection: "column", gap: "2px", overflowY: "auto" }}>

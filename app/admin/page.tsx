@@ -62,7 +62,7 @@ export default function AdminLoginPage() {
             fontSize: "22px", fontWeight: 800,
             color: "#f0f0f0", marginBottom: "6px",
           }}>Admin Login</h1>
-          <p style={{ fontSize: "13px", color: "#555" }}>NexGen Digital — Content Manager</p>
+          <p style={{ fontSize: "13px", color: "#555" }}>Clickbriz Digital — Content Manager</p>
         </div>
 
         <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
@@ -125,7 +125,7 @@ export default function AdminLoginPage() {
         </form>
 
         <p style={{ textAlign: "center", marginTop: "1.5rem", fontSize: "12px", color: "#333" }}>
-          Default password: <code style={{ color: "#555" }}>nexgen@admin123</code>
+          Default password: <code style={{ color: "#555" }}>Clickbriz@admin123</code>
         </p>
       </div>
     </div>

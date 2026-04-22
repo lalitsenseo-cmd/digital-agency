@@ -7,7 +7,7 @@ export const revalidate = 0;
 export async function generateMetadata(): Promise<Metadata> {
   const page = await getPageData("website-development");
   return buildMetadata(page, {
-    title: "Website Development Services | NexGen Digital",
+    title: "Website Development Services | Clickbriz Digital",
     description: "WordPress, Next.js and custom website development.",
   });
 }

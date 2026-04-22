@@ -203,7 +203,7 @@ export function LoadingScreen() {
         }
       `}</style>
       <div className="load-screen">
-        <div className="load-logo">NexGen<span>.</span></div>
+        <div className="load-logo">Clickbriz<span>.</span></div>
         <div className="load-spinner"></div>
       </div>
     </>

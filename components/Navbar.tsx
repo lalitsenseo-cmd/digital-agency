@@ -125,7 +125,7 @@ export default function Navbar() {
               <span style={{ fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 800, fontSize: "18px", color: "#fff" }}>N</span>
             </div>
             <span style={{ fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 800, fontSize: "20px", color: "#fff" }}>
-              NexGen<span style={{ background: "linear-gradient(135deg, #F97316, #FB923C)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>.</span>
+              Clickbriz<span style={{ background: "linear-gradient(135deg, #F97316, #FB923C)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>.</span>
             </span>
           </a>
 

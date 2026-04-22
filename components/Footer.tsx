@@ -8,35 +8,35 @@ export default function Footer() {
     { 
       name: "Facebook", 
       icon: Facebook, 
-      href: "https://facebook.com/nexgendigital", 
+      href: "https://facebook.com/Clickbrizdigital", 
       color: "#1877F2",
       shadowColor: "rgba(24, 119, 242, 0.5)"
     },
     { 
       name: "Instagram", 
       icon: Instagram, 
-      href: "https://instagram.com/nexgendigital", 
+      href: "https://instagram.com/Clickbrizdigital", 
       color: "#E4405F",
       shadowColor: "rgba(228, 64, 95, 0.5)"
     },
     { 
       name: "LinkedIn", 
       icon: Linkedin, 
-      href: "https://linkedin.com/company/nexgendigital", 
+      href: "https://linkedin.com/company/Clickbrizdigital", 
       color: "#0A66C2",
       shadowColor: "rgba(10, 102, 194, 0.5)"
     },
     { 
       name: "Twitter/X", 
       icon: Twitter, 
-      href: "https://twitter.com/nexgendigital", 
+      href: "https://twitter.com/Clickbrizdigital", 
       color: "#FFFFFF",
       shadowColor: "rgba(255, 255, 255, 0.3)"
     },
     { 
       name: "YouTube", 
       icon: Youtube, 
-      href: "https://youtube.com/@nexgendigital", 
+      href: "https://youtube.com/@Clickbrizdigital", 
       color: "#FF0000",
       shadowColor: "rgba(255, 0, 0, 0.5)"
     },
@@ -359,7 +359,7 @@ export default function Footer() {
                   <span style={{ fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 800, fontSize: "20px", color: "#fff" }}>N</span>
                 </div>
                 <span className="footer-brand-text">
-                  NexGen<span className="footer-brand-dot">.</span>
+                  Clickbriz<span className="footer-brand-dot">.</span>
                 </span>
               </div>
               <p className="footer-description">
@@ -410,11 +410,11 @@ export default function Footer() {
                 +91 85270 04901
               </a>
 
-              <a href="mailto:lalitsen.seo@gmail.com" className="footer-contact-item">
+              <a href="mailto:clickbriz@gmail.com" className="footer-contact-item">
                 <div className="footer-contact-icon">
                   <Mail size={15} color="#FB923C" />
                 </div>
-                lalitsen.seo@gmail.com
+                clickbriz@gmail.com
               </a>
 
               <div className="footer-contact-item" style={{ cursor: "default" }}>
@@ -462,7 +462,7 @@ export default function Footer() {
 
           <div className="footer-bottom">
             <p className="footer-copyright">
-              © {year} NexGen Digital by <span className="footer-copyright-highlight">Lalit Sen</span>. All rights reserved.
+              © {year} Clickbriz Digital by <span className="footer-copyright-highlight">Lalit Sen</span>. All rights reserved.
             </p>
             <p className="footer-made">
               Made with <span className="footer-made-heart">♥</span> in Faridabad, Haryana 🇮🇳

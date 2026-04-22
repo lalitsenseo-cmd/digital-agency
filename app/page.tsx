@@ -15,7 +15,7 @@ export const revalidate = 0;
 export async function generateMetadata(): Promise<Metadata> {
   const page = await getPageData("home");
   return buildMetadata(page, {
-    title: "NexGen Digital — Digital Marketing Agency in Faridabad",
+    title: "Clickbriz Digital — Digital Marketing Agency in Faridabad",
     description: "SEO, Google Ads, Social Media, Website Development & Python Automation for Indian businesses.",
   });
 }

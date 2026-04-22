@@ -7,7 +7,7 @@ export const revalidate = 0;
 export async function generateMetadata(): Promise<Metadata> {
   const page = await getPageData("seo-services");
   return buildMetadata(page, {
-    title: "SEO Services in India | NexGen Digital",
+    title: "SEO Services in India | Clickbriz Digital",
     description: "Professional SEO services — on-page, off-page, technical SEO.",
   });
 }

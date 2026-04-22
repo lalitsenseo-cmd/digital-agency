@@ -7,7 +7,7 @@ export const revalidate = 0;
 export async function generateMetadata(): Promise<Metadata> {
   const page = await getPageData("python-development");
   return buildMetadata(page, {
-    title: "Python Development Services | NexGen Digital",
+    title: "Python Development Services | Clickbriz Digital",
     description: "Custom Python automation, dashboards, web scrapers and APIs.",
   });
 }

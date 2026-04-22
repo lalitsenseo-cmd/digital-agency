@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   const post = await getBlogPostBySlug(params.slug);
   if (!post) return { title: "Post Not Found" };
   return {
-    title: `${post.title} | NexGen Digital Blog`,
+    title: `${post.title} | Clickbriz Digital Blog`,
     description: post.description,
   };
 }

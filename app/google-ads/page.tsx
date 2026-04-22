@@ -7,7 +7,7 @@ export const revalidate = 0;
 export async function generateMetadata(): Promise<Metadata> {
   const page = await getPageData("google-ads");
   return buildMetadata(page, {
-    title: "Google Ads & PPC Services | NexGen Digital",
+    title: "Google Ads & PPC Services | Clickbriz Digital",
     description: "Expert Google Ads, Meta Ads and PPC management.",
   });
 }

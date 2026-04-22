@@ -9,7 +9,7 @@ import { NextResponse } from 'next/server'
 import { defaultPages, generateSitemap } from '@/lib/seo-data'
 
 export async function GET() {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://nexgen-digital-psi.vercel.app'
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://Clickbriz-digital-psi.vercel.app'
   const sitemap = generateSitemap(defaultPages, baseUrl)
 
   return new NextResponse(sitemap, {

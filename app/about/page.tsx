@@ -11,8 +11,8 @@ export const revalidate = 0;
 export async function generateMetadata(): Promise<Metadata> {
   const page = await getPageData("about");
   return buildMetadata(page, {
-    title: "About Us | NexGen Digital Marketing Agency Faridabad",
-    description: "NexGen Digital is founded by Lalit Sen — a results-driven digital marketing agency in Faridabad.",
+    title: "About Us | Clickbriz Digital Marketing Agency Faridabad",
+    description: "Clickbriz Digital is founded by Lalit Sen — a results-driven digital marketing agency in Faridabad.",
   });
 }
 
@@ -20,9 +20,9 @@ export default async function AboutPage() {
   const page = await getPageData("about");
   const d = await getSection("about-main");
 
-  const heroBadge = d?.heroBadge || "About NexGen Digital";
+  const heroBadge = d?.heroBadge || "About Clickbriz Digital";
   const heroHeading = d?.heroHeading || "Digital Marketing Agency Built by Results, Not Promises";
-  const heroSubheading = d?.heroSubheading || "Founded by Lalit Sen in Faridabad, NexGen Digital helps Indian businesses grow online through proven strategies, transparent work, and measurable results.";
+  const heroSubheading = d?.heroSubheading || "Founded by Lalit Sen in Faridabad, Clickbriz Digital helps Indian businesses grow online through proven strategies, transparent work, and measurable results.";
   const storyHeading = d?.storyHeading || "Our Story";
   const storyParagraphs: string[] = d?.storyParagraphs || [];
   const whyUsHeading = d?.whyUsHeading || "Why Businesses Choose Us";
@@ -43,7 +43,7 @@ export default async function AboutPage() {
   ];
 
   const milestones = [
-    { year: "2020", title: "Founded", desc: "NexGen Digital started by Lalit Sen in Faridabad with a mission to deliver honest digital marketing." },
+    { year: "2020", title: "Founded", desc: "Clickbriz Digital started by Lalit Sen in Faridabad with a mission to deliver honest digital marketing." },
     { year: "2022", title: "50+ Clients", desc: "Crossed 50 happy clients milestone with consistent ranking results across multiple industries." },
     { year: "2024", title: "100+ Projects", desc: "Completed 100+ successful SEO campaigns and expanded services to include Ads & Development." },
     { year: "2026", title: "Growing Strong", desc: "120+ clients ranked, 4.9★ rating, and continuing to scale with AI-powered marketing solutions." },
@@ -597,7 +597,7 @@ export default async function AboutPage() {
                 ) : (
                   <>
                     <p className="story-paragraph">
-                      NexGen Digital was born out of a simple belief: small and medium businesses in India deserve honest, results-driven digital marketing — not flashy promises that never deliver.
+                      Clickbriz Digital was born out of a simple belief: small and medium businesses in India deserve honest, results-driven digital marketing — not flashy promises that never deliver.
                     </p>
                     <p className="story-paragraph">
                       Founded in 2020 in Faridabad by <strong style={{ color: '#FB923C' }}>Lalit Sen</strong>, we started as a one-man SEO shop and grew into a full-service digital marketing agency. Today, we've helped 120+ businesses rank higher on Google, generate more leads, and scale their revenue.
@@ -681,9 +681,9 @@ export default async function AboutPage() {
                   <Star size={12} /> Meet The Founder
                 </span>
                 <h2 className="founder-name">Lalit Sen</h2>
-                <p className="founder-role">Founder & CEO, NexGen Digital</p>
+                <p className="founder-role">Founder & CEO, Clickbriz Digital</p>
                 <p className="founder-bio">
-                  With <strong style={{ color: '#fff' }}>6+ years</strong> of hands-on experience in SEO, Google Ads, and digital marketing, Lalit founded NexGen Digital with a mission to deliver honest, results-driven marketing services to Indian businesses. He has personally worked on 120+ client projects, helping businesses rank on Google and scale their online presence. His approach is simple: <em style={{ color: '#FB923C' }}>"Do the work that actually moves the needle — no shortcuts, no fluff."</em>
+                  With <strong style={{ color: '#fff' }}>6+ years</strong> of hands-on experience in SEO, Google Ads, and digital marketing, Lalit founded Clickbriz Digital with a mission to deliver honest, results-driven marketing services to Indian businesses. He has personally worked on 120+ client projects, helping businesses rank on Google and scale their online presence. His approach is simple: <em style={{ color: '#FB923C' }}>"Do the work that actually moves the needle — no shortcuts, no fluff."</em>
                 </p>
                 <div className="founder-social">
                   <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="founder-social-icon" aria-label="LinkedIn">
@@ -692,7 +692,7 @@ export default async function AboutPage() {
                   <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="founder-social-icon" aria-label="Twitter">
                     <Twitter size={18} />
                   </a>
-                  <a href="mailto:lalitsen.seo@gmail.com" className="founder-social-icon" aria-label="Email">
+                  <a href="mailto:clickbriz@gmail.com" className="founder-social-icon" aria-label="Email">
                     <Mail size={18} />
                   </a>
                 </div>
