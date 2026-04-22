@@ -27,8 +27,6 @@ export default async function Hero() {
         @keyframes glow-pulse { 0%,100% { opacity: 0.3; } 50% { opacity: 0.6; } }
         @keyframes shimmer { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes float-stat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
-        @keyframes badge-glow { 0%,100% { box-shadow: 0 0 20px rgba(249, 115, 22, 0.3); } 50% { box-shadow: 0 0 30px rgba(249, 115, 22, 0.5); } }
 
         .hero-premium {
           position: relative;
@@ -163,10 +161,38 @@ export default async function Hero() {
           color: #FB923C;
         }
 
+        .stats-wrapper {
+          position: relative;
+          width: 100%;
+          min-height: 500px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .founder-bg-image {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 110%;
+          height: auto;
+          max-height: 600px;
+          object-fit: contain;
+          opacity: 0.25;
+          z-index: 1;
+          filter: grayscale(20%) contrast(1.1);
+          -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 75%);
+          mask-image: radial-gradient(ellipse at center, black 40%, transparent 75%);
+          pointer-events: none;
+        }
+
         .stats-grid {
+          position: relative;
+          z-index: 2;
           display: grid;
           grid-template-columns: 1fr 1fr;
           gap: 18px;
+          width: 100%;
         }
         .stat-card {
           background: linear-gradient(135deg, rgba(249, 115, 22, 0.08) 0%, rgba(234, 88, 12, 0.04) 100%);
@@ -263,13 +289,16 @@ export default async function Hero() {
           </div>
 
           <div className="hero-right">
-            <div className="stats-grid">
-              {stats.map((s, i) => (
-                <div key={i} className="stat-card">
-                  <div className="stat-number">{s.number}</div>
-                  <div className="stat-label">{s.label}</div>
-                </div>
-              ))}
+            <div className="stats-wrapper">
+              <img src="/founder.png" alt="Founder - Clickbriz" className="founder-bg-image" />
+              <div className="stats-grid">
+                {stats.map((s, i) => (
+                  <div key={i} className="stat-card">
+                    <div className="stat-number">{s.number}</div>
+                    <div className="stat-label">{s.label}</div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
