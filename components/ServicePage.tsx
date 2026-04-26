@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import { getSection } from "@/lib/get-section";
 import { WhatsAppButton } from "./PremiumFeatures";
+import Link from "next/link";
 
 type Props = { 
   slug: string; 
@@ -463,6 +464,19 @@ export default async function ServicePage({ slug, color, bg, cmsContent }: Props
             <div className="hero-orb-1"></div>
             <div className="hero-orb-2"></div>
             <div className="hero-content">
+              {/* BREADCRUMB */}
+              <div style={{
+                display: "flex", alignItems: "center", justifyContent: "center",
+                gap: "8px", marginBottom: "1.25rem", flexWrap: "wrap",
+              }}>
+                <Link href="/" style={{ fontSize: "13px", color: "#F97316", textDecoration: "none", fontWeight: 500 }}>
+                  Home
+                </Link>
+                <span style={{ color: "rgba(255,255,255,0.3)", fontSize: "13px" }}>/</span>
+                <span style={{ fontSize: "13px", color: "#E5E5E5", fontWeight: 600 }}>
+                  {slug.split("-").map((w: string) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ")}
+                </span>
+              </div>
               <div className="hero-badge">
                 <span className="hero-badge-dot"></span>
                 <span className="hero-badge-text">Faridabad's #1 Digital Agency</span>

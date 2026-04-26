@@ -9,6 +9,12 @@ import Footer from "@/components/Footer";
 import { WhatsAppButton } from "@/components/PremiumFeatures";
 import type { Metadata } from "next";
 import { getPageData, buildMetadata } from "@/lib/get-page-data";
+import StatsBar from "@/components/StatsBar";
+import AboutSection from "@/components/AboutSection";
+import CTAForm from "@/components/CTAForm";
+import StatsNumbers from "@/components/StatsNumbers";
+import TrustedBrands from "@/components/TrustedBrands";
+import Industries from "@/components/Industries";
 
 export const revalidate = 0;
 
@@ -26,7 +32,13 @@ export default function Home() {
       <WhatsAppButton />
       <Navbar />
       <Hero />
+      <StatsBar />
+      <AboutSection />
+      <CTAForm />
+      <StatsNumbers />
+      <TrustedBrands />
       <Services />
+      <Industries />
       <Work />
       <Pricing />
       <About />

@@ -1,304 +1,281 @@
-import { ArrowRight, CheckCircle, Sparkles, Phone, Award, Star, Shield, Zap } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { getSection } from "@/lib/get-section";
 
 export default async function Hero() {
   const d = await getSection("home-hero");
 
-  const badge = d?.badge || "Faridabad's #1 Digital Agency";
-  const h1 = d?.heading_part1 || "Grow Your Business With";
-  const hHl = d?.heading_highlight || "Digital Marketing";
-  const h2 = d?.heading_part2 || "That Works";
-  const subheading = d?.subheading || "SEO, Google Ads, Social Media, Website Development & Python Automation — complete digital solutions for Indian businesses.";
-  const features: string[] = d?.features || ["Google Certified Agency", "100% Transparent Reporting", "Dedicated Account Manager"];
-  const primaryText = d?.primary_cta_text || "Get Free Consultation";
-  const primaryLink = d?.primary_cta_link || "/contact";
+  const tagline       = d?.tagline          || "We Help Your Business Get Found with AI-Driven Marketing";
+  const h1            = d?.heading          || "Drive Traffic, Leads & Revenue with AI-Powered Digital Marketing Company";
+  const subheading    = d?.subheading       || "To succeed in business, you first need to succeed in search results. Our digital marketing services connect you with your customers' journey from end to end — from discovery to retention.";
+  const primaryText   = d?.primary_cta_text   || "Get Free Consultation";
+  const primaryLink   = d?.primary_cta_link   || "/contact";
   const secondaryText = d?.secondary_cta_text || "Our Services";
   const secondaryLink = d?.secondary_cta_link || "/seo-services";
-  const stats: { number: string; label: string; color: string }[] = d?.stats || [
-    { number: "120+", label: "Happy Clients", color: "orange" },
-    { number: "3×", label: "Average ROI", color: "orange" },
-    { number: "₹2Cr+", label: "Ad Spend Managed", color: "orange" },
-    { number: "98%", label: "Client Retention", color: "orange" },
-  ];
+  const heroImage     = d?.hero_image         || "/hero-person.png";
 
   return (
     <>
       <style>{`
-        @keyframes glow-pulse { 0%,100% { opacity: 0.3; } 50% { opacity: 0.6; } }
-        @keyframes shimmer { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes floatImg  { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+        @keyframes floatS1   { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)}  }
+        @keyframes floatS2   { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)}  }
+        @keyframes popIn     { from{opacity:0;transform:scale(0.75) translateY(16px)} to{opacity:1;transform:scale(1) translateY(0)} }
+        @keyframes fadeInL   { from{opacity:0;transform:translateX(-28px)} to{opacity:1;transform:translateX(0)} }
+        @keyframes fadeInR   { from{opacity:0;transform:translateX(28px)}  to{opacity:1;transform:translateX(0)} }
+        @keyframes dotBlink  { 0%,100%{opacity:1} 50%{opacity:0.4} }
+        @keyframes rotateDash{ from{stroke-dashoffset:0} to{stroke-dashoffset:-200} }
 
-        .hero-premium {
+        /* ── HERO — exact viewport fit ── */
+        .tm {
           position: relative;
-          padding: 9rem 2rem 5rem;
-          background: radial-gradient(ellipse at top, #1c1410 0%, #0a0a0a 50%, #000000 100%);
+          width: 100%;
+          height: calc(100vh - 138px);
+          min-height: 580px;
           overflow: hidden;
-        }
-        .hero-orb-1 {
-          position: absolute; top: 10%; right: 10%; width: 500px; height: 500px;
-          background: radial-gradient(circle, rgba(249, 115, 22, 0.35) 0%, transparent 70%);
-          border-radius: 50%; filter: blur(80px);
-          animation: glow-pulse 4s ease-in-out infinite;
-          pointer-events: none;
-        }
-        .hero-orb-2 {
-          position: absolute; bottom: 10%; left: 5%; width: 600px; height: 600px;
-          background: radial-gradient(circle, rgba(234, 88, 12, 0.25) 0%, transparent 70%);
-          border-radius: 50%; filter: blur(100px);
-          animation: glow-pulse 6s ease-in-out infinite;
-          pointer-events: none;
+
+          /* Rich dark-orange gradient like TechMagnate but in ClickBriz brand */
+          background:
+            radial-gradient(ellipse at 70% 50%, rgba(180,60,0,0.35) 0%, transparent 55%),
+            radial-gradient(ellipse at 20% 80%, rgba(249,115,22,0.15) 0%, transparent 50%),
+            linear-gradient(135deg, #0f0500 0%, #1a0800 30%, #120b04 60%, #080808 100%);
         }
 
-        .hero-grid {
+        /* Dot matrix — right half only */
+        .tm-dotmatrix {
+          position: absolute; inset: 0; pointer-events: none;
+          background-image: radial-gradient(circle, rgba(249,115,22,0.18) 1.2px, transparent 1.2px);
+          background-size: 24px 24px;
+          mask-image: linear-gradient(to right, transparent 45%, rgba(0,0,0,0.7) 100%);
+        }
+
+        /* ── MAIN GRID ── */
+        .tm-grid {
           position: relative; z-index: 2;
-          max-width: 1200px; margin: 0 auto;
+          max-width: 1240px; margin: 0 auto;
+          height: 100%;
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-          gap: 4rem; align-items: center;
-        }
-        .hero-left { animation: fadeInUp 0.8s ease-out; }
-        .hero-right { animation: fadeInUp 0.8s ease-out 0.2s both; }
-
-        .hero-badge {
-          display: inline-flex; align-items: center; gap: 8px;
-          background: rgba(249, 115, 22, 0.15);
-          border: 1px solid rgba(249, 115, 22, 0.3);
-          padding: 8px 18px; border-radius: 999px;
-          margin-bottom: 1.75rem;
-          backdrop-filter: blur(10px);
-        }
-        .hero-badge-dot {
-          width: 8px; height: 8px; background: #F97316;
-          border-radius: 50%; box-shadow: 0 0 12px #F97316;
-        }
-        .hero-badge-text {
-          font-size: 12px; font-weight: 600; color: #FDBA74;
-          letter-spacing: 1.5px; text-transform: uppercase;
-        }
-
-        .hero-title {
-          font-family: 'Plus Jakarta Sans', sans-serif;
-          font-size: clamp(2.2rem, 4.5vw, 3.75rem);
-          font-weight: 800; color: #fff; line-height: 1.1;
-          letter-spacing: -0.03em; margin: 0 0 1.5rem;
-        }
-        .hero-gradient-text {
-          background: linear-gradient(135deg, #F97316 0%, #FB923C 50%, #FED7AA 100%);
-          background-size: 200% auto;
-          -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-          animation: shimmer 4s linear infinite;
-        }
-        .hero-desc {
-          font-size: 1.15rem; color: #A3A3A3;
-          line-height: 1.7; margin-bottom: 2rem;
-        }
-
-        .hero-features {
-          display: flex; flex-direction: column; gap: 12px;
-          margin-bottom: 2rem;
-        }
-        .hero-feature-item {
-          display: flex; align-items: center; gap: 12px;
-        }
-        .hero-feature-icon {
-          width: 22px; height: 22px;
-          background: linear-gradient(135deg, #F97316, #EA580C);
-          border-radius: 50%;
-          display: flex; align-items: center; justify-content: center;
-          flex-shrink: 0;
-          box-shadow: 0 4px 12px rgba(249, 115, 22, 0.4);
-        }
-        .hero-feature-text {
-          font-size: 14px; color: #E5E5E5; font-weight: 500;
-        }
-
-        .hero-buttons {
-          display: flex; flex-wrap: wrap; gap: 12px;
-          margin-bottom: 2.5rem;
-        }
-        .btn-primary {
-          background: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
-          color: #fff; padding: 16px 30px; border-radius: 12px;
-          font-weight: 700; font-size: 15px;
-          font-family: 'Plus Jakarta Sans', sans-serif;
-          display: inline-flex; align-items: center; gap: 10px;
-          text-decoration: none;
-          box-shadow: 0 10px 40px rgba(249, 115, 22, 0.4), 0 0 0 1px rgba(255,255,255,0.1) inset;
-          transition: all 0.3s ease;
-        }
-        .btn-primary:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 15px 50px rgba(249, 115, 22, 0.6), 0 0 0 1px rgba(255,255,255,0.2) inset;
-        }
-        .btn-secondary {
-          background: rgba(255, 255, 255, 0.05);
-          backdrop-filter: blur(10px);
-          color: #fff; padding: 16px 26px; border-radius: 12px;
-          font-weight: 600; font-size: 15px;
-          font-family: 'Plus Jakarta Sans', sans-serif;
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          display: inline-flex; align-items: center; gap: 10px;
-          text-decoration: none;
-          transition: all 0.3s ease;
-        }
-        .btn-secondary:hover {
-          background: rgba(249, 115, 22, 0.08);
-          border-color: rgba(249, 115, 22, 0.3);
-        }
-
-        .trust-row {
-          display: flex; gap: 14px; flex-wrap: wrap;
-        }
-        .trust-pill {
-          display: inline-flex; align-items: center; gap: 6px;
-          background: rgba(255, 255, 255, 0.04);
-          border: 1px solid rgba(249, 115, 22, 0.2);
-          padding: 8px 14px; border-radius: 999px;
-          font-size: 12px; font-weight: 600; color: #C4C4C4;
-          backdrop-filter: blur(10px);
-        }
-        .trust-pill-icon {
-          color: #FB923C;
-        }
-
-        .stats-wrapper {
-          position: relative;
-          width: 100%;
-          min-height: 500px;
-          display: flex;
+          grid-template-columns: 55% 45%;
           align-items: center;
+          padding: 0 48px;
+        }
+
+        /* ── LEFT ── */
+        .tm-left { animation: fadeInL 0.75s ease-out; padding-right: 32px; }
+
+        .tm-tagline {
+          font-size: 14px; font-weight: 600; color: #F97316;
+          margin-bottom: 1rem;
+          display: flex; align-items: center; gap: 8px;
+        }
+        .tm-tagline-dot {
+          width: 7px; height: 7px; border-radius: 50%;
+          background: #F97316; box-shadow: 0 0 8px #F97316;
+          flex-shrink: 0;
+          animation: dotBlink 2s ease-in-out infinite;
+        }
+
+        .tm-h1 {
+          font-size: clamp(1.9rem, 3vw, 2.9rem);
+          font-weight: 900; color: #fff;
+          line-height: 1.12; letter-spacing: -0.025em;
+          margin: 0 0 1.25rem;
+        }
+
+        .tm-sub {
+          font-size: 0.95rem; color: #9A9A9A;
+          line-height: 1.78; margin-bottom: 2rem;
+          max-width: 520px;
+        }
+
+        .tm-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+        .tm-btn-p {
+          display: inline-flex; align-items: center; gap: 9px;
+          background: linear-gradient(135deg, #F97316, #EA580C);
+          color: #fff; padding: 13px 26px; border-radius: 999px;
+          font-size: 14px; font-weight: 700; text-decoration: none;
+          box-shadow: 0 8px 28px rgba(249,115,22,0.45);
+          transition: all 0.3s; white-space: nowrap;
+        }
+        .tm-btn-p:hover { transform: translateY(-2px); box-shadow: 0 14px 40px rgba(249,115,22,0.6); }
+        .tm-btn-s {
+          display: inline-flex; align-items: center; gap: 9px;
+          background: transparent; color: #fff;
+          padding: 13px 26px; border-radius: 999px;
+          font-size: 14px; font-weight: 600; text-decoration: none;
+          border: 1.5px solid rgba(255,255,255,0.22);
+          transition: all 0.3s; white-space: nowrap;
+        }
+        .tm-btn-s:hover { border-color: rgba(249,115,22,0.5); background: rgba(249,115,22,0.07); color: #FB923C; }
+
+        /* ── RIGHT ── */
+        .tm-right {
+          position: relative;
+          height: 100%;
+          display: flex;
+          align-items: flex-end;
           justify-content: center;
-        }
-        .founder-bg-image {
-          position: absolute;
-          top: 25%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          width: 110%;
-          height: auto;
-          max-height: 600px;
-          object-fit: contain;
-          opacity: 0.5;
-          z-index: 1;
-          filter: grayscale(10%) contrast(1.15);
-          -webkit-mask-image: radial-gradient(ellipse at center, black 55%, transparent 85%);
-          mask-image: radial-gradient(ellipse at center, black 40%, transparent 75%);
-          pointer-events: none;
-        }
-
-        .stats-grid {
-          position: relative;
-          z-index: 2;
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 18px;
-          width: 100%;
-        }
-        .stat-card {
-          background: linear-gradient(135deg, rgba(249, 115, 22, 0.08) 0%, rgba(234, 88, 12, 0.04) 100%);
-          border: 1px solid rgba(249, 115, 22, 0.2);
-          border-radius: 20px;
-          padding: 2rem 1.5rem;
-          text-align: center;
-          position: relative;
+          animation: fadeInR 0.75s ease-out 0.15s both;
           overflow: hidden;
-          backdrop-filter: blur(10px);
-          transition: all 0.4s ease;
-        }
-        .stat-card::before {
-          content: ''; position: absolute;
-          top: 0; left: 0; right: 0; height: 2px;
-          background: linear-gradient(90deg, transparent, rgba(249, 115, 22, 0.6), transparent);
-        }
-        .stat-card:hover {
-          transform: translateY(-6px);
-          border-color: rgba(249, 115, 22, 0.4);
-          background: linear-gradient(135deg, rgba(249, 115, 22, 0.12) 0%, rgba(234, 88, 12, 0.08) 100%);
-          box-shadow: 0 20px 60px rgba(249, 115, 22, 0.25);
-        }
-        .stat-number {
-          font-family: 'Plus Jakarta Sans', sans-serif;
-          font-size: 2.5rem; font-weight: 800;
-          background: linear-gradient(135deg, #F97316 0%, #FB923C 100%);
-          -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-          letter-spacing: -0.02em;
-          margin-bottom: 6px;
-          line-height: 1;
-        }
-        .stat-label {
-          font-size: 12px; color: #A3A3A3;
-          font-weight: 500; letter-spacing: 0.5px;
         }
 
-        @media (max-width: 768px) {
-          .hero-premium { padding: 7rem 1.25rem 4rem; }
-          .stat-card { padding: 1.5rem 1rem; }
-          .stat-number { font-size: 2rem; }
+        /* Dashed circle behind person */
+        .tm-circle-svg {
+          position: absolute;
+          bottom: 0; left: 50%;
+          transform: translateX(-50%);
+          width: 420px; height: 420px;
+          opacity: 0.35;
+        }
+        .tm-circle-dash {
+          stroke-dasharray: 8 6;
+          animation: rotateDash 20s linear infinite;
+          transform-origin: center;
+          transform-box: fill-box;
+        }
+
+        /* Glow blob */
+        .tm-glow {
+          position: absolute;
+          bottom: -40px; left: 50%;
+          transform: translateX(-50%);
+          width: 360px; height: 360px; border-radius: 50%;
+          background: radial-gradient(circle, rgba(249,115,22,0.28) 0%, transparent 65%);
+          filter: blur(50px);
+        }
+
+        /* Person image */
+        .tm-person-img {
+          position: relative; z-index: 3;
+          height: 88%;
+          max-height: 500px;
+          width: auto;
+          object-fit: contain;
+          object-position: bottom center;
+          filter: drop-shadow(0 20px 50px rgba(249,115,22,0.25));
+          animation: floatImg 7s ease-in-out infinite;
+          display: block;
+        }
+
+        /* Placeholder when no image */
+        .tm-person-placeholder {
+          position: relative; z-index: 3;
+          height: 75%;
+          max-height: 420px;
+          width: 260px;
+          background: rgba(249,115,22,0.06);
+          border: 2px dashed rgba(249,115,22,0.2);
+          border-radius: 20px;
+          display: flex; flex-direction: column;
+          align-items: center; justify-content: center;
+          gap: 12px; color: rgba(249,115,22,0.4);
+          font-size: 13px; font-weight: 600;
+          text-align: center; padding: 20px;
+        }
+
+        /* ── STAT BUBBLES — positioned relative to right col ── */
+        .tm-stat {
+          position: absolute;
+          background: rgba(255,255,255,0.97);
+          border-radius: 14px;
+          padding: 14px 18px;
+          box-shadow: 0 12px 40px rgba(0,0,0,0.3), 0 2px 8px rgba(0,0,0,0.15);
+          animation: popIn 0.65s ease-out both;
+          z-index: 10;
+          min-width: 130px;
+        }
+        .tm-stat-val {
+          font-size: 22px; font-weight: 900; line-height: 1;
+          margin-bottom: 4px;
+          background: linear-gradient(135deg, #F97316, #EA580C);
+          -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+        .tm-stat-lbl {
+          font-size: 11px; font-weight: 600; color: #555; line-height: 1.4;
+        }
+
+        .tm-stat-1 {
+          top: 18%; right: 8px;
+          animation-delay: 0.6s;
+          animation: popIn 0.65s ease-out 0.6s both, floatS1 5s ease-in-out 1.2s infinite;
+        }
+        .tm-stat-2 {
+          top: 45%; right: 4px;
+          animation-delay: 0.85s;
+          animation: popIn 0.65s ease-out 0.85s both, floatS2 6s ease-in-out 1.5s infinite;
+        }
+        .tm-stat-3 {
+          bottom: 12%; left: 12px;
+          animation-delay: 1.05s;
+          animation: popIn 0.65s ease-out 1.05s both, floatS1 7s ease-in-out 1.8s infinite;
+        }
+
+        /* ── MOBILE ── */
+        @media (max-width: 860px) {
+          .tm { height: auto; padding-bottom: 48px; }
+          .tm-grid {
+            grid-template-columns: 1fr;
+            padding: 48px 24px 0;
+            gap: 0; align-items: start;
+          }
+          .tm-left { padding-right: 0; }
+          .tm-btns { flex-direction: column; align-items: flex-start; }
+          .tm-right { height: 320px; margin-top: 32px; }
+          .tm-person-img { height: 300px; }
+          .tm-stat-1 { right: 0; }
+          .tm-stat-2 { right: 0; }
+          .tm-stat-3 { left: 0; bottom: 0; }
         }
       `}</style>
 
-      <section className="hero-premium">
-        <div className="hero-orb-1"></div>
-        <div className="hero-orb-2"></div>
+      <section className="tm">
+        <div className="tm-dotmatrix" />
 
-        <div className="hero-grid">
-          
-          <div className="hero-left">
-            <div className="hero-badge">
-              <span className="hero-badge-dot"></span>
-              <span className="hero-badge-text">{badge}</span>
+        <div className="tm-grid">
+
+          {/* LEFT */}
+          <div className="tm-left">
+            <div className="tm-tagline">
+              <span className="tm-tagline-dot" />
+              {tagline}
             </div>
-
-            <h1 className="hero-title">
-              {h1} <span className="hero-gradient-text">{hHl}</span> {h2}
-            </h1>
-
-            <p className="hero-desc">{subheading}</p>
-
-            <div className="hero-features">
-              {features.map(f => (
-                <div key={f} className="hero-feature-item">
-                  <div className="hero-feature-icon">
-                    <CheckCircle size={12} color="#fff" strokeWidth={3} />
-                  </div>
-                  <span className="hero-feature-text">{f}</span>
-                </div>
-              ))}
-            </div>
-
-            <div className="hero-buttons">
-              <a href={primaryLink} className="btn-primary">
-                {primaryText} <ArrowRight size={16} />
-              </a>
-              <a href={secondaryLink} className="btn-secondary">
-                <Sparkles size={14} /> {secondaryText}
-              </a>
-            </div>
-
-            <div className="trust-row">
-              <span className="trust-pill">
-                <Award size={12} className="trust-pill-icon" /> Google Partner
-              </span>
-              <span className="trust-pill">
-                <Star size={12} className="trust-pill-icon" /> 5-Star Rated
-              </span>
-              <span className="trust-pill">
-                <Shield size={12} className="trust-pill-icon" /> White-Hat
-              </span>
+            <h1 className="tm-h1">{h1}</h1>
+            <p className="tm-sub">{subheading}</p>
+            <div className="tm-btns">
+              <a href={primaryLink}   className="tm-btn-p">{primaryText}   <ArrowRight size={15}/></a>
+              <a href={secondaryLink} className="tm-btn-s">{secondaryText} <ArrowRight size={15}/></a>
             </div>
           </div>
 
-          <div className="hero-right">
-            <div className="stats-wrapper">
-              <img src="/founder.png" alt="Founder - Clickbriz" className="founder-bg-image" />
-              <div className="stats-grid">
-                {stats.map((s, i) => (
-                  <div key={i} className="stat-card">
-                    <div className="stat-number">{s.number}</div>
-                    <div className="stat-label">{s.label}</div>
-                  </div>
-                ))}
-              </div>
+          {/* RIGHT */}
+          <div className="tm-right">
+            <div className="tm-glow" />
+
+            {/* Dashed orbit circle */}
+            <svg className="tm-circle-svg" viewBox="0 0 420 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle className="tm-circle-dash" cx="210" cy="210" r="200" stroke="#F97316" strokeWidth="1.5"/>
+              <circle cx="210" cy="210" r="155" stroke="rgba(249,115,22,0.2)" strokeWidth="1"/>
+            </svg>
+
+            {/* Person image — add /public/hero-person.png (background removed) */}
+            <img
+              src={heroImage}
+              alt="Digital Marketing Expert"
+              className="tm-person-img"
+            />
+
+            {/* Stat bubbles — positioned inside right col */}
+            <div className="tm-stat tm-stat-1">
+              <div className="tm-stat-val">+312%</div>
+              <div className="tm-stat-lbl">Avg. Growth<br/>in Traffic</div>
+            </div>
+            <div className="tm-stat tm-stat-2">
+              <div className="tm-stat-val">9× ROAS</div>
+              <div className="tm-stat-lbl">Avg. Return<br/>on Ad Spend</div>
+            </div>
+            <div className="tm-stat tm-stat-3">
+              <div className="tm-stat-val">250+</div>
+              <div className="tm-stat-lbl">Clients Served<br/>Across India</div>
             </div>
           </div>
 

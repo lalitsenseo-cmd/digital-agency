@@ -1,0 +1,233 @@
+"use client";
+
+const FUNNEL_LAYERS = [
+  {
+    label: "Focused Marketing",
+    items: ["Data & AI insights", "Real-time optimization", "Performance tracking", "ROI-driven decisions"],
+    bg: "linear-gradient(135deg, #F97316, #EA580C)",
+    width: "100%",
+  },
+  {
+    label: "Growth Strategies",
+    items: ["Audience-based targeting", "Platform-specific execution", "Consistent brand messaging", "Scalable growth"],
+    bg: "linear-gradient(135deg, #C2410C, #9A3412)",
+    width: "80%",
+  },
+  {
+    label: "Higher ROI",
+    items: ["Traffic acquisition", "Lead nurturing", "Conversion optimization", "Retention & growth"],
+    bg: "linear-gradient(135deg, #7C3AED, #6D28D9)",
+    width: "60%",
+  },
+];
+
+const FEATURES = [
+  "Performance-Focused Digital Marketing",
+  "Full-Funnel Solutions for Higher ROI",
+  "Personalized, Multi-Platform Growth Strategies",
+];
+
+export default function AboutSection() {
+  return (
+    <>
+      <style>{`
+        .about-section {
+          position: relative;
+          padding: 6rem 2rem;
+          background: linear-gradient(180deg, #0A0A0A 0%, #111111 50%, #0A0A0A 100%);
+          overflow: hidden;
+        }
+        .about-section::before {
+          content: '';
+          position: absolute;
+          top: 0; left: 50%;
+          transform: translateX(-50%);
+          width: 400px; height: 2px;
+          background: linear-gradient(90deg, transparent, #F97316, transparent);
+        }
+        .about-orb {
+          position: absolute;
+          top: 20%; left: -10%;
+          width: 500px; height: 500px;
+          background: radial-gradient(circle, rgba(249,115,22,0.1) 0%, transparent 70%);
+          border-radius: 50%; filter: blur(80px);
+          pointer-events: none;
+        }
+        .about-container {
+          max-width: 1200px;
+          margin: 0 auto;
+          position: relative;
+          z-index: 2;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 64px;
+          align-items: center;
+        }
+        .about-badge {
+          display: inline-flex; align-items: center; gap: 6px;
+          background: rgba(249,115,22,0.1);
+          border: 1px solid rgba(249,115,22,0.25);
+          padding: 6px 16px; border-radius: 999px;
+          font-size: 11px; font-weight: 700; color: #FB923C;
+          letter-spacing: 1.5px; text-transform: uppercase;
+          margin-bottom: 1.25rem;
+        }
+        .about-heading {
+          font-size: clamp(2rem, 3.5vw, 2.8rem);
+          font-weight: 900; color: #fff;
+          line-height: 1.1; letter-spacing: -0.03em;
+          margin: 0 0 1.25rem;
+        }
+        .about-heading span {
+          background: linear-gradient(135deg, #F97316, #FB923C);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+        .about-desc {
+          color: #A3A3A3; font-size: 15px;
+          line-height: 1.75; margin-bottom: 1.75rem;
+        }
+        .about-features-title {
+          color: #E5E5E5; font-size: 15px;
+          font-weight: 700; margin-bottom: 1rem;
+        }
+        .about-feature-item {
+          display: flex; align-items: center; gap: 12px;
+          margin-bottom: 12px;
+        }
+        .about-feature-icon {
+          width: 22px; height: 22px; border-radius: 50%; flex-shrink: 0;
+          background: linear-gradient(135deg, #F97316, #EA580C);
+          display: flex; align-items: center; justify-content: center;
+          box-shadow: 0 4px 12px rgba(249,115,22,0.4);
+        }
+        .about-feature-text {
+          color: #E5E5E5; font-size: 14px; font-weight: 500;
+        }
+        .about-conclusion {
+          color: #A3A3A3; font-size: 14px;
+          line-height: 1.75; margin-top: 1.5rem;
+          padding: 16px 20px;
+          background: rgba(249,115,22,0.06);
+          border: 1px solid rgba(249,115,22,0.15);
+          border-radius: 12px;
+          border-left: 3px solid #F97316;
+        }
+        .funnel-wrapper {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 4px;
+        }
+        .funnel-layer {
+          border-radius: 8px;
+          padding: 16px 20px;
+          position: relative;
+          transition: all 0.3s ease;
+          cursor: default;
+        }
+        .funnel-layer:hover {
+          transform: scaleX(1.02);
+          box-shadow: 0 8px 24px rgba(249,115,22,0.3);
+        }
+        .funnel-layer-label {
+          font-size: 11px; font-weight: 800;
+          color: rgba(255,255,255,0.7);
+          text-transform: uppercase; letter-spacing: 1px;
+          margin-bottom: 8px;
+        }
+        .funnel-items {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 4px 16px;
+        }
+        .funnel-item {
+          font-size: 11px; color: rgba(255,255,255,0.9);
+          font-weight: 500;
+        }
+        .funnel-arrow {
+          width: 0; height: 0;
+          border-left: 20px solid transparent;
+          border-right: 20px solid transparent;
+          border-top: 12px solid rgba(249,115,22,0.3);
+        }
+        @media (max-width: 768px) {
+          .about-container { grid-template-columns: 1fr; gap: 40px; }
+        }
+      `}</style>
+
+      <section className="about-section">
+        <div className="about-orb" />
+        <div className="about-container">
+
+          {/* Left — Text */}
+          <div>
+            <span className="about-badge">✦ About Us</span>
+            <h2 className="about-heading">
+              Top Digital Marketing Agency <span>in Faridabad</span> — Driving Real Results
+            </h2>
+            <p className="about-desc">
+              Clickbriz is a results-driven digital marketing agency delivering measurable outcomes through data-driven strategies. With full-funnel digital marketing audits, we help you find growth gaps and key opportunities to maximise conversions across all touchpoints.
+            </p>
+
+            <p className="about-features-title">Our Strategic Approach Includes:</p>
+
+            {FEATURES.map((f) => (
+              <div key={f} className="about-feature-item">
+                <div className="about-feature-icon">
+                  <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
+                    <path d="M2 6L5 9L10 3" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </div>
+                <span className="about-feature-text">{f}</span>
+              </div>
+            ))}
+
+            <p className="about-conclusion">
+              Together, these approaches create a powerful framework for long-term success. Our digital marketing services use deep insights and proven methodologies to guide your brand toward the right audience, better visibility, and stronger business performance.
+            </p>
+          </div>
+
+          {/* Right — Funnel */}
+          <div className="funnel-wrapper">
+            {FUNNEL_LAYERS.map((layer, i) => (
+              <>
+                <div
+                  key={layer.label}
+                  className="funnel-layer"
+                  style={{
+                    background: layer.bg,
+                    width: layer.width,
+                  }}
+                >
+                  <div className="funnel-layer-label">{layer.label}</div>
+                  <div className="funnel-items">
+                    {layer.items.map((item) => (
+                      <div key={item} className="funnel-item">• {item}</div>
+                    ))}
+                  </div>
+                </div>
+                {i < FUNNEL_LAYERS.length - 1 && (
+                  <div className="funnel-arrow" key={`arrow-${i}`} />
+                )}
+              </>
+            ))}
+
+            {/* Bottom label */}
+            <div style={{
+              marginTop: 16, textAlign: "center",
+              background: "rgba(249,115,22,0.1)",
+              border: "1px solid rgba(249,115,22,0.3)",
+              borderRadius: 12, padding: "12px 24px",
+            }}>
+              <div style={{ color: "#F97316", fontWeight: 800, fontSize: 18 }}>Higher ROI</div>
+              <div style={{ color: "#A3A3A3", fontSize: 12, marginTop: 4 }}>The outcome of every strategy</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </>
+  );
+}
