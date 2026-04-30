@@ -39,7 +39,7 @@ function ScoreBadge({ score }: { score: number }) {
 }
 
 const SCHEMAS: Record<string, string> = {
-  Organization: `{\n  "@context": "https://schema.org",\n  "@type": "Organization",\n  "name": "Clickbriz Digital",\n  "url": "https://Clickbriz-digital-psi.vercel.app",\n  "founder": "Lalit Sen",\n  "telephone": "+91-85270-04901"\n}`,
+  Organization: `{\n  "@context": "https://schema.org",\n  "@type": "Organization",\n  "name": "Clickbriz Digital",\n  "url": "https://clickbriz.com",\n  "founder": "Lalit Sen",\n  "telephone": "+91-85270-04901"\n}`,
   LocalBusiness: `{\n  "@context": "https://schema.org",\n  "@type": "LocalBusiness",\n  "name": "Clickbriz Digital",\n  "address": {\n    "@type": "PostalAddress",\n    "addressLocality": "Faridabad",\n    "addressRegion": "Haryana",\n    "addressCountry": "IN"\n  },\n  "telephone": "+91-85270-04901"\n}`,
   Service: `{\n  "@context": "https://schema.org",\n  "@type": "Service",\n  "name": "Digital Marketing Services",\n  "provider": { "@type": "Organization", "name": "Clickbriz Digital" }\n}`,
 }
@@ -54,7 +54,7 @@ export default function SEODashboard() {
   const [section, setSection] = useState<Section>('dashboard')
   const [pages, setPages] = useState<PageSEO[]>(defaultPages)
   const [settings, setSettings] = useState<SiteSettings>(defaultSettings)
-  const [robotsTxt, setRobotsTxt] = useState(`User-agent: *\nAllow: /\n\nDisallow: /admin/\nDisallow: /api/\nDisallow: /_next/\n\nSitemap: https://Clickbriz-digital-psi.vercel.app/sitemap.xml`)
+  const [robotsTxt, setRobotsTxt] = useState(`User-agent: *\nAllow: /\n\nDisallow: /admin/\nDisallow: /api/\nDisallow: /_next/\n\nSitemap: https://clickbriz.com/sitemap.xml`)
   const [editingPage, setEditingPage] = useState<PageSEO | null>(null)
   const [pageFilter, setPageFilter] = useState('')
   const [scoreFilter, setScoreFilter] = useState('all')
@@ -74,7 +74,6 @@ export default function SEODashboard() {
       const res = await fetch('/api/seo')
       const json = await res.json()
       if (json.success && json.data.pages?.length > 0) {
-        // Supabase snake_case → camelCase convert
         const mapped = json.data.pages.map((p: any) => ({
           id: p.id,
           url: p.url,
@@ -113,7 +112,6 @@ export default function SEODashboard() {
     setLoading(false)
   }
 
-  // Login ke baad data load karo
   useEffect(() => {
     if (authed) loadData()
   }, [authed])
@@ -193,7 +191,6 @@ export default function SEODashboard() {
     setSaving(false)
   }
 
-  // Editor commands
   const exec = (cmd: string, value?: string) => { document.execCommand(cmd, false, value); editorRef.current?.focus() }
   const applyBlock = (tag: string) => { if (!tag) return; document.execCommand('formatBlock', false, tag); editorRef.current?.focus() }
   const insertImg = () => { const url = prompt('Image URL:'); if (url) exec('insertHTML', `<img src="${url}" alt="image" style="max-width:100%;border-radius:8px;margin:6px 0">`) }
@@ -246,17 +243,17 @@ export default function SEODashboard() {
   const avgScore = Math.round(scores.reduce((a, b) => a + b, 0) / scores.length)
   const sitemapXml = generateSitemap(pages, settings.siteUrl)
 
-const navItems: { id: Section; label: string; group: string; external?: string }[] = [
-      { id: 'dashboard', label: 'Dashboard', group: 'Overview' },
-      { id: 'content', label: 'Content Editor', group: 'Overview' },
-      { id: 'blog' as Section, label: 'Blog Manager', group: 'Overview', external: '/admin/blog' },
-      { id: 'sections' as Section, label: 'Pages Content', group: 'Overview', external: '/admin/sections' },
-      { id: 'pages', label: 'Pages SEO', group: 'Overview' },
-      { id: 'sitemap', label: 'Sitemap', group: 'Tools' },
-      { id: 'robots', label: 'Robots.txt', group: 'Tools' },
-      { id: 'schema', label: 'Schema / OG', group: 'Tools' },
-      { id: 'settings', label: 'Settings', group: 'Config' },
-    ]
+  const navItems: { id: Section; label: string; group: string; external?: string }[] = [
+    { id: 'dashboard', label: 'Dashboard', group: 'Overview' },
+    { id: 'content', label: 'Content Editor', group: 'Overview' },
+    { id: 'blog' as Section, label: 'Blog Manager', group: 'Overview', external: '/admin/blog' },
+    { id: 'sections' as Section, label: 'Pages Content', group: 'Overview', external: '/admin/sections' },
+    { id: 'pages', label: 'Pages SEO', group: 'Overview' },
+    { id: 'sitemap', label: 'Sitemap', group: 'Tools' },
+    { id: 'robots', label: 'Robots.txt', group: 'Tools' },
+    { id: 'schema', label: 'Schema / OG', group: 'Tools' },
+    { id: 'settings', label: 'Settings', group: 'Config' },
+  ]
 
   const S = {
     wrap: { display: 'flex', height: '100vh', fontFamily: 'system-ui,-apple-system,sans-serif', background: '#f4f5f7' } as React.CSSProperties,
@@ -296,7 +293,7 @@ const navItems: { id: Section; label: string; group: string; external?: string }
           ))}
         </nav>
         <div style={{ padding: '10px 14px', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-          <div style={{ fontSize: 10, color: '#3a5a78', wordBreak: 'break-all' }}>Clickbriz-digital-psi.vercel.app</div>
+          <div style={{ fontSize: 10, color: '#3a5a78', wordBreak: 'break-all' }}>clickbriz.com</div>
           <div onClick={() => setAuthed(false)} style={{ fontSize: 10, color: '#5ba3e8', cursor: 'pointer', marginTop: 4 }}>Logout</div>
         </div>
       </aside>
@@ -440,16 +437,30 @@ const navItems: { id: Section; label: string; group: string; external?: string }
           </>
         )}
 
-        {/* PAGE SEO EDITOR */}
+        {/* ============================================
+            PAGE SEO EDITOR — SAVE BUTTON STICKY FIX
+        ============================================ */}
         {section === 'pages' && editingPage && (
           <>
+            {/* HEADER — sirf back button aur info, save button nahi */}
             <div style={S.hdr}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                 <button style={S.btn} onClick={() => setEditingPage(null)}>← Back</button>
-                <div><div style={{ fontSize: 15, fontWeight: 600, color: '#0d1f33' }}>Edit: <code style={{ fontSize: 13 }}>{editingPage.url}</code></div><div style={{ fontSize: 12, color: '#6b7280' }}>Score: <strong style={{ color: calcSEOScore(editingPage) >= 80 ? '#3b6d11' : '#854f0b' }}>{calcSEOScore(editingPage)}/100</strong></div></div>
+                <div>
+                  <div style={{ fontSize: 15, fontWeight: 600, color: '#0d1f33' }}>
+                    Edit: <code style={{ fontSize: 13 }}>{editingPage.url}</code>
+                  </div>
+                  <div style={{ fontSize: 12, color: '#6b7280' }}>
+                    Score: <strong style={{ color: calcSEOScore(editingPage) >= 80 ? '#3b6d11' : '#854f0b' }}>
+                      {calcSEOScore(editingPage)}/100
+                    </strong>
+                  </div>
+                </div>
               </div>
-              <button style={S.btnP} disabled={saving} onClick={() => savePage(editingPage)}>{saving ? 'Saving...' : 'Save to Server'}</button>
+              {/* ✅ Save button HEADER se HATAYA — ab sticky bar mein hai */}
             </div>
+
+            {/* FORM BODY */}
             <div style={{ ...S.body, display: 'grid', gridTemplateColumns: '1fr 280px', gap: 16 }}>
               <div>
                 <div style={{ ...S.card, marginBottom: 16, background: '#f9fafb' }}>
@@ -482,6 +493,8 @@ const navItems: { id: Section; label: string; group: string; external?: string }
                   <div><label style={S.lbl}>OG Image</label><input style={S.inp} value={editingPage.ogImage} onChange={e => setEditingPage({ ...editingPage, ogImage: e.target.value })} /></div>
                 </div>
               </div>
+
+              {/* RIGHT SIDEBAR — Checklist & Score */}
               <div>
                 <div style={{ ...S.card, marginBottom: 12 }}>
                   <div style={{ fontSize: 12, fontWeight: 500, marginBottom: 8, color: '#0d1f33' }}>SEO Checklist</div>
@@ -500,6 +513,48 @@ const navItems: { id: Section; label: string; group: string; external?: string }
                 </div>
               </div>
             </div>
+
+            {/* ✅ STICKY SAVE BAR — Header ke peeche kabhi nahi chupega */}
+            <div style={{
+              position: 'sticky',
+              bottom: 0,
+              background: '#fff',
+              borderTop: '2px solid #e5e7eb',
+              padding: '12px 24px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              zIndex: 50,
+              boxShadow: '0 -4px 12px rgba(0,0,0,0.08)',
+            }}>
+              <div style={{ fontSize: 13, color: '#6b7280' }}>
+                Editing: <code style={{ fontSize: 12, color: '#0d1f33', background: '#f4f5f7', padding: '2px 6px', borderRadius: 4 }}>{editingPage.url}</code>
+                &nbsp;|&nbsp;
+                Score: <strong style={{ color: calcSEOScore(editingPage) >= 80 ? '#3b6d11' : '#854f0b' }}>
+                  {calcSEOScore(editingPage)}/100
+                </strong>
+              </div>
+              <div style={{ display: 'flex', gap: 8 }}>
+                <button style={S.btn} onClick={() => setEditingPage(null)}>
+                  ← Back
+                </button>
+                <button
+                  style={{
+                    ...S.btnP,
+                    padding: '9px 28px',
+                    fontSize: 14,
+                    opacity: saving ? 0.7 : 1,
+                    background: saving ? '#6b7280' : '#0d1f33',
+                  }}
+                  disabled={saving}
+                  onClick={() => savePage(editingPage)}
+                >
+                  {saving ? '⏳ Saving...' : '💾 Save to Server'}
+                </button>
+              </div>
+            </div>
+            {/* STICKY BAR END */}
+
           </>
         )}
 
