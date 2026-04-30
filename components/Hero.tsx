@@ -5,7 +5,7 @@ export default async function Hero() {
   const d = await getSection("home-hero");
 
   const tagline       = d?.tagline          || "We Help Your Business Get Found with AI-Driven Marketing";
-  const h1            = d?.heading          || "Drive Traffic, Leads & Revenue with AI-Powered Digital Marketing Company";
+  const h1            = d?.heading          || "Drive Traffic, Leads & Revenue with AI-Powered Digital Marketing Agency";
   const subheading    = d?.subheading       || "To succeed in business, you first need to succeed in search results. Our digital marketing services connect you with your customers' journey from end to end — from discovery to retention.";
   const primaryText   = d?.primary_cta_text   || "Get Free Consultation";
   const primaryLink   = d?.primary_cta_link   || "/contact";
