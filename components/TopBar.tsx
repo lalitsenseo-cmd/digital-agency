@@ -5,7 +5,7 @@ export default function TopBar(): JSX.Element {
     <>
       <style>{`
         .topbar-link {
-          color: #A3A3A3;
+          color: rgba(255,255,255,0.85);
           text-decoration: none;
           display: flex;
           align-items: center;
@@ -15,12 +15,12 @@ export default function TopBar(): JSX.Element {
           transition: color 0.2s ease;
           white-space: nowrap;
         }
-        .topbar-link:hover { color: #F97316; }
+        .topbar-link:hover { color: #fff; }
         .topbar-link svg { flex-shrink: 0; }
         .topbar-divider {
           width: 1px;
           height: 16px;
-          background: rgba(255,255,255,0.12);
+          background: rgba(255,255,255,0.25);
           flex-shrink: 0;
         }
         @media (max-width: 640px) {
@@ -34,8 +34,8 @@ export default function TopBar(): JSX.Element {
 
       <div style={{
         width: "100%",
-        background: "linear-gradient(90deg, #0a0a0a 0%, #111111 50%, #0a0a0a 100%)",
-        borderBottom: "1px solid rgba(249,115,22,0.2)",
+        background: "#1e3a8a",
+        borderBottom: "none",
         position: "fixed",
         top: 0, left: 0, right: 0,
         zIndex: 200,
@@ -43,7 +43,7 @@ export default function TopBar(): JSX.Element {
         <div style={{
           position: "absolute",
           top: 0, left: 0, right: 0, height: "1px",
-          background: "linear-gradient(90deg, transparent, rgba(249,115,22,0.5), transparent)",
+          background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent)",
         }} />
 
         <div className="topbar-inner" style={{
@@ -53,7 +53,7 @@ export default function TopBar(): JSX.Element {
         }}>
 
           <a href="tel:+918527004901" className="topbar-link">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#F97316" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
             </svg>
             <span>+91 85270 04901</span>
@@ -62,7 +62,7 @@ export default function TopBar(): JSX.Element {
           <div className="topbar-divider" />
 
           <a href="mailto:clickbriz@gmail.com" className="topbar-link">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#F97316" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <rect width="20" height="16" x="2" y="4" rx="2" />
               <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
             </svg>

@@ -18,7 +18,7 @@ export default function TrustedBrands() {
       <style>{`
         .tb-section {
           padding: 80px 0;
-          background: #080808;
+          background: #ffffff;
           position: relative;
           overflow: hidden;
         }
@@ -28,7 +28,7 @@ export default function TrustedBrands() {
           top: 0; left: 50%;
           transform: translateX(-50%);
           width: 400px; height: 2px;
-          background: linear-gradient(90deg, transparent, #F97316, transparent);
+          background: linear-gradient(90deg, transparent, #1e3a8a, transparent);
         }
         .tb-header {
           text-align: center;
@@ -37,27 +37,27 @@ export default function TrustedBrands() {
         }
         .tb-badge {
           display: inline-flex; align-items: center; gap: 6px;
-          background: rgba(249,115,22,0.1);
-          border: 1px solid rgba(249,115,22,0.25);
+          background: #eff6ff;
+          border: 1px solid #bfdbfe;
           padding: 6px 16px; border-radius: 999px;
-          font-size: 11px; font-weight: 800; color: #FB923C;
+          font-size: 11px; font-weight: 800; color: #1e3a8a;
           letter-spacing: 1.8px; text-transform: uppercase;
           margin-bottom: 16px;
         }
         .tb-heading {
           font-size: clamp(2rem, 3.5vw, 2.8rem);
-          font-weight: 900; color: #fff;
+          font-weight: 900; color: #0f172a;
           letter-spacing: -0.03em; line-height: 1.1;
           margin-bottom: 14px;
         }
         .tb-heading span {
-          background: linear-gradient(135deg,#F97316,#FB923C);
+          background: linear-gradient(135deg, #1e3a8a, #3730a3);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
         }
         .tb-sub {
-          color: #737373; font-size: 15px;
+          color: #64748b; font-size: 15px;
           max-width: 560px; margin: 0 auto;
           line-height: 1.65;
         }
@@ -79,11 +79,11 @@ export default function TrustedBrands() {
         }
         .tb-marquee-wrap::before {
           left: 0;
-          background: linear-gradient(90deg, #080808, transparent);
+          background: linear-gradient(90deg, #ffffff, transparent);
         }
         .tb-marquee-wrap::after {
           right: 0;
-          background: linear-gradient(-90deg, #080808, transparent);
+          background: linear-gradient(-90deg, #ffffff, transparent);
         }
 
         .tb-track {
@@ -110,8 +110,8 @@ export default function TrustedBrands() {
         }
 
         .tb-logo-card {
-          background: #111111;
-          border: 1px solid rgba(255,255,255,0.07);
+          background: #f8fafc;
+          border: 1px solid #e2e8f0;
           border-radius: 14px;
           padding: 18px 28px;
           display: flex;
@@ -129,34 +129,34 @@ export default function TrustedBrands() {
           content: '';
           position: absolute;
           top: 0; left: 0; right: 0;
-          height: 1px;
-          background: linear-gradient(90deg, transparent, rgba(249,115,22,0.4), transparent);
+          height: 3px;
+          background: linear-gradient(90deg, #1e3a8a, #3730a3);
           opacity: 0;
           transition: opacity 0.3s;
         }
         .tb-logo-card:hover {
-          border-color: rgba(249,115,22,0.35);
-          background: rgba(249,115,22,0.06);
+          border-color: #93c5fd;
+          background: #eff6ff;
           transform: translateY(-3px);
-          box-shadow: 0 10px 28px rgba(249,115,22,0.14);
+          box-shadow: 0 10px 28px rgba(30,58,138,0.12);
         }
         .tb-logo-card:hover::before { opacity: 1; }
 
         .tb-logo-text {
           font-size: 14px;
           font-weight: 700;
-          color: #525252;
+          color: #64748b;
           letter-spacing: 0.3px;
           white-space: nowrap;
           transition: color 0.3s;
         }
         .tb-logo-card:hover .tb-logo-text {
-          color: #A3A3A3;
+          color: #1e3a8a;
         }
         .tb-logo-dot {
           width: 6px; height: 6px;
           border-radius: 50%;
-          background: rgba(249,115,22,0.4);
+          background: #93c5fd;
           margin-right: 8px;
           flex-shrink: 0;
         }
@@ -174,23 +174,22 @@ export default function TrustedBrands() {
           flex: 1;
           max-width: 200px;
           height: 1px;
-          background: linear-gradient(90deg, transparent, rgba(249,115,22,0.3));
+          background: linear-gradient(90deg, transparent, #bfdbfe);
         }
         .tb-trust-line.rev {
-          background: linear-gradient(-90deg, transparent, rgba(249,115,22,0.3));
+          background: linear-gradient(-90deg, transparent, #bfdbfe);
         }
         .tb-trust-text {
-          color: #525252;
+          color: #64748b;
           font-size: 13px;
           font-weight: 600;
           text-align: center;
           letter-spacing: 0.3px;
         }
-        .tb-trust-text span { color: #F97316; }
+        .tb-trust-text span { color: #1e3a8a; }
       `}</style>
 
       <section className="tb-section">
-        {/* Header */}
         <div className="tb-header">
           <div className="tb-badge">✦ Our Clients</div>
           <h2 className="tb-heading">

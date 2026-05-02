@@ -79,7 +79,7 @@ export const defaultContent: SiteContent = {
   hero: {
     badge: "Top Rated Digital Agency",
     headline: "Grow Your Business With Digital Marketing That Works",
-    subheadline: "SEO, Google Ads, Social Media, Website Development & Python Automation — complete digital solutions for Indian businesses.",
+    subheadline: "Grow Faster with AI-Powered Digital Marketing, SEO, Google Ads, Social Media, Web Development & Python  Automation - built for businesses that mean business.",
     stat1: "50+", stat1label: "Happy Clients",
     stat2: "3×", stat2label: "Avg. ROI",
     stat3: "98%", stat3label: "Client Retention",

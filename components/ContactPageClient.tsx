@@ -53,7 +53,7 @@ export default function ContactPageClient({
     if (originalColor === "#25D366" || originalColor.toLowerCase().includes("25d366")) {
       return "#25D366";
     }
-    return "#FB923C";
+    return "#93c5fd";
   };
 
   return (
@@ -64,7 +64,7 @@ export default function ContactPageClient({
         .contact-form-section {
           position: relative;
           padding: 5rem 2rem;
-          background: linear-gradient(180deg, #0A0A0A 0%, #171717 50%, #0A0A0A 100%);
+          background: linear-gradient(180deg, #ffffff 0%, #f8fafc 50%, #ffffff 100%);
           overflow: hidden;
         }
         .contact-form-section::before {
@@ -73,19 +73,19 @@ export default function ContactPageClient({
           top: 0; left: 50%;
           transform: translateX(-50%);
           width: 400px; height: 2px;
-          background: linear-gradient(90deg, transparent, #F97316, transparent);
+          background: linear-gradient(90deg, transparent, #1e3a8a, transparent);
         }
         .cf-orb-1 {
           position: absolute; top: 20%; right: -10%;
           width: 500px; height: 500px;
-          background: radial-gradient(circle, rgba(249, 115, 22, 0.1) 0%, transparent 70%);
+          background: radial-gradient(circle, rgba(30, 58, 138, 0.1) 0%, transparent 70%);
           border-radius: 50%; filter: blur(80px);
           pointer-events: none;
         }
         .cf-orb-2 {
           position: absolute; bottom: 10%; left: -10%;
           width: 400px; height: 400px;
-          background: radial-gradient(circle, rgba(234, 88, 12, 0.1) 0%, transparent 70%);
+          background: radial-gradient(circle, rgba(55, 48, 163, 0.1) 0%, transparent 70%);
           border-radius: 50%; filter: blur(80px);
           pointer-events: none;
         }
@@ -107,13 +107,13 @@ export default function ContactPageClient({
           font-family: 'Plus Jakarta Sans', sans-serif;
           font-size: 1.75rem;
           font-weight: 800;
-          color: #fff;
+          color: #0f172a;
           margin-bottom: 0.5rem;
           letter-spacing: -0.02em;
         }
         .cf-info-subheading {
           font-size: 14px;
-          color: #A3A3A3;
+          color: #64748b;
           margin-bottom: 1.75rem;
           line-height: 1.6;
         }
@@ -124,7 +124,7 @@ export default function ContactPageClient({
           gap: 16px;
           padding: 1.25rem 1.5rem;
           background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
-          border: 1px solid rgba(255, 255, 255, 0.08);
+          border: 1px solid #e2e8f0;
           border-radius: 16px;
           margin-bottom: 14px;
           text-decoration: none;
@@ -138,13 +138,13 @@ export default function ContactPageClient({
           position: absolute;
           left: 0; top: 0; bottom: 0;
           width: 3px;
-          background: linear-gradient(180deg, #F97316 0%, #EA580C 100%);
+          background: linear-gradient(180deg, #1e3a8a 0%, #3730a3 100%);
           opacity: 0;
           transition: opacity 0.3s ease;
         }
         .cf-info-card:hover {
-          border-color: rgba(249, 115, 22, 0.4);
-          background: linear-gradient(135deg, rgba(249, 115, 22, 0.08) 0%, rgba(234, 88, 12, 0.03) 100%);
+          border-color: rgba(30, 58, 138, 0.4);
+          background: linear-gradient(135deg, rgba(30, 58, 138, 0.08) 0%, rgba(55, 48, 163, 0.03) 100%);
           transform: translateX(4px);
         }
         .cf-info-card:hover::before { opacity: 1; }
@@ -157,9 +157,9 @@ export default function ContactPageClient({
           transition: all 0.3s ease;
         }
         .cf-info-icon-orange {
-          background: rgba(249, 115, 22, 0.15);
-          border: 1px solid rgba(249, 115, 22, 0.3);
-          color: #FB923C;
+          background: rgba(30, 58, 138, 0.15);
+          border: 1px solid rgba(30, 58, 138, 0.3);
+          color: #93c5fd;
         }
         .cf-info-icon-whatsapp {
           background: rgba(37, 211, 102, 0.15);
@@ -172,7 +172,7 @@ export default function ContactPageClient({
 
         .cf-info-text-label {
           font-size: 11px;
-          color: #71717A;
+          color: #94a3b8;
           font-weight: 700;
           text-transform: uppercase;
           letter-spacing: 1.2px;
@@ -180,24 +180,24 @@ export default function ContactPageClient({
         }
         .cf-info-text-value {
           font-size: 15px;
-          color: #fff;
+          color: #0f172a;
           font-weight: 600;
           font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
         .cf-hours-card {
-          padding: 1.25rem 1.5rem;
-          background: linear-gradient(135deg, rgba(249, 115, 22, 0.08) 0%, rgba(234, 88, 12, 0.03) 100%);
-          border: 1px solid rgba(249, 115, 22, 0.2);
+        padding: 1.25rem 1.5rem;
+        background: linear-gradient(135deg, rgba(30, 58, 138, 0.08) 0%, rgba(55, 48, 163, 0.03) 100%);
+        border: 1px solid rgba(30, 58, 138, 0.2);
           border-radius: 16px;
           margin-top: 20px;
           backdrop-filter: blur(10px);
         }
         .cf-hours-title {
-          font-family: 'Plus Jakarta Sans', sans-serif;
-          font-size: 13px;
-          font-weight: 700;
-          color: #FDBA74;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #93c5fd;
           margin-bottom: 10px;
           letter-spacing: 0.5px;
           text-transform: uppercase;
@@ -213,23 +213,23 @@ export default function ContactPageClient({
           align-items: center;
           font-size: 13px;
         }
-        .cf-hours-day { color: #C4C4C4; }
+        .cf-hours-day { color: #475569; }
         .cf-hours-time {
-          color: #fff;
+          color: #0f172a;
           font-weight: 600;
           font-family: 'Plus Jakarta Sans', sans-serif;
         }
-        .cf-hours-closed { color: #71717A; }
+        .cf-hours-closed { color: #94a3b8; }
 
         .cf-form-wrap {
-          background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
-          border: 1px solid rgba(249, 115, 22, 0.25);
+          background: #fff 0%, rgba(255, 255, 255, 0.01) 100%);
+          border: 1px solid rgba(30, 58, 138, 0.25);
           border-radius: 24px;
           padding: 2.5rem;
           position: relative;
           overflow: hidden;
           backdrop-filter: blur(10px);
-          box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+          box-shadow: 0 4px 20px rgba(30,58,138,0.08);
           animation: fadeInSection 0.6s ease-out 0.15s both;
         }
         .cf-form-wrap::before {
@@ -237,7 +237,7 @@ export default function ContactPageClient({
           position: absolute;
           top: 0; left: 0; right: 0;
           height: 2px;
-          background: linear-gradient(90deg, transparent, #F97316, transparent);
+          background: linear-gradient(90deg, transparent, #1e3a8a, transparent);
         }
 
         .cf-form-header {
@@ -250,13 +250,13 @@ export default function ContactPageClient({
           display: inline-flex;
           align-items: center;
           gap: 6px;
-          background: rgba(249, 115, 22, 0.12);
-          border: 1px solid rgba(249, 115, 22, 0.3);
+          background: rgba(30, 58, 138, 0.12);
+          border: 1px solid rgba(30, 58, 138, 0.3);
           padding: 4px 12px;
           border-radius: 999px;
           font-size: 10px;
           font-weight: 700;
-          color: #FDBA74;
+          color: #93c5fd;
           letter-spacing: 1.2px;
           text-transform: uppercase;
         }
@@ -264,7 +264,7 @@ export default function ContactPageClient({
           font-family: 'Plus Jakarta Sans', sans-serif;
           font-size: 1.4rem;
           font-weight: 800;
-          color: #fff;
+          color: #0f172a;
           letter-spacing: -0.01em;
         }
 
@@ -289,7 +289,7 @@ export default function ContactPageClient({
         .cf-label {
           display: block;
           font-size: 12px;
-          color: #FDBA74;
+          color: #93c5fd;
           font-weight: 600;
           margin-bottom: 6px;
           letter-spacing: 0.3px;
@@ -298,13 +298,13 @@ export default function ContactPageClient({
         .cf-input,
         .cf-select,
         .cf-textarea {
-          background: rgba(255, 255, 255, 0.04);
-          border: 1px solid rgba(255, 255, 255, 0.1);
+          background: #f8fafc;
+          border: 1px solid #e2e8f0;
           border-radius: 10px;
           padding: 13px 16px;
           font-size: 14px;
           font-family: Inter, sans-serif;
-          color: #fff;
+          color: #0f172a;
           outline: none;
           transition: all 0.3s ease;
           width: 100%;
@@ -312,32 +312,32 @@ export default function ContactPageClient({
         }
         .cf-input::placeholder,
         .cf-textarea::placeholder {
-          color: #71717A;
+          color: #94a3b8;
         }
         .cf-input:hover,
         .cf-select:hover,
         .cf-textarea:hover {
-          border-color: rgba(249, 115, 22, 0.3);
+          border-color: rgba(30, 58, 138, 0.3);
         }
         .cf-input:focus,
         .cf-select:focus,
         .cf-textarea:focus {
-          border-color: rgba(249, 115, 22, 0.6);
-          background: rgba(249, 115, 22, 0.04);
-          box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
+          border-color: rgba(30, 58, 138, 0.6);
+          background: rgba(30, 58, 138, 0.04);
+          box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
         }
 
         .cf-select {
           cursor: pointer;
           appearance: none;
-          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23FB923C' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2393c5fd' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
           background-repeat: no-repeat;
           background-position: right 14px center;
           padding-right: 40px;
         }
         .cf-select option {
           background: #171717;
-          color: #fff;
+          color: #0f172a;
         }
         .cf-textarea {
           resize: vertical;
@@ -345,11 +345,11 @@ export default function ContactPageClient({
         }
 
         .cf-submit {
-          background: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
+          background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
           border: none;
           border-radius: 12px;
           padding: 16px;
-          color: #fff;
+          color: #0f172a;
           font-weight: 700;
           font-family: 'Plus Jakarta Sans', sans-serif;
           font-size: 15px;
@@ -358,25 +358,25 @@ export default function ContactPageClient({
           align-items: center;
           justify-content: center;
           gap: 10px;
-          box-shadow: 0 10px 30px rgba(249, 115, 22, 0.4), 0 0 0 1px rgba(255,255,255,0.1) inset;
+          box-shadow: 0 10px 30px rgba(30, 58, 138, 0.4), 0 0 0 1px rgba(255,255,255,0.1) inset;
           transition: all 0.3s ease;
           margin-top: 8px;
           letter-spacing: 0.3px;
         }
         .cf-submit:hover:not(:disabled) {
           transform: translateY(-2px);
-          box-shadow: 0 15px 40px rgba(249, 115, 22, 0.6), 0 0 0 1px rgba(255,255,255,0.2) inset;
+          box-shadow: 0 15px 40px rgba(30, 58, 138, 0.6), 0 0 0 1px rgba(255,255,255,0.2) inset;
         }
         .cf-submit:disabled {
           background: rgba(255, 255, 255, 0.08);
-          color: #71717A;
+          color: #94a3b8;
           cursor: not-allowed;
           box-shadow: none;
         }
 
         .cf-privacy-note {
           font-size: 11px;
-          color: #71717A;
+          color: #94a3b8;
           text-align: center;
           margin-top: 6px;
           line-height: 1.5;
@@ -388,20 +388,20 @@ export default function ContactPageClient({
         }
         .cf-success-icon {
           width: 80px; height: 80px;
-          background: linear-gradient(135deg, #F97316, #EA580C);
+          background: linear-gradient(135deg, #1e3a8a, #3730a3);
           border-radius: 50%;
           display: flex;
           align-items: center;
           justify-content: center;
           margin: 0 auto 1.5rem;
-          box-shadow: 0 10px 30px rgba(249, 115, 22, 0.5);
+          box-shadow: 0 10px 30px rgba(30, 58, 138, 0.5);
           animation: fadeInSection 0.5s ease-out;
         }
         .cf-success-title {
           font-family: 'Plus Jakarta Sans', sans-serif;
           font-size: 1.75rem;
           font-weight: 800;
-          background: linear-gradient(135deg, #F97316, #FB923C);
+          background: linear-gradient(135deg, #1e3a8a, #93c5fd);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -409,7 +409,7 @@ export default function ContactPageClient({
           letter-spacing: -0.02em;
         }
         .cf-success-msg {
-          color: #C4C4C4;
+          color: #475569;
           font-size: 15px;
           line-height: 1.7;
           margin-bottom: 2rem;
@@ -418,9 +418,9 @@ export default function ContactPageClient({
           margin-right: auto;
         }
         .cf-send-another {
-          background: rgba(255, 255, 255, 0.05);
-          color: #FB923C;
-          border: 1px solid rgba(249, 115, 22, 0.3);
+          background: #eff6ff;
+          color: #93c5fd;
+          border: 1px solid rgba(30, 58, 138, 0.3);
           border-radius: 10px;
           padding: 12px 28px;
           cursor: pointer;
@@ -431,9 +431,9 @@ export default function ContactPageClient({
           letter-spacing: 0.3px;
         }
         .cf-send-another:hover {
-          background: rgba(249, 115, 22, 0.1);
-          border-color: rgba(249, 115, 22, 0.5);
-          color: #fff;
+          background: rgba(30, 58, 138, 0.1);
+          border-color: rgba(30, 58, 138, 0.5);
+          color: #0f172a;
         }
 
         @media (max-width: 640px) {

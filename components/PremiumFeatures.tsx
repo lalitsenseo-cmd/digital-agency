@@ -30,8 +30,8 @@ export function ScrollProgressBar() {
       <div style={{
         width: `${scrollPercent}%`,
         height: '100%',
-        background: 'linear-gradient(90deg, #F97316 0%, #FB923C 50%, #EA580C 100%)',
-        boxShadow: '0 0 10px rgba(249, 115, 22, 0.6)',
+        background: 'linear-gradient(90deg, #1e3a8a 0%, #93c5fd 50%, #3730a3 100%)',
+        boxShadow: '0 0 10px rgba(30, 58, 138, 0.6)',
         transition: 'width 0.1s ease-out',
       }} />
     </div>
@@ -82,7 +82,7 @@ export function WhatsAppButton() {
           right: 70px;
           top: 50%;
           transform: translateY(-50%);
-          background: #0A0A0A;
+          background: #1e3a8a;
           color: #fff;
           padding: 8px 14px;
           border-radius: 8px;
@@ -92,7 +92,7 @@ export function WhatsAppButton() {
           opacity: 0;
           pointer-events: none;
           transition: opacity 0.3s ease;
-          border: 1px solid rgba(249, 115, 22, 0.3);
+          border: 1px solid rgba(30, 58, 138, 0.3);
         }
         .wa-float:hover .wa-tooltip {
           opacity: 1;
@@ -176,7 +176,7 @@ export function LoadingScreen() {
         .load-screen {
           position: fixed;
           inset: 0;
-          background: #0A0A0A;
+          background: #0f172a;
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -192,12 +192,12 @@ export function LoadingScreen() {
           margin-bottom: 2rem;
           letter-spacing: -0.02em;
         }
-        .load-logo span { color: #F97316; }
+        .load-logo span { color: #1e3a8a; }
         .load-spinner {
           width: 50px;
           height: 50px;
-          border: 3px solid rgba(249, 115, 22, 0.2);
-          border-top-color: #F97316;
+          border: 3px solid rgba(30, 58, 138, 0.2);
+          border-top-color: #1e3a8a;
           border-radius: 50%;
           animation: load-spin 0.8s linear infinite;
         }

@@ -256,7 +256,7 @@ export default function SEODashboard() {
   ]
 
   const S = {
-    wrap: { display: 'flex', height: '100vh', fontFamily: 'system-ui,-apple-system,sans-serif', background: '#f4f5f7' } as React.CSSProperties,
+    wrap: { display: 'flex', height: 'calc(100vh - 130px)', marginTop: '130px', fontFamily: 'system-ui,-apple-system,sans-serif', background: '#f4f5f7' } as React.CSSProperties,
     sb: { width: 200, background: '#0d1f33', display: 'flex', flexDirection: 'column' as const, flexShrink: 0 },
     main: { flex: 1, display: 'flex', flexDirection: 'column' as const, overflow: 'hidden' },
     body: { flex: 1, overflowY: 'auto' as const, padding: 24 },

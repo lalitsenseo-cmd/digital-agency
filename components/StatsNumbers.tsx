@@ -67,7 +67,7 @@ export default function StatsNumbers() {
       <style>{`
         .sn-section {
           padding: 80px 24px;
-          background: linear-gradient(180deg, #050505 0%, #0a0a0a 100%);
+          background: linear-gradient(180deg, #f8fafc 0%, #eff6ff 100%);
           position: relative;
           overflow: hidden;
         }
@@ -77,14 +77,14 @@ export default function StatsNumbers() {
           top: 0; left: 50%;
           transform: translateX(-50%);
           width: 500px; height: 2px;
-          background: linear-gradient(90deg, transparent, #F97316, transparent);
+          background: linear-gradient(90deg, transparent, #1e3a8a, transparent);
         }
         .sn-orb {
           position: absolute;
           top: 50%; left: 50%;
           transform: translate(-50%, -50%);
           width: 600px; height: 300px;
-          background: radial-gradient(ellipse, rgba(249,115,22,0.08) 0%, transparent 70%);
+          background: radial-gradient(ellipse, rgba(30,58,138,0.06) 0%, transparent 70%);
           border-radius: 50%;
           pointer-events: none;
         }
@@ -102,13 +102,13 @@ export default function StatsNumbers() {
           display: inline-flex;
           align-items: center;
           gap: 8px;
-          background: rgba(249,115,22,0.1);
-          border: 1px solid rgba(249,115,22,0.25);
+          background: #eff6ff;
+          border: 1px solid #bfdbfe;
           padding: 8px 18px;
           border-radius: 999px;
           font-size: 11px;
           font-weight: 800;
-          color: #FB923C;
+          color: #1e3a8a;
           letter-spacing: 1.8px;
           text-transform: uppercase;
           margin-bottom: 20px;
@@ -116,19 +116,19 @@ export default function StatsNumbers() {
         .sn-heading {
           font-size: clamp(2rem, 3.5vw, 2.8rem);
           font-weight: 900;
-          color: #fff;
+          color: #0f172a;
           letter-spacing: -0.03em;
           line-height: 1.1;
           margin-bottom: 12px;
         }
         .sn-heading span {
-          background: linear-gradient(135deg, #F97316, #FB923C);
+          background: linear-gradient(135deg, #1e3a8a, #3730a3);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
         }
         .sn-sub {
-          color: #737373;
+          color: #64748b;
           font-size: 15px;
         }
         .sn-grid {
@@ -141,23 +141,24 @@ export default function StatsNumbers() {
           position: relative;
           transition: all 0.3s ease;
           cursor: default;
+          background: #fff;
         }
         .sn-item:hover {
-          background: rgba(249,115,22,0.04);
+          background: #eff6ff;
         }
         .sn-item:not(:last-child)::after {
           content: '';
           position: absolute;
           right: 0; top: 10%; bottom: 10%;
           width: 1px;
-          background: linear-gradient(180deg, transparent, rgba(249,115,22,0.3), transparent);
+          background: linear-gradient(180deg, transparent, #bfdbfe, transparent);
         }
         .sn-item::before {
           content: '';
           position: absolute;
           top: 0; left: 0; right: 0;
-          height: 2px;
-          background: linear-gradient(90deg, transparent, rgba(249,115,22,0.4), transparent);
+          height: 3px;
+          background: linear-gradient(90deg, #1e3a8a, #3730a3);
           opacity: 0;
           transition: opacity 0.3s;
         }
@@ -168,7 +169,7 @@ export default function StatsNumbers() {
           letter-spacing: -0.04em;
           line-height: 1;
           margin-bottom: 16px;
-          background: linear-gradient(135deg, #F97316 0%, #FB923C 60%, #FDBA74 100%);
+          background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -181,7 +182,7 @@ export default function StatsNumbers() {
           transform: translateY(0);
         }
         .sn-label {
-          color: #737373;
+          color: #64748b;
           font-size: 15px;
           line-height: 1.6;
           max-width: 260px;
@@ -194,9 +195,10 @@ export default function StatsNumbers() {
           transform: translateY(0);
         }
         .sn-border {
-          border: 1px solid rgba(249,115,22,0.15);
+          border: 1px solid #e2e8f0;
           border-radius: 20px;
           overflow: hidden;
+          box-shadow: 0 4px 20px rgba(30,58,138,0.08);
         }
         @media (max-width: 768px) {
           .sn-grid {
@@ -206,7 +208,7 @@ export default function StatsNumbers() {
             right: 10%; left: 10%;
             top: auto; bottom: 0;
             width: auto; height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(249,115,22,0.3), transparent);
+            background: linear-gradient(90deg, transparent, #bfdbfe, transparent);
           }
           .sn-item { padding: 32px 24px; }
         }
@@ -216,10 +218,9 @@ export default function StatsNumbers() {
         <div className="sn-orb" />
         <div className="sn-container">
 
-          {/* Header */}
           <div className="sn-header">
             <div className="sn-badge">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#F97316" strokeWidth="2" strokeLinecap="round">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#1e3a8a" strokeWidth="2" strokeLinecap="round">
                 <circle cx="12" cy="12" r="10"/>
                 <path d="M12 8v4M12 16h.01"/>
               </svg>
@@ -231,7 +232,6 @@ export default function StatsNumbers() {
             <p className="sn-sub">Data-Driven Results That Speak For Themselves</p>
           </div>
 
-          {/* Stats */}
           <div className="sn-border">
             <div className="sn-grid">
               {STATS.map((s, i) => (

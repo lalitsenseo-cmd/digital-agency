@@ -244,34 +244,38 @@ export default function SectionsManager() {
       <main style={{ flex: 1, overflowY: "auto" }}>
         {selected ? (
           <>
-            <div style={{ position: "sticky", top: 0, background: "#fff", borderBottom: "1px solid #e5e7eb", padding: "14px 24px", display: "flex", justifyContent: "space-between", alignItems: "center", zIndex: 10 }}>
-              <div>
-                <h1 style={{ fontSize: 16, fontWeight: 700, color: "#0d1f33", textTransform: "capitalize" }}>
-                  {selected.page_slug}: {selected.section_name.replace(/_/g, " ")}
-                </h1>
-                <p style={{ fontSize: 12, color: "#6b7280", marginTop: 2 }}>
-                  Changes live on: {selected.page_slug === "home" ? "/" : `/${selected.page_slug}`}
-                </p>
-              </div>
+<div style={{ padding: "20px 24px" }}>
+              {editedData && Object.entries(editedData).map(([k, v]) => renderField(v, [k], k))}
+            </div>
+
+            <div style={{
+              position: "sticky",
+              bottom: 0,
+              background: "#fff",
+              borderTop: "2px solid #e5e7eb",
+              padding: "12px 24px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "flex-end",
+              zIndex: 50,
+              boxShadow: "0 -4px 12px rgba(0,0,0,0.08)",
+            }}>
               <button
                 onClick={handleSave}
                 disabled={saving}
                 style={{
                   background: saving ? "#9ca3af" : "#2563eb",
                   color: "#fff",
-                  padding: "8px 20px",
+                  padding: "9px 28px",
                   border: "none",
                   borderRadius: 8,
-                  fontSize: 13,
+                  fontSize: 14,
                   fontWeight: 600,
                   cursor: saving ? "not-allowed" : "pointer",
                 }}
               >
-                {saving ? "Saving..." : "💾 Save & Publish"}
+                {saving ? "⏳ Saving..." : "💾 Save & Publish"}
               </button>
-            </div>
-            <div style={{ padding: "20px 24px" }}>
-              {editedData && Object.entries(editedData).map(([k, v]) => renderField(v, [k], k))}
             </div>
           </>
         ) : (

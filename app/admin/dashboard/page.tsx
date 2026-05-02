@@ -62,11 +62,40 @@ function Card({ children, title, onDelete, collapsible = false, badge }: { child
   );
 }
 
+// BAAD — Sticky bottom bar
 function SaveBtn({ onClick }: { onClick: () => void }) {
   return (
-    <button onClick={onClick} style={{ background: "#2563eb", border: "none", borderRadius: "10px", padding: "11px 24px", color: "#fff", fontWeight: 700, fontFamily: "Plus Jakarta Sans, sans-serif", fontSize: "14px", cursor: "pointer", display: "flex", alignItems: "center", gap: "8px", marginTop: "8px" }}>
-      <Save size={15} /> Save Changes
-    </button>
+    <div style={{
+      position: "sticky",
+      bottom: 0,
+      background: "#f8f9fb",
+      borderTop: "2px solid #e5e7eb",
+      padding: "14px 0",
+      marginTop: "20px",      // ← div pe rakho
+      zIndex: 50,
+      boxShadow: "0 -4px 12px rgba(0,0,0,0.06)",
+    }}>
+      <button
+        onClick={onClick}
+        style={{
+          background: "#2563eb",
+          border: "none",
+          borderRadius: "10px",
+          padding: "11px 28px",
+          color: "#fff",
+          fontWeight: 700,
+          fontFamily: "Plus Jakarta Sans, sans-serif",
+          fontSize: "14px",
+          cursor: "pointer",
+          display: "flex",
+          alignItems: "center",
+          gap: "8px",
+          // ← marginTop yahan se HATAO
+        }}
+      >
+        <Save size={15} /> Save Changes
+      </button>
+    </div>
   );
 }
 

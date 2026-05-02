@@ -34,7 +34,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
   return (
     <>
       <Navbar />
-      <main style={{ paddingTop: "68px", fontFamily: "Inter, sans-serif" }}>
+      <main style={{ paddingTop: "138px", fontFamily: "Inter, sans-serif" }}>
         <article style={{ maxWidth: "800px", margin: "0 auto", padding: "3rem 2rem" }}>
           <Link href="/blog" style={{ color: "#6b7280", fontSize: "14px", textDecoration: "none", marginBottom: "1.5rem", display: "inline-block" }}>← Back to Blog</Link>
 

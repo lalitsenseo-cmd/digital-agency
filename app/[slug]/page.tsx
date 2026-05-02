@@ -51,7 +51,7 @@ export default function SlugPage({ params }: { params: { slug: string } }) {
         .slp-orb {
           position:absolute; top:-10%; left:50%; transform:translateX(-50%);
           width:700px; height:400px; border-radius:50%;
-          background:radial-gradient(circle,rgba(249,115,22,0.18) 0%,transparent 65%);
+          background:radial-gradient(circle,rgba(30,58,138,0.18) 0%,transparent 65%);
           filter:blur(80px); pointer-events:none;
         }
         .slp-inner { position:relative; z-index:2; max-width:800px; margin:0 auto; animation:fadeUp 0.8s ease-out; }
@@ -60,22 +60,22 @@ export default function SlugPage({ params }: { params: { slug: string } }) {
           font-size:13px; color:#737373; margin-bottom:1.5rem;
           display:flex; align-items:center; justify-content:center; gap:6px; flex-wrap:wrap;
         }
-        .slp-breadcrumb a { color:#F97316; text-decoration:none; }
+        .slp-breadcrumb a { color:#1e3a8a; text-decoration:none; }
 
         .slp-badge {
           display:inline-flex; align-items:center; gap:7px;
-          background:rgba(249,115,22,0.12); border:1px solid rgba(249,115,22,0.28);
+          background:rgba(30,58,138,0.12); border:1px solid rgba(30,58,138,0.28);
           padding:6px 16px; border-radius:999px; margin-bottom:1.5rem;
-          font-size:11px; font-weight:700; color:#FDBA74; letter-spacing:1.4px; text-transform:uppercase;
+          font-size:11px; font-weight:700; color:#93c5fd; letter-spacing:1.4px; text-transform:uppercase;
         }
-        .slp-badge-dot { width:6px; height:6px; border-radius:50%; background:#F97316; box-shadow:0 0 8px #F97316; }
+        .slp-badge-dot { width:6px; height:6px; border-radius:50%; background:#1e3a8a; box-shadow:0 0 8px #1e3a8a; }
 
         .slp-h1 {
           font-size:clamp(2rem,4vw,3.2rem); font-weight:900;
           line-height:1.1; letter-spacing:-0.03em; margin:0 0 1.25rem; color:#fff;
         }
         .slp-hl {
-          background:linear-gradient(135deg,#F97316 0%,#FB923C 50%,#FED7AA 100%);
+          background:linear-gradient(135deg,#1e3a8a 0%,#93c5fd 50%,#FED7AA 100%);
           background-size:200% auto;
           -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
           animation:shimmer 4s linear infinite;
@@ -85,25 +85,25 @@ export default function SlugPage({ params }: { params: { slug: string } }) {
         .slp-btns { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-bottom:2.5rem; }
         .slp-btn-p {
           display:inline-flex; align-items:center; gap:9px;
-          background:linear-gradient(135deg,#F97316,#EA580C);
+          background:linear-gradient(135deg,#1e3a8a,#3730a3);
           color:#fff; padding:14px 28px; border-radius:999px;
           font-size:14px; font-weight:700; text-decoration:none;
-          box-shadow:0 8px 28px rgba(249,115,22,0.45); transition:all 0.3s;
+          box-shadow:0 8px 28px rgba(30,58,138,0.45); transition:all 0.3s;
         }
-        .slp-btn-p:hover { transform:translateY(-2px); box-shadow:0 14px 40px rgba(249,115,22,0.6); }
+        .slp-btn-p:hover { transform:translateY(-2px); box-shadow:0 14px 40px rgba(30,58,138,0.6); }
         .slp-btn-s {
           display:inline-flex; align-items:center; gap:9px;
           background:transparent; color:#fff; padding:14px 28px; border-radius:999px;
           font-size:14px; font-weight:600; text-decoration:none;
           border:1.5px solid rgba(255,255,255,0.22); transition:all 0.3s;
         }
-        .slp-btn-s:hover { border-color:rgba(249,115,22,0.5); color:#FB923C; }
+        .slp-btn-s:hover { border-color:rgba(30,58,138,0.5); color:#93c5fd; }
 
         .slp-stats { display:flex; gap:2rem; justify-content:center; flex-wrap:wrap; }
         .slp-stat { text-align:center; }
         .slp-stat-val {
           font-size:2rem; font-weight:900;
-          background:linear-gradient(135deg,#F97316,#FB923C);
+          background:linear-gradient(135deg,#1e3a8a,#93c5fd);
           -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
         }
         .slp-stat-lbl { font-size:12px; color:#737373; margin-top:3px; }
@@ -119,7 +119,7 @@ export default function SlugPage({ params }: { params: { slug: string } }) {
           background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07);
           border-radius:16px; padding:24px 20px; transition:all 0.3s;
         }
-        .slp-card:hover { border-color:rgba(249,115,22,0.35); background:rgba(249,115,22,0.05); transform:translateY(-4px); }
+        .slp-card:hover { border-color:rgba(30,58,138,0.35); background:rgba(30,58,138,0.05); transform:translateY(-4px); }
         .slp-card-icon { font-size:28px; margin-bottom:12px; }
         .slp-card-title { font-size:15px; font-weight:700; color:#fff; margin-bottom:6px; }
         .slp-card-desc { font-size:13px; color:#737373; line-height:1.6; }
@@ -128,39 +128,39 @@ export default function SlugPage({ params }: { params: { slug: string } }) {
         .slp-why-item { display:flex; align-items:flex-start; gap:12px; }
         .slp-why-check {
           width:22px; height:22px; border-radius:50%; flex-shrink:0; margin-top:1px;
-          background:linear-gradient(135deg,#F97316,#EA580C);
+          background:linear-gradient(135deg,#1e3a8a,#3730a3);
           display:flex; align-items:center; justify-content:center;
         }
         .slp-why-text { font-size:14px; color:#E5E5E5; line-height:1.6; }
 
         .slp-areas { display:flex; gap:10px; flex-wrap:wrap; margin-top:1rem; }
         .slp-area-tag {
-          background:rgba(249,115,22,0.08); border:1px solid rgba(249,115,22,0.2);
-          color:#FB923C; font-size:13px; font-weight:600; padding:7px 16px; border-radius:999px;
+          background:rgba(30,58,138,0.08); border:1px solid rgba(30,58,138,0.2);
+          color:#93c5fd; font-size:13px; font-weight:600; padding:7px 16px; border-radius:999px;
         }
 
         .slp-cta {
           background:linear-gradient(135deg,#1a0800,#0f0500);
-          border:1px solid rgba(249,115,22,0.2); border-radius:24px;
+          border:1px solid rgba(30,58,138,0.2); border-radius:24px;
           padding:56px 48px; text-align:center;
           max-width:1100px; margin:0 auto 80px; position:relative; overflow:hidden;
         }
         .slp-cta-orb {
           position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
           width:500px; height:300px; border-radius:50%;
-          background:radial-gradient(circle,rgba(249,115,22,0.15) 0%,transparent 65%);
+          background:radial-gradient(circle,rgba(30,58,138,0.15) 0%,transparent 65%);
           filter:blur(60px); pointer-events:none;
         }
         .slp-cta-title { font-size:clamp(1.6rem,3vw,2.2rem); font-weight:800; color:#fff; margin:0 0 1rem; position:relative; z-index:2; }
         .slp-cta-sub { font-size:1rem; color:#8A8A8A; margin-bottom:2rem; position:relative; z-index:2; }
         .slp-cta-btn {
           display:inline-flex; align-items:center; gap:10px;
-          background:linear-gradient(135deg,#F97316,#EA580C);
+          background:linear-gradient(135deg,#1e3a8a,#3730a3);
           color:#fff; padding:15px 32px; border-radius:999px;
           font-size:15px; font-weight:700; text-decoration:none;
-          box-shadow:0 10px 36px rgba(249,115,22,0.45); transition:all 0.3s; position:relative; z-index:2;
+          box-shadow:0 10px 36px rgba(30,58,138,0.45); transition:all 0.3s; position:relative; z-index:2;
         }
-        .slp-cta-btn:hover { transform:translateY(-2px); box-shadow:0 16px 48px rgba(249,115,22,0.6); }
+        .slp-cta-btn:hover { transform:translateY(-2px); box-shadow:0 16px 48px rgba(30,58,138,0.6); }
 
         .slp-seo { padding:0 2rem 64px; max-width:1100px; margin:0 auto; }
         .slp-seo h2 { font-size:1.4rem; font-weight:700; color:#fff; margin:2rem 0 0.75rem; }

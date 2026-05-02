@@ -14,12 +14,12 @@ export default function CTAForm() {
     <>
       <style>{`
         .cta-section {
-          background: linear-gradient(135deg, #0f0f0f 0%, #111111 50%, #0f0f0f 100%);
+          background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 50%, #1e3a8a 100%);
           padding: 72px 24px;
           position: relative;
           overflow: hidden;
-          border-top: 1px solid rgba(249,115,22,0.15);
-          border-bottom: 1px solid rgba(249,115,22,0.15);
+          border-top: 1px solid rgba(255,255,255,0.1);
+          border-bottom: 1px solid rgba(255,255,255,0.1);
         }
         .cta-section::before {
           content: '';
@@ -27,13 +27,13 @@ export default function CTAForm() {
           top: 0; left: 50%;
           transform: translateX(-50%);
           width: 600px; height: 2px;
-          background: linear-gradient(90deg, transparent, #F97316, transparent);
+          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
         }
         .cta-orb-left {
           position: absolute;
           top: -60px; left: -80px;
           width: 300px; height: 300px;
-          background: radial-gradient(circle, rgba(249,115,22,0.12) 0%, transparent 70%);
+          background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
           border-radius: 50%;
           pointer-events: none;
         }
@@ -41,7 +41,7 @@ export default function CTAForm() {
           position: absolute;
           bottom: -60px; right: -80px;
           width: 300px; height: 300px;
-          background: radial-gradient(circle, rgba(234,88,12,0.1) 0%, transparent 70%);
+          background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
           border-radius: 50%;
           pointer-events: none;
         }
@@ -61,13 +61,13 @@ export default function CTAForm() {
           margin-bottom: 14px;
         }
         .cta-heading span {
-          background: linear-gradient(135deg, #F97316, #FDBA74);
+          background: linear-gradient(135deg, #bfdbfe, #e0f2fe);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
         }
         .cta-sub {
-          color: #737373;
+          color: rgba(255,255,255,0.75);
           font-size: 15px;
           margin-bottom: 36px;
           line-height: 1.6;
@@ -83,8 +83,8 @@ export default function CTAForm() {
           flex: 1;
           min-width: 180px;
           max-width: 240px;
-          background: rgba(255,255,255,0.05);
-          border: 1px solid rgba(255,255,255,0.1);
+          background: rgba(255,255,255,0.1);
+          border: 1px solid rgba(255,255,255,0.2);
           border-radius: 10px;
           padding: 14px 18px;
           font-size: 14px;
@@ -93,15 +93,15 @@ export default function CTAForm() {
           transition: all 0.25s;
           font-family: inherit;
         }
-        .cta-input::placeholder { color: #525252; }
+        .cta-input::placeholder { color: rgba(255,255,255,0.5); }
         .cta-input:focus {
-          border-color: rgba(249,115,22,0.5);
-          background: rgba(249,115,22,0.05);
-          box-shadow: 0 0 0 3px rgba(249,115,22,0.1);
+          border-color: rgba(255,255,255,0.5);
+          background: rgba(255,255,255,0.15);
+          box-shadow: 0 0 0 3px rgba(255,255,255,0.1);
         }
         .cta-btn {
-          background: linear-gradient(135deg, #F97316, #EA580C);
-          color: #fff;
+          background: #fff;
+          color: #1e3a8a;
           border: none;
           border-radius: 10px;
           padding: 14px 32px;
@@ -111,13 +111,14 @@ export default function CTAForm() {
           text-transform: uppercase;
           cursor: pointer;
           transition: all 0.25s;
-          box-shadow: 0 8px 28px rgba(249,115,22,0.4);
+          box-shadow: 0 8px 28px rgba(0,0,0,0.2);
           font-family: inherit;
           white-space: nowrap;
         }
         .cta-btn:hover {
+          background: #eff6ff;
           transform: translateY(-2px);
-          box-shadow: 0 12px 36px rgba(249,115,22,0.55);
+          box-shadow: 0 12px 36px rgba(0,0,0,0.3);
         }
         .cta-trust {
           display: flex;
@@ -130,15 +131,15 @@ export default function CTAForm() {
           display: flex;
           align-items: center;
           gap: 8px;
-          color: #A3A3A3;
+          color: rgba(255,255,255,0.8);
           font-size: 13px;
           font-weight: 600;
         }
         .cta-trust-icon {
           width: 28px;
           height: 28px;
-          background: rgba(249,115,22,0.1);
-          border: 1px solid rgba(249,115,22,0.2);
+          background: rgba(255,255,255,0.15);
+          border: 1px solid rgba(255,255,255,0.2);
           border-radius: 8px;
           display: flex;
           align-items: center;
@@ -151,12 +152,12 @@ export default function CTAForm() {
         }
         .cta-success-icon {
           width: 60px; height: 60px;
-          background: linear-gradient(135deg,#F97316,#EA580C);
+          background: rgba(255,255,255,0.2);
           border-radius: 50%;
           display: flex; align-items: center; justify-content: center;
           margin: 0 auto 16px;
           font-size: 24px;
-          box-shadow: 0 8px 24px rgba(249,115,22,0.4);
+          box-shadow: 0 8px 24px rgba(0,0,0,0.2);
         }
         @media (max-width: 640px) {
           .cta-section { padding: 52px 20px; }
@@ -177,7 +178,7 @@ export default function CTAForm() {
               <h3 style={{ color: "#fff", fontSize: "1.4rem", fontWeight: 900, marginBottom: 8 }}>
                 We'll be in touch soon!
               </h3>
-              <p style={{ color: "#737373", fontSize: 14 }}>
+              <p style={{ color: "rgba(255,255,255,0.75)", fontSize: 14 }}>
                 Our team will get back to you within 24 hours.
               </p>
             </div>

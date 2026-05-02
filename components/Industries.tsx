@@ -22,7 +22,7 @@ export default function Industries() {
       <style>{`
         .ind-section {
           padding: 80px 24px;
-          background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%);
+  background: linear-gradient(180deg, #f8fafc 0%, #eff6ff 100%);
           position: relative;
           overflow: hidden;
         }
@@ -32,14 +32,14 @@ export default function Industries() {
           top: 0; left: 50%;
           transform: translateX(-50%);
           width: 400px; height: 2px;
-          background: linear-gradient(90deg, transparent, #F97316, transparent);
+          background: linear-gradient(90deg, transparent, #1e3a8a, transparent);
         }
         .ind-orb {
           position: absolute;
           top: 50%; left: 50%;
           transform: translate(-50%, -50%);
           width: 700px; height: 400px;
-          background: radial-gradient(ellipse, rgba(249,115,22,0.06) 0%, transparent 70%);
+          background: radial-gradient(ellipse, rgba(30,58,138,0.06) 0%, transparent 70%);
           border-radius: 50%;
           pointer-events: none;
         }
@@ -55,27 +55,27 @@ export default function Industries() {
         }
         .ind-badge {
           display: inline-flex; align-items: center; gap: 6px;
-          background: rgba(249,115,22,0.1);
-          border: 1px solid rgba(249,115,22,0.25);
+          background: #eff6ff;
+          border: 1px solid #bfdbfe;
           padding: 6px 16px; border-radius: 999px;
-          font-size: 11px; font-weight: 800; color: #FB923C;
+          font-size: 11px; font-weight: 800; color: #1e3a8a;;
           letter-spacing: 1.8px; text-transform: uppercase;
           margin-bottom: 16px;
         }
         .ind-heading {
           font-size: clamp(2rem, 3.5vw, 2.8rem);
-          font-weight: 900; color: #fff;
+          font-weight: 900; color: #0f172a;
           letter-spacing: -0.03em; line-height: 1.1;
           margin-bottom: 14px;
         }
         .ind-heading span {
-          background: linear-gradient(135deg, #F97316, #FB923C);
+          background: linear-gradient(135deg, #1e3a8a, #93c5fd);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
         }
         .ind-sub {
-          color: #737373; font-size: 15px;
+          color: #64748b; font-size: 15px;
           max-width: 680px; margin: 0 auto;
           line-height: 1.7;
         }
@@ -89,13 +89,13 @@ export default function Industries() {
           display: inline-flex;
           align-items: center;
           gap: 10px;
-          background: #111111;
-          border: 1px solid rgba(255,255,255,0.07);
+          background: #fff;
+          border: 1px solid #e2e8f0;
           border-radius: 999px;
           padding: 12px 22px;
           font-size: 14px;
           font-weight: 600;
-          color: #A3A3A3;
+          color: #334155;
           cursor: default;
           transition: all 0.25s ease;
           position: relative;
@@ -105,16 +105,16 @@ export default function Industries() {
           content: '';
           position: absolute;
           inset: 0;
-          background: linear-gradient(135deg, rgba(249,115,22,0.1), rgba(234,88,12,0.05));
+          background: linear-gradient(135deg, rgba(30,58,138,0.1), rgba(55,48,163,0.05));
           opacity: 0;
           transition: opacity 0.25s;
           border-radius: 999px;
         }
         .ind-tag:hover {
-          border-color: rgba(249,115,22,0.4);
+          border-color: rgba(30,58,138,0.4);
           color: #F5F5F5;
           transform: translateY(-3px);
-          box-shadow: 0 8px 24px rgba(249,115,22,0.15);
+          box-shadow: 0 8px 24px rgba(30,58,138,0.15);
         }
         .ind-tag:hover::before { opacity: 1; }
         .ind-icon {

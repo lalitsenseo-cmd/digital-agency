@@ -93,34 +93,33 @@ export default function Navbar() {
     <>
       <style>{`
         .nav-link {
-          font-size:14px; font-weight:500; color:#C4C4C4;
+          font-size:14px; font-weight:500; color:#334155;
           font-family:Inter,sans-serif; text-decoration:none;
           transition:color 0.3s; position:relative;
         }
-        .nav-link:hover { color:#FB923C; }
+        .nav-link:hover { color:#1e3a8a; }
         .nav-link::after {
           content:''; position:absolute; bottom:-6px; left:50%;
           transform:translateX(-50%); width:0; height:2px;
-          background:linear-gradient(90deg,#F97316,#EA580C);
+          background:linear-gradient(90deg,#1e3a8a,#3730a3);
           transition:width 0.3s; border-radius:2px;
         }
         .nav-link:hover::after { width:100%; }
 
         .nav-cta {
-          background:linear-gradient(135deg,#F97316,#EA580C);
+          background:linear-gradient(135deg,#1e3a8a,#3730a3);
           color:#fff; padding:10px 22px; border-radius:10px;
           font-size:14px; font-weight:700; text-decoration:none;
-          box-shadow:0 4px 20px rgba(249,115,22,0.4);
+          box-shadow:0 4px 20px rgba(30,58,138,0.4);
           transition:all 0.3s; display:inline-flex; align-items:center;
         }
-        .nav-cta:hover { transform:translateY(-2px); box-shadow:0 8px 30px rgba(249,115,22,0.6); }
+        .nav-cta:hover { transform:translateY(-2px); box-shadow:0 8px 30px rgba(30,58,138,0.6); }
 
-        /* ── MEGA WRAP ── */
         .mega-wrap {
           position:fixed; top:138px; left:0; right:0;
           background:rgba(10,10,10,0.98);
-          border-top:1px solid rgba(249,115,22,0.2);
-          border-bottom:1px solid rgba(249,115,22,0.15);
+          border-top:1px solid rgba(30,58,138,0.2);
+          border-bottom:1px solid rgba(30,58,138,0.15);
           padding:32px 0 24px;
           box-shadow:0 32px 80px rgba(0,0,0,0.7);
           backdrop-filter:blur(24px);
@@ -142,46 +141,43 @@ export default function Navbar() {
         .mega-cat-head {
           display:flex; align-items:center; gap:8px;
           margin-bottom:14px; padding-bottom:10px;
-          border-bottom:1px solid rgba(249,115,22,0.15);
+          border-bottom:1px solid rgba(30,58,138,0.15);
         }
         .mega-cat-icon {
           font-size:15px; width:28px; height:28px;
-          background:rgba(249,115,22,0.12); border-radius:7px;
+          background:rgba(30,58,138,0.12); border-radius:7px;
           display:flex; align-items:center; justify-content:center;
         }
-        .mega-cat-label { font-size:10px; font-weight:700; letter-spacing:1.5px; color:#F97316; }
+        .mega-cat-label { font-size:10px; font-weight:700; letter-spacing:1.5px; color:#1e3a8a; }
 
-        /* normal item */
         .mega-item {
           display:block; padding:9px 10px; border-radius:9px;
           text-decoration:none; transition:all 0.2s; margin-bottom:3px;
         }
-        .mega-item:hover { background:rgba(249,115,22,0.1); }
+        .mega-item:hover { background:rgba(30,58,138,0.1); }
         .mega-item-label {
           font-size:13px; font-weight:600; color:#E5E5E5;
           display:flex; align-items:center;
           margin-bottom:2px; line-height:1.3; transition:color 0.2s;
         }
-        .mega-item:hover .mega-item-label { color:#FB923C; }
+        .mega-item:hover .mega-item-label { color:#93c5fd; }
         .mega-item-desc { font-size:11px; color:#737373; }
         .mega-arrow { opacity:0; transition:all 0.2s; margin-left:auto; flex-shrink:0; }
         .mega-item:hover .mega-arrow { opacity:1; transform:translateX(2px); }
 
-        /* item WITH submenu — still an <a> but with chevron */
-        .mega-item-sub { background:rgba(249,115,22,0.06); border:1px solid rgba(249,115,22,0.15); }
-        .mega-item-sub:hover { background:rgba(249,115,22,0.14); border-color:rgba(249,115,22,0.35); }
-        .mega-item-sub .mega-item-label { color:#FB923C; }
-        .sub-chevron { margin-left:auto; flex-shrink:0; color:#F97316; transition:transform 0.2s; }
+        .mega-item-sub { background:rgba(30,58,138,0.06); border:1px solid rgba(30,58,138,0.15); }
+        .mega-item-sub:hover { background:rgba(30,58,138,0.14); border-color:rgba(30,58,138,0.35); }
+        .mega-item-sub .mega-item-label { color:#93c5fd; }
+        .sub-chevron { margin-left:auto; flex-shrink:0; color:#1e3a8a; transition:transform 0.2s; }
         .mega-item-sub:hover .sub-chevron { transform:translateX(2px); }
 
-        /* ── SUBMENU PANEL — MARKETING col ke baad, right 3 cols cover karta hai ── */
         .submenu-panel {
           position:absolute;
           top:0; bottom:0;
-          left:25%;                           /* 1st column ke baad */
+          left:25%;
           right:0;
           background:rgba(8,8,8,0.98);
-          border-left:2px solid rgba(249,115,22,0.25);
+          border-left:2px solid rgba(30,58,138,0.25);
           padding:28px 24px 24px;
           transition:opacity 0.18s, visibility 0.18s;
           z-index:10;
@@ -194,17 +190,17 @@ export default function Navbar() {
         .submenu-head {
           display:flex; align-items:center; gap:10px;
           margin-bottom:16px; padding-bottom:12px;
-          border-bottom:1px solid rgba(249,115,22,0.15);
+          border-bottom:1px solid rgba(30,58,138,0.15);
         }
         .submenu-back {
           display:inline-flex; align-items:center; gap:6px;
-          background:rgba(249,115,22,0.1); border:1px solid rgba(249,115,22,0.2);
-          color:#FB923C; font-size:12px; font-weight:600;
+          background:rgba(30,58,138,0.1); border:1px solid rgba(30,58,138,0.2);
+          color:#93c5fd; font-size:12px; font-weight:600;
           padding:5px 12px; border-radius:999px; cursor:pointer;
           text-decoration:none; transition:all 0.2s;
         }
-        .submenu-back:hover { background:rgba(249,115,22,0.2); }
-        .submenu-title { font-size:10px; font-weight:700; color:#F97316; letter-spacing:1.5px; text-transform:uppercase; }
+        .submenu-back:hover { background:rgba(30,58,138,0.2); }
+        .submenu-title { font-size:10px; font-weight:700; color:#1e3a8a; letter-spacing:1.5px; text-transform:uppercase; }
 
         .submenu-grid {
           display:grid; grid-template-columns:repeat(2,1fr); gap:8px;
@@ -217,17 +213,16 @@ export default function Navbar() {
           transition:all 0.2s;
         }
         .submenu-item:hover {
-          background:rgba(249,115,22,0.1);
-          border-color:rgba(249,115,22,0.25);
-          color:#FB923C; transform:translateX(3px);
+          background:rgba(30,58,138,0.1);
+          border-color:rgba(30,58,138,0.25);
+          color:#93c5fd; transform:translateX(3px);
         }
         .submenu-dot {
           width:6px; height:6px; border-radius:50%;
-          background:rgba(249,115,22,0.5); flex-shrink:0; transition:all 0.2s;
+          background:rgba(30,58,138,0.5); flex-shrink:0; transition:all 0.2s;
         }
-        .submenu-item:hover .submenu-dot { background:#F97316; box-shadow:0 0 8px #F97316; }
+        .submenu-item:hover .submenu-dot { background:#1e3a8a; box-shadow:0 0 8px #1e3a8a; }
 
-        /* footer */
         .mega-footer {
           max-width:1200px; margin:16px auto 0; padding:14px 2rem 0;
           border-top:1px solid rgba(255,255,255,0.07);
@@ -235,37 +230,36 @@ export default function Navbar() {
         }
         .mega-footer-text { font-size:13px; color:#737373; }
         .mega-footer-cta {
-          background:linear-gradient(135deg,#F97316,#EA580C);
+          background:linear-gradient(135deg,#1e3a8a,#3730a3);
           color:#fff; padding:8px 18px; border-radius:8px;
           font-size:13px; font-weight:700; text-decoration:none;
           display:inline-flex; align-items:center; gap:6px;
-          box-shadow:0 4px 16px rgba(249,115,22,0.35); transition:all 0.25s;
+          box-shadow:0 4px 16px rgba(30,58,138,0.35); transition:all 0.25s;
         }
-        .mega-footer-cta:hover { box-shadow:0 6px 24px rgba(249,115,22,0.55); transform:translateY(-1px); }
+        .mega-footer-cta:hover { box-shadow:0 6px 24px rgba(30,58,138,0.55); transform:translateY(-1px); }
 
-        /* mobile */
         .mobile-link {
           display:block; padding:12px 0; font-size:15px; font-weight:500;
-          color:#E5E5E5; text-decoration:none;
-          border-bottom:1px solid rgba(255,255,255,0.08); transition:color 0.2s;
+          color:#334155; text-decoration:none;
+          border-bottom:1px solid #e2e8f0; transition:color 0.2s;
         }
-        .mobile-link:hover { color:#FB923C; }
+        .mobile-link:hover { color:#1e3a8a; }
         .mobile-sub-link {
           display:block; padding:9px 0 9px 16px; font-size:13px;
-          color:#A3A3A3; text-decoration:none;
-          border-bottom:1px solid rgba(255,255,255,0.04); transition:color 0.2s;
+          color:#64748b; text-decoration:none;
+          border-bottom:1px solid #f1f5f9; transition:color 0.2s;
         }
-        .mobile-sub-link:hover { color:#FB923C; }
+        .mobile-sub-link:hover { color:#1e3a8a; }
       `}</style>
 
       <nav
         style={{
           position:"fixed", top:48, left:0, right:0, zIndex:100,
-          background: scrolled ? "rgba(10,10,10,0.9)" : "rgba(10,10,10,0.75)",
-          borderBottom:`1px solid ${scrolled ? "rgba(249,115,22,0.2)" : "rgba(249,115,22,0.1)"}`,
+          background: scrolled ? "rgba(255,255,255,0.95)" : "rgba(255,255,255,0.9)",
+          borderBottom:`1px solid ${scrolled ? "rgba(30,58,138,0.2)" : "rgba(30,58,138,0.1)"}`,
           backdropFilter:"blur(20px)", WebkitBackdropFilter:"blur(20px)",
           transition:"all 0.3s",
-          boxShadow: scrolled ? "0 4px 30px rgba(0,0,0,0.5)" : "none",
+          boxShadow: scrolled ? "0 4px 30px rgba(0,0,0,0.1)" : "none",
         }}>
 
         <div style={{ maxWidth:"1200px", margin:"0 auto", padding:"0 2rem", height:"90px", display:"flex", alignItems:"center", justifyContent:"space-between" }}>
@@ -278,32 +272,27 @@ export default function Navbar() {
           <div style={{ display:"flex", alignItems:"center", gap:"2.25rem" }} className="hidden md:flex">
             <a href="/" className="nav-link">Home</a>
 
-            {/* SERVICES TRIGGER */}
-            <div
-              style={{ position:"relative", paddingBottom:"60px", marginBottom:"-60px" }}
-            >
+            <div style={{ position:"relative", paddingBottom:"60px", marginBottom:"-60px" }}>
               <div style={{ position:"absolute", bottom:0, left:"50%", transform:"translateX(-50%)", width:"600px", height:"60px" }} />
 
               <button
                 onClick={() => { setDropdown(!dropdown); if (dropdown) setHoveredItem(null); }}
                 style={{
-                background:"none", border:"none", cursor:"pointer",
-                fontSize:"14px", fontWeight:500,
-                color: dropdown ? "#FB923C" : "#C4C4C4",
-                display:"flex", alignItems:"center", gap:"4px",
-                fontFamily:"Inter,sans-serif", transition:"color 0.3s", padding:0,
-              }}>
+                  background:"none", border:"none", cursor:"pointer",
+                  fontSize:"14px", fontWeight:500,
+                  color: dropdown ? "#1e3a8a" : "#334155",
+                  display:"flex", alignItems:"center", gap:"4px",
+                  fontFamily:"Inter,sans-serif", transition:"color 0.3s", padding:0,
+                }}>
                 Services
                 <ChevronDown size={14} style={{ transform: dropdown ? "rotate(180deg)" : "rotate(0deg)", transition:"transform 0.3s" }} />
               </button>
 
-              {/* ── MEGA MENU ── */}
               <div
                 className={`mega-wrap ${dropdown ? "visible-menu" : "hidden-menu"}`}
                 onMouseEnter={openMenu}
                 onMouseLeave={closeMenu}
               >
-                {/* Main 4-col grid */}
                 <div className="mega-inner">
                   {megaMenu.map((col) => (
                     <div key={col.category} className="mega-col">
@@ -313,7 +302,6 @@ export default function Navbar() {
                       </div>
                       {col.items.map((item: any) => (
                         item.submenu ? (
-                          /* Item with submenu — still clickable via href */
                           <a
                             key={item.label}
                             href={item.href}
@@ -346,7 +334,6 @@ export default function Navbar() {
                   ))}
                 </div>
 
-                {/* ── SUBMENU PANEL — overlays main grid ── */}
                 <div
                   className={`submenu-panel ${activeSubmenu ? "sub-visible" : "sub-hidden"}`}
                   onMouseEnter={() => { if (closeTimer.current) clearTimeout(closeTimer.current); }}
@@ -368,7 +355,6 @@ export default function Navbar() {
                   </div>
                 </div>
 
-                {/* Footer */}
                 <div className="mega-footer">
                   <span className="mega-footer-text">Not sure which service fits? Let's talk.</span>
                   <a href="/contact" className="mega-footer-cta">
@@ -387,8 +373,8 @@ export default function Navbar() {
           {/* HAMBURGER */}
           <button onClick={() => setOpen(!open)} className="md:hidden"
             style={{
-              background:"rgba(249,115,22,0.1)", border:"1px solid rgba(249,115,22,0.3)",
-              cursor:"pointer", color:"#FB923C", width:"40px", height:"40px",
+              background:"rgba(30,58,138,0.1)", border:"1px solid rgba(30,58,138,0.3)",
+              cursor:"pointer", color:"#1e3a8a", width:"40px", height:"40px",
               borderRadius:"10px", display:"flex", alignItems:"center", justifyContent:"center",
             }}>
             {open ? <X size={20}/> : <Menu size={20}/>}
@@ -397,7 +383,7 @@ export default function Navbar() {
 
         {/* MOBILE MENU */}
         {open && (
-          <div style={{ background:"rgba(10,10,10,0.98)", borderTop:"1px solid rgba(249,115,22,0.15)", padding:"1.25rem 2rem 1.75rem", backdropFilter:"blur(20px)" }}>
+          <div style={{ background:"rgba(255,255,255,0.98)", borderTop:"1px solid rgba(30,58,138,0.15)", padding:"1.25rem 2rem 1.75rem", backdropFilter:"blur(20px)" }}>
             <a href="/" onClick={() => setOpen(false)} className="mobile-link">Home</a>
             <div>
               <button
@@ -405,15 +391,15 @@ export default function Navbar() {
                 style={{
                   width:"100%", background:"none", border:"none", cursor:"pointer",
                   display:"flex", alignItems:"center", justifyContent:"space-between",
-                  padding:"12px 0", borderBottom:"1px solid rgba(255,255,255,0.08)",
-                  color: mobileServicesOpen ? "#FB923C" : "#E5E5E5",
+                  padding:"12px 0", borderBottom:"1px solid #e2e8f0",
+                  color: mobileServicesOpen ? "#1e3a8a" : "#334155",
                   fontSize:"15px", fontWeight:500, fontFamily:"Inter,sans-serif",
                 }}>
                 Services
                 <ChevronDown size={15} style={{ transform: mobileServicesOpen ? "rotate(180deg)" : "rotate(0deg)", transition:"transform 0.3s" }} />
               </button>
               {mobileServicesOpen && (
-                <div style={{ background:"rgba(249,115,22,0.04)", borderRadius:"8px", margin:"6px 0" }}>
+                <div style={{ background:"#f8fafc", borderRadius:"8px", margin:"6px 0" }}>
                   {mobileAllServices.map(item => (
                     <a key={item.href} href={item.href} onClick={() => setOpen(false)} className="mobile-sub-link">
                       {item.label}
@@ -427,10 +413,10 @@ export default function Navbar() {
             ))}
             <a href="/contact" onClick={() => setOpen(false)} style={{
               display:"block", marginTop:"1.25rem",
-              background:"linear-gradient(135deg,#F97316,#EA580C)",
+              background:"linear-gradient(135deg,#1e3a8a,#3730a3)",
               color:"#fff", padding:"14px", borderRadius:"10px",
               textAlign:"center", fontWeight:700, textDecoration:"none",
-              boxShadow:"0 4px 20px rgba(249,115,22,0.4)",
+              boxShadow:"0 4px 20px rgba(30,58,138,0.4)",
             }}>Free Consultation</a>
           </div>
         )}

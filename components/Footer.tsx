@@ -1,4 +1,3 @@
-"use client";
 import { Phone, Mail, MapPin, ArrowRight, Clock, Facebook, Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
 
 export default function Footer() {
@@ -8,35 +7,35 @@ export default function Footer() {
     { 
       name: "Facebook", 
       icon: Facebook, 
-      href: "https://facebook.com/Clickbrizdigital", 
+      href: "https://www.facebook.com/profile.php?id=61562934023885",
       color: "#1877F2",
       shadowColor: "rgba(24, 119, 242, 0.5)"
     },
     { 
       name: "Instagram", 
       icon: Instagram, 
-      href: "https://instagram.com/Clickbrizdigital", 
+      href: "https://www.instagram.com/clickbrizagency/",
       color: "#E4405F",
       shadowColor: "rgba(228, 64, 95, 0.5)"
     },
     { 
       name: "LinkedIn", 
       icon: Linkedin, 
-      href: "https://linkedin.com/company/Clickbrizdigital", 
+      href: "https://www.linkedin.com/in/clickbriz/", 
       color: "#0A66C2",
       shadowColor: "rgba(10, 102, 194, 0.5)"
     },
     { 
       name: "Twitter/X", 
       icon: Twitter, 
-      href: "https://twitter.com/Clickbrizdigital", 
+      href: "https://x.com/ClickBriz", 
       color: "#FFFFFF",
       shadowColor: "rgba(255, 255, 255, 0.3)"
     },
     { 
       name: "YouTube", 
       icon: Youtube, 
-      href: "https://youtube.com/@Clickbrizdigital", 
+      href: "https://www.youtube.com/@clickbriz", 
       color: "#FF0000",
       shadowColor: "rgba(255, 0, 0, 0.5)"
     },
@@ -46,12 +45,12 @@ export default function Footer() {
     <>
       <style>{`
         .premium-footer {
-          background: linear-gradient(180deg, #0a0a0a 0%, #000000 100%) !important;
+          background: linear-gradient(180deg, #0f172a 0%, #1e3a8a 100%) !important;
           color: #E5E5E5;
           font-family: Inter, sans-serif;
           position: relative;
           overflow: hidden;
-          border-top: 1px solid rgba(249, 115, 22, 0.15);
+          border-top: 1px solid rgba(30, 58, 138, 0.15);
         }
         .premium-footer::before {
           content: '';
@@ -61,7 +60,7 @@ export default function Footer() {
           transform: translateX(-50%);
           width: 400px;
           height: 2px;
-          background: linear-gradient(90deg, transparent, #F97316, transparent);
+          background: linear-gradient(90deg, transparent, #1e3a8a, transparent);
         }
         .premium-footer::after {
           content: '';
@@ -70,7 +69,7 @@ export default function Footer() {
           right: -100px;
           width: 400px;
           height: 400px;
-          background: radial-gradient(circle, rgba(249, 115, 22, 0.1) 0%, transparent 70%);
+          background: radial-gradient(circle, rgba(30, 58, 138, 0.1) 0%, transparent 70%);
           border-radius: 50%;
           filter: blur(60px);
           pointer-events: none;
@@ -94,12 +93,12 @@ export default function Footer() {
         .footer-brand-logo {
           width: 42px;
           height: 42px;
-          background: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
+          background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
           border-radius: 10px;
           display: flex;
           align-items: center;
           justify-content: center;
-          box-shadow: 0 4px 16px rgba(249, 115, 22, 0.5);
+          box-shadow: 0 4px 16px rgba(30, 58, 138, 0.5);
         }
 
         .footer-brand-text {
@@ -109,7 +108,7 @@ export default function Footer() {
           color: #fff;
         }
         .footer-brand-dot {
-          background: linear-gradient(135deg, #F97316, #FB923C);
+          background: linear-gradient(135deg, #1e3a8a, #93c5fd);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -133,7 +132,7 @@ export default function Footer() {
           left: 0;
           width: 30px;
           height: 2px;
-          background: linear-gradient(90deg, #F97316, #EA580C);
+          background: linear-gradient(90deg, #1e3a8a, #3730a3);
           border-radius: 2px;
         }
 
@@ -152,11 +151,11 @@ export default function Footer() {
           opacity: 0;
           transform: translateX(-8px);
           transition: all 0.3s ease;
-          color: #F97316;
+          color: #1e3a8a;
           font-weight: 700;
         }
         .footer-link:hover {
-          color: #FB923C;
+          color: #93c5fd;
           transform: translateX(4px);
         }
         .footer-link:hover::before {
@@ -175,13 +174,13 @@ export default function Footer() {
           transition: color 0.3s ease;
         }
         .footer-contact-item:hover {
-          color: #FB923C;
+          color: #93c5fd;
         }
         .footer-contact-icon {
           width: 36px;
           height: 36px;
-          background: rgba(249, 115, 22, 0.1);
-          border: 1px solid rgba(249, 115, 22, 0.2);
+          background: rgba(30, 58, 138, 0.1);
+          border: 1px solid rgba(30, 58, 138, 0.2);
           border-radius: 10px;
           display: flex;
           align-items: center;
@@ -190,13 +189,13 @@ export default function Footer() {
           transition: all 0.3s ease;
         }
         .footer-contact-item:hover .footer-contact-icon {
-          background: rgba(249, 115, 22, 0.2);
-          border-color: rgba(249, 115, 22, 0.4);
+          background: rgba(30, 58, 138, 0.2);
+          border-color: rgba(30, 58, 138, 0.4);
           transform: scale(1.05);
         }
 
         .footer-cta-btn {
-          background: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
+          background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
           color: #fff;
           padding: 12px 22px;
           border-radius: 10px;
@@ -207,13 +206,13 @@ export default function Footer() {
           display: inline-flex;
           align-items: center;
           gap: 8px;
-          box-shadow: 0 4px 20px rgba(249, 115, 22, 0.4), 0 0 0 1px rgba(255,255,255,0.1) inset;
+          box-shadow: 0 4px 20px rgba(30, 58, 138, 0.4), 0 0 0 1px rgba(255,255,255,0.1) inset;
           transition: all 0.3s ease;
           margin-top: 8px;
         }
         .footer-cta-btn:hover {
           transform: translateY(-2px);
-          box-shadow: 0 8px 30px rgba(249, 115, 22, 0.6), 0 0 0 1px rgba(255,255,255,0.2) inset;
+          box-shadow: 0 8px 30px rgba(30, 58, 138, 0.6), 0 0 0 1px rgba(255,255,255,0.2) inset;
         }
 
         .social-section {
@@ -241,7 +240,7 @@ export default function Footer() {
           width: 44px;
           height: 44px;
           background: rgba(255, 255, 255, 0.04);
-          border: 1px solid rgba(249, 115, 22, 0.2);
+          border: 1px solid rgba(30, 58, 138, 0.2);
           border-radius: 12px;
           display: flex;
           align-items: center;
@@ -283,8 +282,8 @@ export default function Footer() {
           align-items: center;
           gap: 10px;
           padding: 10px 14px;
-          background: rgba(249, 115, 22, 0.06);
-          border: 1px solid rgba(249, 115, 22, 0.15);
+          background: rgba(30, 58, 138, 0.06);
+          border: 1px solid rgba(30, 58, 138, 0.15);
           border-radius: 10px;
           margin-bottom: 14px;
           font-size: 13px;
@@ -293,7 +292,7 @@ export default function Footer() {
         .footer-hours-icon {
           width: 18px;
           height: 18px;
-          color: #FB923C;
+          color: #93c5fd;
           flex-shrink: 0;
         }
 
@@ -311,7 +310,7 @@ export default function Footer() {
           color: #A3A3A3;
         }
         .footer-copyright-highlight {
-          color: #FB923C;
+          color: #93c5fd;
           font-weight: 600;
         }
         .footer-made {
@@ -319,7 +318,7 @@ export default function Footer() {
           color: #A3A3A3;
         }
         .footer-made-heart {
-          background: linear-gradient(135deg, #F97316, #EC4899);
+          background: linear-gradient(135deg, #1e3a8a, #EC4899);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -337,7 +336,7 @@ export default function Footer() {
           color: #A3A3A3;
         }
         .footer-founder-name {
-          color: #FB923C;
+          color: #93c5fd;
           font-weight: 600;
         }
 
@@ -353,17 +352,16 @@ export default function Footer() {
         <div className="footer-container">
           <div className="footer-grid">
             
-            <div>
-              <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "1.25rem" }}>
-                <div className="footer-brand-logo">
-                  <span style={{ fontFamily: "Plus Jakarta Sans, sans-serif", fontWeight: 800, fontSize: "20px", color: "#fff" }}>N</span>
-                </div>
-                <span className="footer-brand-text">
-                  Clickbriz<span className="footer-brand-dot">.</span>
-                </span>
+              <div>
+              <div style={{ marginBottom: "1.25rem" }}>
+                <img 
+                  src="/logo.png"
+                  alt="Clickbriz" 
+                  style={{ height: "60px", width: "auto" }} 
+                />
               </div>
               <p className="footer-description">
-                Results-driven digital marketing agency in Faridabad helping businesses grow online through SEO, Ads, and automation.
+                Clickbriz is a results-driven digital marketing agency helping businesses grow online through SEO, paid advertising and automation.
               </p>
               <p className="footer-founder">
                 Founded by <span className="footer-founder-name">Lalit Sen</span>
@@ -405,21 +403,21 @@ export default function Footer() {
 
               <a href="tel:+918527004901" className="footer-contact-item">
                 <div className="footer-contact-icon">
-                  <Phone size={15} color="#FB923C" />
+                  <Phone size={15} color="#93c5fd" />
                 </div>
                 +91 85270 04901
               </a>
 
-              <a href="mailto:clickbriz@gmail.com" className="footer-contact-item">
+              <a href="clickbriz@gmail.com" className="footer-contact-item">
                 <div className="footer-contact-icon">
-                  <Mail size={15} color="#FB923C" />
+                  <Mail size={15} color="#93c5fd" />
                 </div>
                 clickbriz@gmail.com
               </a>
 
               <div className="footer-contact-item" style={{ cursor: "default" }}>
                 <div className="footer-contact-icon">
-                  <MapPin size={15} color="#FB923C" />
+                  <MapPin size={15} color="#93c5fd" />
                 </div>
                 Faridabad, Haryana, India
               </div>

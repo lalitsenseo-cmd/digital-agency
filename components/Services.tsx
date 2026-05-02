@@ -21,7 +21,7 @@ export default async function Services() {
         .services-section {
           position: relative;
           padding: 6rem 2rem;
-          background: linear-gradient(180deg, #000000 0%, #0A0A0A 50%, #0A0A0A 100%);
+          background: linear-gradient(180deg, #ffffff 0%, #f8fafc 50%, #ffffff 100%);
           overflow: hidden;
         }
         .services-section::before {
@@ -30,13 +30,13 @@ export default async function Services() {
           top: 0; left: 50%;
           transform: translateX(-50%);
           width: 400px; height: 2px;
-          background: linear-gradient(90deg, transparent, #F97316, transparent);
+          background: linear-gradient(90deg, transparent, #1e3a8a, transparent);
         }
         .services-orb {
           position: absolute;
           top: 30%; right: -5%;
           width: 500px; height: 500px;
-          background: radial-gradient(circle, rgba(249, 115, 22, 0.1) 0%, transparent 70%);
+          background: radial-gradient(circle, rgba(30, 58, 138, 0.06) 0%, transparent 70%);
           border-radius: 50%; filter: blur(80px);
           pointer-events: none;
         }
@@ -51,27 +51,27 @@ export default async function Services() {
         }
         .services-badge {
           display: inline-flex; align-items: center; gap: 6px;
-          background: rgba(249, 115, 22, 0.1);
-          border: 1px solid rgba(249, 115, 22, 0.25);
+          background: #eff6ff;
+          border: 1px solid #bfdbfe;
           padding: 6px 14px; border-radius: 999px;
-          font-size: 11px; font-weight: 600; color: #FB923C;
+          font-size: 11px; font-weight: 600; color: #1e3a8a;
           letter-spacing: 1.5px; text-transform: uppercase;
           margin-bottom: 1rem;
         }
         .services-heading {
           font-family: 'Plus Jakarta Sans', sans-serif;
           font-size: clamp(2rem, 4vw, 3rem);
-          font-weight: 800; color: #fff;
+          font-weight: 800; color: #0f172a;
           line-height: 1.1; letter-spacing: -0.03em;
           margin: 0 0 1rem;
         }
         .services-heading-gradient {
-          background: linear-gradient(135deg, #F97316 0%, #FB923C 100%);
+          background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
           -webkit-background-clip: text; -webkit-text-fill-color: transparent;
           background-clip: text;
         }
         .services-subheading {
-          font-size: 1.1rem; color: #A3A3A3;
+          font-size: 1.1rem; color: #64748b;
           max-width: 600px; margin: 0 auto;
           line-height: 1.6;
         }
@@ -83,52 +83,38 @@ export default async function Services() {
         }
 
         .service-card {
-          background: linear-gradient(135deg, rgba(249, 115, 22, 0.06) 0%, rgba(234, 88, 12, 0.03) 100%);
-          border: 1px solid rgba(255, 255, 255, 0.08);
+          background: #fff;
+          border: 1px solid #e2e8f0;
           border-radius: 20px;
           padding: 2rem;
           text-decoration: none;
           display: block;
           position: relative;
           overflow: hidden;
-          backdrop-filter: blur(10px);
           transition: all 0.4s ease;
           animation: fadeInService 0.6s ease-out both;
+          box-shadow: 0 2px 12px rgba(30, 58, 138, 0.06);
         }
         .service-card::before {
           content: '';
           position: absolute;
-          top: 0; left: 0; right: 0; height: 2px;
-          background: linear-gradient(90deg, transparent, rgba(249, 115, 22, 0.6), transparent);
-          opacity: 0.5;
-          transition: opacity 0.4s ease;
-        }
-        .service-card::after {
-          content: '';
-          position: absolute;
-          top: -50%; right: -50%;
-          width: 200%; height: 200%;
-          background: radial-gradient(circle at center, rgba(249, 115, 22, 0.1) 0%, transparent 50%);
-          opacity: 0;
-          transition: opacity 0.4s ease;
-          pointer-events: none;
+          top: 0; left: 0; right: 0; height: 3px;
+          background: linear-gradient(90deg, #1e3a8a, #3730a3);
         }
         .service-card:hover {
           transform: translateY(-6px);
-          border-color: rgba(249, 115, 22, 0.4);
-          background: linear-gradient(135deg, rgba(249, 115, 22, 0.12) 0%, rgba(234, 88, 12, 0.06) 100%);
-          box-shadow: 0 20px 60px rgba(249, 115, 22, 0.25);
+          border-color: #93c5fd;
+          box-shadow: 0 20px 60px rgba(30, 58, 138, 0.15);
+          background: #eff6ff;
         }
-        .service-card:hover::before { opacity: 1; }
-        .service-card:hover::after { opacity: 1; }
 
         .service-icon-wrap {
           width: 56px; height: 56px;
-          background: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
+          background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
           border-radius: 14px;
           display: flex; align-items: center; justify-content: center;
           margin-bottom: 1.5rem;
-          box-shadow: 0 10px 30px rgba(249, 115, 22, 0.4);
+          box-shadow: 0 10px 30px rgba(30, 58, 138, 0.3);
           position: relative;
           z-index: 2;
           transition: transform 0.4s ease;
@@ -140,19 +126,19 @@ export default async function Services() {
         .service-title {
           font-family: 'Plus Jakarta Sans', sans-serif;
           font-size: 1.25rem; font-weight: 700;
-          color: #fff; margin-bottom: 0.75rem;
+          color: #0f172a; margin-bottom: 0.75rem;
           letter-spacing: -0.01em;
           position: relative; z-index: 2;
         }
         .service-desc {
-          font-size: 14px; color: #A3A3A3;
+          font-size: 14px; color: #64748b;
           line-height: 1.7; margin-bottom: 1.5rem;
           position: relative; z-index: 2;
         }
 
         .service-link {
           display: inline-flex; align-items: center; gap: 6px;
-          color: #FB923C;
+          color: #1e3a8a;
           font-size: 13px; font-weight: 700;
           letter-spacing: 0.3px;
           position: relative; z-index: 2;

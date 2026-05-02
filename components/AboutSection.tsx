@@ -1,22 +1,21 @@
-"use client";
 
 const FUNNEL_LAYERS = [
   {
     label: "Focused Marketing",
     items: ["Data & AI insights", "Real-time optimization", "Performance tracking", "ROI-driven decisions"],
-    bg: "linear-gradient(135deg, #F97316, #EA580C)",
+    bg: "linear-gradient(135deg, #1e3a8a, #3730a3)",  // ← blue
     width: "100%",
   },
   {
     label: "Growth Strategies",
     items: ["Audience-based targeting", "Platform-specific execution", "Consistent brand messaging", "Scalable growth"],
-    bg: "linear-gradient(135deg, #C2410C, #9A3412)",
+    bg: "linear-gradient(135deg, #1e40af, #1e3a8a)",  // ← darker blue
     width: "80%",
   },
   {
     label: "Higher ROI",
     items: ["Traffic acquisition", "Lead nurturing", "Conversion optimization", "Retention & growth"],
-    bg: "linear-gradient(135deg, #7C3AED, #6D28D9)",
+    bg: "linear-gradient(135deg, #3730a3, #6d28d9)",  // ← purple
     width: "60%",
   },
 ];
@@ -34,7 +33,7 @@ export default function AboutSection() {
         .about-section {
           position: relative;
           padding: 6rem 2rem;
-          background: linear-gradient(180deg, #0A0A0A 0%, #111111 50%, #0A0A0A 100%);
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 50%, #ffffff 100%);
           overflow: hidden;
         }
         .about-section::before {
@@ -43,13 +42,13 @@ export default function AboutSection() {
           top: 0; left: 50%;
           transform: translateX(-50%);
           width: 400px; height: 2px;
-          background: linear-gradient(90deg, transparent, #F97316, transparent);
+          background: linear-gradient(90deg, transparent, #1e3a8a, transparent);
         }
         .about-orb {
           position: absolute;
           top: 20%; left: -10%;
           width: 500px; height: 500px;
-          background: radial-gradient(circle, rgba(249,115,22,0.1) 0%, transparent 70%);
+          background: radial-gradient(circle, rgba(30,58,138,0.1) 0%, transparent 70%);
           border-radius: 50%; filter: blur(80px);
           pointer-events: none;
         }
@@ -65,31 +64,31 @@ export default function AboutSection() {
         }
         .about-badge {
           display: inline-flex; align-items: center; gap: 6px;
-          background: rgba(249,115,22,0.1);
-          border: 1px solid rgba(249,115,22,0.25);
+          background: #eff6ff;
+          border: 1px solid #bfdbfe;
           padding: 6px 16px; border-radius: 999px;
-          font-size: 11px; font-weight: 700; color: #FB923C;
+          font-size: 11px; font-weight: 700; color: #1e3a8a;
           letter-spacing: 1.5px; text-transform: uppercase;
           margin-bottom: 1.25rem;
         }
         .about-heading {
           font-size: clamp(2rem, 3.5vw, 2.8rem);
-          font-weight: 900; color: #fff;
+          font-weight: 900; color: #0f172a;
           line-height: 1.1; letter-spacing: -0.03em;
           margin: 0 0 1.25rem;
         }
         .about-heading span {
-          background: linear-gradient(135deg, #F97316, #FB923C);
+          background: linear-gradient(135deg, #1e3a8a, #93c5fd);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
         }
         .about-desc {
-          color: #A3A3A3; font-size: 15px;
+          color: #64748b; font-size: 15px;
           line-height: 1.75; margin-bottom: 1.75rem;
         }
         .about-features-title {
-          color: #E5E5E5; font-size: 15px;
+          color: #0f172a; font-size: 15px;
           font-weight: 700; margin-bottom: 1rem;
         }
         .about-feature-item {
@@ -98,21 +97,21 @@ export default function AboutSection() {
         }
         .about-feature-icon {
           width: 22px; height: 22px; border-radius: 50%; flex-shrink: 0;
-          background: linear-gradient(135deg, #F97316, #EA580C);
+          background: linear-gradient(135deg, #1e3a8a, #3730a3);
           display: flex; align-items: center; justify-content: center;
-          box-shadow: 0 4px 12px rgba(249,115,22,0.4);
+          box-shadow: 0 4px 12px rgba(30,58,138,0.4);
         }
         .about-feature-text {
-          color: #E5E5E5; font-size: 14px; font-weight: 500;
+          color: #334155; font-size: 14px; font-weight: 500;
         }
         .about-conclusion {
-          color: #A3A3A3; font-size: 14px;
+          color: #64748b; font-size: 14px;
           line-height: 1.75; margin-top: 1.5rem;
           padding: 16px 20px;
-          background: rgba(249,115,22,0.06);
-          border: 1px solid rgba(249,115,22,0.15);
+          background: #eff6ff;
+          border: 1px solid #bfdbfe;
           border-radius: 12px;
-          border-left: 3px solid #F97316;
+          border-left: 3px solid #1e3a8a;
         }
         .funnel-wrapper {
           display: flex;
@@ -129,7 +128,7 @@ export default function AboutSection() {
         }
         .funnel-layer:hover {
           transform: scaleX(1.02);
-          box-shadow: 0 8px 24px rgba(249,115,22,0.3);
+          box-shadow: 0 8px 24px rgba(30,58,138,0.3);
         }
         .funnel-layer-label {
           font-size: 11px; font-weight: 800;
@@ -150,7 +149,7 @@ export default function AboutSection() {
           width: 0; height: 0;
           border-left: 20px solid transparent;
           border-right: 20px solid transparent;
-          border-top: 12px solid rgba(249,115,22,0.3);
+          border-top: 12px solid rgba(30,58,138,0.3);
         }
         @media (max-width: 768px) {
           .about-container { grid-template-columns: 1fr; gap: 40px; }
@@ -165,7 +164,7 @@ export default function AboutSection() {
           <div>
             <span className="about-badge">✦ About Us</span>
             <h2 className="about-heading">
-              Top Digital Marketing Agency <span>in Faridabad</span> — Driving Real Results
+              Clickbriz - Growth Driven Digital Marketing Agency
             </h2>
             <p className="about-desc">
               Clickbriz is a results-driven digital marketing agency delivering measurable outcomes through data-driven strategies. With full-funnel digital marketing audits, we help you find growth gaps and key opportunities to maximise conversions across all touchpoints.
@@ -215,15 +214,15 @@ export default function AboutSection() {
             ))}
 
             {/* Bottom label */}
-            <div style={{
-              marginTop: 16, textAlign: "center",
-              background: "rgba(249,115,22,0.1)",
-              border: "1px solid rgba(249,115,22,0.3)",
-              borderRadius: 12, padding: "12px 24px",
-            }}>
-              <div style={{ color: "#F97316", fontWeight: 800, fontSize: 18 }}>Higher ROI</div>
-              <div style={{ color: "#A3A3A3", fontSize: 12, marginTop: 4 }}>The outcome of every strategy</div>
-            </div>
+<div style={{
+  marginTop: 16, textAlign: "center",
+  background: "#eff6ff",
+  border: "1px solid #bfdbfe",
+  borderRadius: 12, padding: "12px 24px",
+}}>
+  <div style={{ color: "#1e3a8a", fontWeight: 800, fontSize: 18 }}>Higher ROI</div>
+  <div style={{ color: "#64748b", fontSize: 12, marginTop: 4 }}>The outcome of every strategy</div>
+</div>
           </div>
 
         </div>

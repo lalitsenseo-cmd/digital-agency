@@ -169,9 +169,8 @@ export default function BlogManagerPage() {
     setForm({ ...empty, id: `post-${Date.now()}` });
     setShowForm(true);
   };
-
   return (
-    <div style={{ padding: "2rem", fontFamily: "Inter, sans-serif", maxWidth: "1200px", margin: "0 auto" }}>
+    <div style={{ padding: "2rem", paddingTop: "7rem", fontFamily: "Inter, sans-serif", maxWidth: "1200px", margin: "0 auto" }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "2rem" }}>
         <h1 style={{ fontSize: "1.8rem", fontWeight: 800, color: "#0f1117" }}>Blog Manager</h1>
         <button
@@ -294,21 +293,34 @@ export default function BlogManagerPage() {
               Published (visible on website)
             </label>
 
-            <div style={{ display: "flex", gap: "1rem" }}>
-              <button
-                onClick={handleSave}
-                style={{ background: "#2563eb", color: "#fff", padding: "0.7rem 1.5rem", borderRadius: "8px", border: "none", fontWeight: 600, cursor: "pointer" }}
-              >
-                {editing ? "Update Post" : "Create Post"}
-              </button>
-              <button
-                onClick={() => { setShowForm(false); setEditing(null); }}
-                style={{ background: "#fff", color: "#374151", padding: "0.7rem 1.5rem", borderRadius: "8px", border: "1px solid #d1d5db", fontWeight: 600, cursor: "pointer" }}
-              >
-                Cancel
-              </button>
-            </div>
-          </div>
+        </div>
+        </div>
+      )}
+
+      {showForm && (
+        <div style={{
+          position: "sticky",
+          bottom: 0,
+          background: "#fff",
+          borderTop: "2px solid #e5e7eb",
+          padding: "12px 24px",
+          display: "flex",
+          gap: "1rem",
+          zIndex: 50,
+          boxShadow: "0 -4px 12px rgba(0,0,0,0.08)",
+        }}>
+          <button
+            onClick={handleSave}
+            style={{ background: "#2563eb", color: "#fff", padding: "0.7rem 1.5rem", borderRadius: "8px", border: "none", fontWeight: 600, cursor: "pointer" }}
+          >
+            {editing ? "💾 Update Post" : "💾 Create Post"}
+          </button>
+          <button
+            onClick={() => { setShowForm(false); setEditing(null); }}
+            style={{ background: "#fff", color: "#374151", padding: "0.7rem 1.5rem", borderRadius: "8px", border: "1px solid #d1d5db", fontWeight: 600, cursor: "pointer" }}
+          >
+            Cancel
+          </button>
         </div>
       )}
 

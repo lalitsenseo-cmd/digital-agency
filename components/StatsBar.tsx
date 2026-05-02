@@ -52,9 +52,9 @@ const STATS = [
 export default function StatsBar() {
   return (
     <section style={{
-      background: "linear-gradient(90deg, rgba(249,115,22,0.1), rgba(234,88,12,0.06), rgba(249,115,22,0.1))",
-      borderTop: "1px solid rgba(249,115,22,0.2)",
-      borderBottom: "1px solid rgba(249,115,22,0.2)",
+      background: "linear-gradient(90deg, #1e3a8a, #3730a3, #1e3a8a)",
+      borderTop: "none",
+      borderBottom: "none",
       padding: "40px 24px",
     }}>
       <div style={{
@@ -70,21 +70,21 @@ export default function StatsBar() {
             alignItems: "flex-start",
             gap: 16,
             padding: "20px 20px",
-            background: "rgba(255,255,255,0.03)",
-            border: "1px solid rgba(249,115,22,0.15)",
+            background: "rgba(255,255,255,0.08)",
+            border: "1px solid rgba(255,255,255,0.15)",
             borderRadius: 16,
             transition: "all 0.3s ease",
             cursor: "default",
           }}
           onMouseEnter={e => {
-            (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(249,115,22,0.45)";
-            (e.currentTarget as HTMLDivElement).style.background = "rgba(249,115,22,0.08)";
+            (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(255,255,255,0.35)";
+            (e.currentTarget as HTMLDivElement).style.background = "rgba(255,255,255,0.15)";
             (e.currentTarget as HTMLDivElement).style.transform = "translateY(-4px)";
-            (e.currentTarget as HTMLDivElement).style.boxShadow = "0 12px 32px rgba(249,115,22,0.15)";
+            (e.currentTarget as HTMLDivElement).style.boxShadow = "0 12px 32px rgba(0,0,0,0.2)";
           }}
           onMouseLeave={e => {
-            (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(249,115,22,0.15)";
-            (e.currentTarget as HTMLDivElement).style.background = "rgba(255,255,255,0.03)";
+            (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(255,255,255,0.15)";
+            (e.currentTarget as HTMLDivElement).style.background = "rgba(255,255,255,0.08)";
             (e.currentTarget as HTMLDivElement).style.transform = "";
             (e.currentTarget as HTMLDivElement).style.boxShadow = "";
           }}
@@ -92,9 +92,9 @@ export default function StatsBar() {
             {/* Icon */}
             <div style={{
               width: 48, height: 48, borderRadius: 12, flexShrink: 0,
-              background: "linear-gradient(135deg, #F97316, #EA580C)",
+              background: "rgba(255,255,255,0.2)",
               display: "flex", alignItems: "center", justifyContent: "center",
-              boxShadow: "0 6px 20px rgba(249,115,22,0.4)",
+              boxShadow: "0 6px 20px rgba(0,0,0,0.15)",
             }}>
               {stat.icon}
             </div>
@@ -102,20 +102,19 @@ export default function StatsBar() {
             {/* Text */}
             <div>
               <div style={{
-                fontSize: 11, fontWeight: 700, color: "#6B6B6B",
+                fontSize: 11, fontWeight: 700, color: "rgba(255,255,255,0.7)",
                 textTransform: "uppercase", letterSpacing: "1.2px", marginBottom: 4,
               }}>
                 {stat.label}
               </div>
               <div style={{
                 fontSize: "1.4rem", fontWeight: 900, letterSpacing: "-0.02em",
-                background: "linear-gradient(135deg, #F97316, #FB923C)",
-                WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
-                backgroundClip: "text", marginBottom: 4, lineHeight: 1.1,
+                color: "#fff",
+                marginBottom: 4, lineHeight: 1.1,
               }}>
                 {stat.value}
               </div>
-              <div style={{ fontSize: 12, color: "#A3A3A3", lineHeight: 1.4 }}>
+              <div style={{ fontSize: 12, color: "rgba(255,255,255,0.7)", lineHeight: 1.4 }}>
                 {stat.sub}
               </div>
             </div>
