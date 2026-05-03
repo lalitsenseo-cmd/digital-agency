@@ -336,7 +336,7 @@ export default function ContactPageClient({
           padding-right: 40px;
         }
         .cf-select option {
-          background: #171717;
+          background: #ffffff;
           color: #0f172a;
         }
         .cf-textarea {
@@ -349,7 +349,7 @@ export default function ContactPageClient({
           border: none;
           border-radius: 12px;
           padding: 16px;
-          color: #0f172a;
+          color: #ffffff;
           font-weight: 700;
           font-family: 'Plus Jakarta Sans', sans-serif;
           font-size: 15px;

@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
-import { Menu, X, ChevronDown, ArrowRight, ChevronRight } from "lucide-react";
+import { ChevronDown, ArrowRight, ChevronRight } from "lucide-react";
 
 const megaMenu = [
   {
@@ -66,12 +66,12 @@ const mobileAllServices = megaMenu.flatMap(cat =>
 );
 
 export default function Navbar() {
-  const [scrolled, setScrolled]               = useState(false);
-  const [open, setOpen]                       = useState(false);
-  const [dropdown, setDropdown]               = useState(false);
-  const [hoveredItem, setHoveredItem]         = useState<string | null>(null);
+  const [scrolled, setScrolled]                     = useState(false);
+  const [open, setOpen]                             = useState(false);
+  const [dropdown, setDropdown]                     = useState(false);
+  const [hoveredItem, setHoveredItem]               = useState<string | null>(null);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
-  const closeTimer  = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const openMenu  = () => { if (closeTimer.current) clearTimeout(closeTimer.current); setDropdown(true); };
   const closeMenu = () => {
@@ -117,12 +117,11 @@ export default function Navbar() {
 
         .mega-wrap {
           position:fixed; top:138px; left:0; right:0;
-          background:rgba(10,10,10,0.98);
-          border-top:1px solid rgba(30,58,138,0.2);
-          border-bottom:1px solid rgba(30,58,138,0.15);
+          background:#ffffff;
+          border-top:1px solid rgba(30,58,138,0.15);
+          border-bottom:1px solid rgba(30,58,138,0.1);
           padding:32px 0 24px;
-          box-shadow:0 32px 80px rgba(0,0,0,0.7);
-          backdrop-filter:blur(24px);
+          box-shadow:0 32px 80px rgba(0,0,0,0.12);
           transition:opacity 0.25s, transform 0.25s, visibility 0.25s;
           z-index:101;
         }
@@ -132,9 +131,10 @@ export default function Navbar() {
         .mega-inner {
           max-width:1200px; margin:0 auto; padding:0 2rem;
           display:grid; grid-template-columns:repeat(4,1fr);
+          position:relative; z-index:1;
         }
 
-        .mega-col { padding:0 16px; border-right:1px solid rgba(255,255,255,0.06); }
+        .mega-col { padding:0 16px; border-right:1px solid rgba(0,0,0,0.08); }
         .mega-col:last-child { border-right:none; }
         .mega-col:first-child { padding-left:0; }
 
@@ -145,7 +145,7 @@ export default function Navbar() {
         }
         .mega-cat-icon {
           font-size:15px; width:28px; height:28px;
-          background:rgba(30,58,138,0.12); border-radius:7px;
+          background:rgba(30,58,138,0.08); border-radius:7px;
           display:flex; align-items:center; justify-content:center;
         }
         .mega-cat-label { font-size:10px; font-weight:700; letter-spacing:1.5px; color:#1e3a8a; }
@@ -154,81 +154,70 @@ export default function Navbar() {
           display:block; padding:9px 10px; border-radius:9px;
           text-decoration:none; transition:all 0.2s; margin-bottom:3px;
         }
-        .mega-item:hover { background:rgba(30,58,138,0.1); }
+        .mega-item:hover { background:rgba(30,58,138,0.06); }
         .mega-item-label {
-          font-size:13px; font-weight:600; color:#E5E5E5;
+          font-size:13px; font-weight:600; color:#111111;
           display:flex; align-items:center;
           margin-bottom:2px; line-height:1.3; transition:color 0.2s;
         }
-        .mega-item:hover .mega-item-label { color:#93c5fd; }
-        .mega-item-desc { font-size:11px; color:#737373; }
+        .mega-item:hover .mega-item-label { color:#1e3a8a; }
+        .mega-item-desc { font-size:11px; color:#6b7280; }
         .mega-arrow { opacity:0; transition:all 0.2s; margin-left:auto; flex-shrink:0; }
         .mega-item:hover .mega-arrow { opacity:1; transform:translateX(2px); }
 
-        .mega-item-sub { background:rgba(30,58,138,0.06); border:1px solid rgba(30,58,138,0.15); }
-        .mega-item-sub:hover { background:rgba(30,58,138,0.14); border-color:rgba(30,58,138,0.35); }
-        .mega-item-sub .mega-item-label { color:#93c5fd; }
+        .mega-item-sub { background:rgba(30,58,138,0.04); border:1px solid rgba(30,58,138,0.12); }
+        .mega-item-sub:hover { background:rgba(30,58,138,0.1); border-color:rgba(30,58,138,0.3); }
+        .mega-item-sub .mega-item-label { color:#1e3a8a; }
         .sub-chevron { margin-left:auto; flex-shrink:0; color:#1e3a8a; transition:transform 0.2s; }
         .mega-item-sub:hover .sub-chevron { transform:translateX(2px); }
 
         .submenu-panel {
-          position:absolute;
-          top:0; bottom:0;
-          left:25%;
-          right:0;
-          background:rgba(8,8,8,0.98);
-          border-left:2px solid rgba(30,58,138,0.25);
+          position:absolute; top:0; bottom:0; left:25%; right:0;
+          background:#f8fafc; border-left:2px solid rgba(30,58,138,0.2);
           padding:28px 24px 24px;
-          transition:opacity 0.18s, visibility 0.18s;
-          z-index:10;
+          transition:opacity 0.18s, visibility 0.18s; z-index:20;
         }
         .submenu-panel.sub-hidden { opacity:0; visibility:hidden; pointer-events:none; }
         .submenu-panel.sub-visible { opacity:1; visibility:visible; pointer-events:auto; }
-
         .submenu-inner { height:100%; }
-
         .submenu-head {
           display:flex; align-items:center; gap:10px;
           margin-bottom:16px; padding-bottom:12px;
-          border-bottom:1px solid rgba(30,58,138,0.15);
+          border-bottom:1px solid rgba(30,58,138,0.12);
         }
         .submenu-back {
           display:inline-flex; align-items:center; gap:6px;
-          background:rgba(30,58,138,0.1); border:1px solid rgba(30,58,138,0.2);
-          color:#93c5fd; font-size:12px; font-weight:600;
+          background:rgba(30,58,138,0.08); border:1px solid rgba(30,58,138,0.2);
+          color:#1e3a8a; font-size:12px; font-weight:600;
           padding:5px 12px; border-radius:999px; cursor:pointer;
           text-decoration:none; transition:all 0.2s;
         }
-        .submenu-back:hover { background:rgba(30,58,138,0.2); }
+        .submenu-back:hover { background:rgba(30,58,138,0.15); }
         .submenu-title { font-size:10px; font-weight:700; color:#1e3a8a; letter-spacing:1.5px; text-transform:uppercase; }
-
-        .submenu-grid {
-          display:grid; grid-template-columns:repeat(2,1fr); gap:8px;
-        }
+        .submenu-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:8px; }
         .submenu-item {
           display:flex; align-items:center; gap:10px;
           padding:11px 14px; border-radius:10px;
-          text-decoration:none; color:#C4C4C4; font-size:13px; font-weight:500;
-          border:1px solid rgba(255,255,255,0.05);
-          transition:all 0.2s;
+          text-decoration:none; color:#111111; font-size:13px; font-weight:500;
+          border:1px solid rgba(0,0,0,0.08); transition:all 0.2s; background:#ffffff;
         }
         .submenu-item:hover {
-          background:rgba(30,58,138,0.1);
-          border-color:rgba(30,58,138,0.25);
-          color:#93c5fd; transform:translateX(3px);
+          background:rgba(30,58,138,0.06); border-color:rgba(30,58,138,0.25);
+          color:#1e3a8a; transform:translateX(3px);
         }
         .submenu-dot {
           width:6px; height:6px; border-radius:50%;
-          background:rgba(30,58,138,0.5); flex-shrink:0; transition:all 0.2s;
+          background:rgba(30,58,138,0.4); flex-shrink:0; transition:all 0.2s;
         }
-        .submenu-item:hover .submenu-dot { background:#1e3a8a; box-shadow:0 0 8px #1e3a8a; }
+        .submenu-item:hover .submenu-dot { background:#1e3a8a; box-shadow:0 0 8px rgba(30,58,138,0.4); }
 
         .mega-footer {
           max-width:1200px; margin:16px auto 0; padding:14px 2rem 0;
-          border-top:1px solid rgba(255,255,255,0.07);
+          border-top:1px solid rgba(0,0,0,0.08);
           display:flex; align-items:center; justify-content:space-between;
+          position:relative; z-index:2;
         }
-        .mega-footer-text { font-size:13px; color:#737373; }
+        .mega-footer-text { font-size:13px; color:#4b5563; }
         .mega-footer-cta {
           background:linear-gradient(135deg,#1e3a8a,#3730a3);
           color:#fff; padding:8px 18px; border-radius:8px;
@@ -250,6 +239,18 @@ export default function Navbar() {
           border-bottom:1px solid #f1f5f9; transition:color 0.2s;
         }
         .mobile-sub-link:hover { color:#1e3a8a; }
+
+        .seo-audit-btn {
+          background:linear-gradient(135deg,#1e3a8a,#3730a3);
+          color:#fff; text-decoration:none;
+          padding:10px 16px; border-radius:10px;
+          font-size:13px; font-weight:700;
+          display:flex; align-items:center; gap:6px;
+          font-family:Inter,sans-serif;
+          box-shadow:0 4px 16px rgba(30,58,138,0.4);
+          white-space:nowrap; transition:all 0.3s;
+        }
+        .seo-audit-btn:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(30,58,138,0.6); }
       `}</style>
 
       <nav
@@ -264,17 +265,16 @@ export default function Navbar() {
 
         <div style={{ maxWidth:"1200px", margin:"0 auto", padding:"0 2rem", height:"90px", display:"flex", alignItems:"center", justifyContent:"space-between" }}>
 
+          {/* LOGO */}
           <a href="/" style={{ display:"flex", alignItems:"center", textDecoration:"none" }}>
             <img src="/logo.png" alt="Clickbriz" style={{ height:"90px", width:"auto" }} />
           </a>
 
-          {/* DESKTOP */}
+          {/* DESKTOP NAV */}
           <div style={{ display:"flex", alignItems:"center", gap:"2.25rem" }} className="hidden md:flex">
             <a href="/" className="nav-link">Home</a>
 
             <div style={{ position:"relative", paddingBottom:"60px", marginBottom:"-60px" }}>
-              <div style={{ position:"absolute", bottom:0, left:"50%", transform:"translateX(-50%)", width:"600px", height:"60px" }} />
-
               <button
                 onClick={() => { setDropdown(!dropdown); if (dropdown) setHoveredItem(null); }}
                 style={{
@@ -367,18 +367,15 @@ export default function Navbar() {
             {["Blog", "About", "Contact"].map(item => (
               <a key={item} href={`/${item.toLowerCase()}`} className="nav-link">{item}</a>
             ))}
+
             <a href="/contact" className="nav-cta">Free Consultation</a>
           </div>
 
-          {/* HAMBURGER */}
-          <button onClick={() => setOpen(!open)} className="md:hidden"
-            style={{
-              background:"rgba(30,58,138,0.1)", border:"1px solid rgba(30,58,138,0.3)",
-              cursor:"pointer", color:"#1e3a8a", width:"40px", height:"40px",
-              borderRadius:"10px", display:"flex", alignItems:"center", justifyContent:"center",
-            }}>
-            {open ? <X size={20}/> : <Menu size={20}/>}
-          </button>
+          {/* ✅ SEO AUDIT BUTTON — hamburger ki jagah */}
+          <a href="/seo-audit" className="seo-audit-btn">
+            🔍 Free SEO Audit
+          </a>
+
         </div>
 
         {/* MOBILE MENU */}
