@@ -35,7 +35,7 @@ export default async function ServicePage({ slug, color, bg, cmsContent }: Props
       <WhatsAppButton />
       <Navbar />
 
-      <style>{`
+      <style suppressHydrationWarning>{`
         @keyframes glow-pulse { 0%,100% { opacity: 0.3; } 50% { opacity: 0.6; } }
         @keyframes shimmer { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }

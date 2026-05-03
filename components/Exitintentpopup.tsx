@@ -84,7 +84,7 @@ export default function ExitIntentPopup() {
 
   return (
     <>
-      <style>{`
+      <style suppressHydrationWarning>{`
         @keyframes ei-overlay-in  { from { opacity:0; } to { opacity:1; } }
         @keyframes ei-overlay-out { from { opacity:1; } to { opacity:0; } }
         @keyframes ei-modal-in    { from { opacity:0; transform:scale(0.88) translateY(32px); } to { opacity:1; transform:scale(1) translateY(0); } }

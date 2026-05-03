@@ -15,7 +15,7 @@ const BRANDS_ROW2 = [
 export default function TrustedBrands() {
   return (
     <>
-      <style>{`
+      <style suppressHydrationWarning>{`
         .tb-section {
           padding: 80px 0;
           background: #ffffff;

@@ -43,7 +43,7 @@ export default function Footer() {
 
   return (
     <>
-      <style>{`
+      <style suppressHydrationWarning>{`
         .premium-footer {
           background: linear-gradient(180deg, #0f172a 0%, #1e3a8a 100%) !important;
           color: #E5E5E5;

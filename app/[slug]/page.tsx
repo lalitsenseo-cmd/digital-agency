@@ -37,7 +37,7 @@ export default function SlugPage({ params }: { params: { slug: string } }) {
 
   return (
     <>
-      <style>{`
+      <style suppressHydrationWarning>{`
         @keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
         @keyframes shimmer { 0%{background-position:-200% center} 100%{background-position:200% center} }
 

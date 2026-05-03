@@ -12,7 +12,7 @@ export default function CTAForm() {
 
   return (
     <>
-      <style>{`
+      <style suppressHydrationWarning>{`
         .cta-section {
           background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 50%, #1e3a8a 100%);
           padding: 72px 24px;

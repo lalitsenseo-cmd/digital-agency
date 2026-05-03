@@ -42,7 +42,7 @@ export default function ContactClient({
 
   return (
     <>
-      <style>{`
+      <style suppressHydrationWarning>{`
         @keyframes contactFadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
 
         .contact-section {

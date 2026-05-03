@@ -3,7 +3,7 @@
 export default function TopBar(): JSX.Element {
   return (
     <>
-      <style>{`
+      <style suppressHydrationWarning>{`
         .topbar-link {
           color: rgba(255,255,255,0.85);
           text-decoration: none;

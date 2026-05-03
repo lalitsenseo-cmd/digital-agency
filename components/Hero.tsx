@@ -15,7 +15,7 @@ export default async function Hero() {
 
   return (
     <>
-      <style>{`
+      <style suppressHydrationWarning>{`
         @keyframes floatImg  { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
         @keyframes floatS1   { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)}  }
         @keyframes floatS2   { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)}  }

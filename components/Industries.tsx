@@ -19,7 +19,7 @@ const INDUSTRIES = [
 export default function Industries() {
   return (
     <>
-      <style>{`
+      <style suppressHydrationWarning>{`
         .ind-section {
           padding: 80px 24px;
   background: linear-gradient(180deg, #f8fafc 0%, #eff6ff 100%);

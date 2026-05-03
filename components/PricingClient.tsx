@@ -25,7 +25,7 @@ export default function PricingClient({
 
   return (
     <>
-      <style>{`
+      <style suppressHydrationWarning>{`
         .pricing-section {
           position: relative;
           padding: 6rem 2rem;

@@ -91,7 +91,7 @@ export default function Navbar() {
 
   return (
     <>
-      <style>{`
+      <style suppressHydrationWarning>{`
         .nav-link {
           font-size:14px; font-weight:500; color:#334155;
           font-family:Inter,sans-serif; text-decoration:none;

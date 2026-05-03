@@ -45,7 +45,7 @@ export function WhatsAppButton() {
 
   return (
     <>
-      <style>{`
+      <style suppressHydrationWarning>{`
         @keyframes wa-pulse {
           0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
           70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
@@ -165,7 +165,7 @@ export function LoadingScreen() {
 
   return (
     <>
-      <style>{`
+      <style suppressHydrationWarning>{`
         @keyframes load-spin {
           0% { transform: rotate(0deg); }
           100% { transform: rotate(360deg); }

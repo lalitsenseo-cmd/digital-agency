@@ -162,7 +162,7 @@ export default async function SEOPage() {
       <WhatsAppButton />
       <Navbar />
 
-      <style>{`
+      <style suppressHydrationWarning>{`
         @keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
 
         body { background:#fff !important; }

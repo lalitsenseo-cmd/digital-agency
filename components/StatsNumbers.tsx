@@ -64,7 +64,7 @@ export default function StatsNumbers() {
 
   return (
     <>
-      <style>{`
+      <style suppressHydrationWarning>{`
         .sn-section {
           padding: 80px 24px;
           background: linear-gradient(180deg, #f8fafc 0%, #eff6ff 100%);

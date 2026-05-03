@@ -29,7 +29,7 @@ const FEATURES = [
 export default function AboutSection() {
   return (
     <>
-      <style>{`
+      <style suppressHydrationWarning>{`
         .about-section {
           position: relative;
           padding: 6rem 2rem;

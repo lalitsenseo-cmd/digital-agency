@@ -25,7 +25,7 @@ export default async function ContactPage() {
       <WhatsAppButton />
       <Navbar />
 
-      <style>{`
+      <style suppressHydrationWarning>{`
         @keyframes shimmer { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes glow-pulse { 0%,100% { opacity: 0.3; } 50% { opacity: 0.6; } }

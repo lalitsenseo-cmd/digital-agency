@@ -122,7 +122,7 @@ export default function SEOAuditPage() {
 
   return (
     <>
-      <style>{`
+      <style suppressHydrationWarning>{`
         @keyframes fade-up {
           from { opacity:0; transform:translateY(24px); }
           to   { opacity:1; transform:translateY(0); }
