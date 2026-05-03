@@ -10,6 +10,11 @@ import Exitintentpopup from "@/components/Exitintentpopup";
 export const metadata: Metadata = {
   title: "Clickbriz Digital — SEO, Ads, Web & Python Development Agency in Faridabad",
   description: "Clickbriz Digital is a results-driven digital marketing agency in Faridabad.",
+  icons: {
+    icon: "/favicon.ico",        // ✅ YE ADD KARO
+    shortcut: "/favicon.ico",    // ✅ YE ADD KARO
+    apple: "/favicon.ico",       // ✅ YE ADD KARO
+  },
 };
 
 const GA_ID = "G-YE1CKM6JVQ";
