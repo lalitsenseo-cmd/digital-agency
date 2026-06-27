@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import RichTextEditor from "@/components/RichTextEditor";
 
 type BlogPost = {
   id: string;
@@ -230,13 +231,10 @@ export default function BlogManagerPage() {
             </div>
 
             <div>
-              <label style={{ fontSize: "13px", fontWeight: 600, color: "#374151", marginBottom: "0.3rem", display: "block" }}>Content (HTML allowed)</label>
-              <textarea
+              <label style={{ fontSize: "13px", fontWeight: 600, color: "#374151", marginBottom: "0.3rem", display: "block" }}>Content</label>
+              <RichTextEditor
                 value={form.content}
-                onChange={(e) => setForm({ ...form, content: e.target.value })}
-                rows={12}
-                style={{ width: "100%", padding: "0.7rem", border: "1px solid #d1d5db", borderRadius: "8px", fontSize: "14px", fontFamily: "monospace", resize: "vertical" }}
-                placeholder="<p>Your full blog content here...</p><h2>Section</h2><p>More content...</p>"
+                onChange={(html) => setForm({ ...form, content: html })}
               />
             </div>
 

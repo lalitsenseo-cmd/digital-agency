@@ -16,9 +16,9 @@ reactStrictMode: false,
         headers: [
           {
             key: "X-Robots-Tag",
-            value: process.env.VERCEL_URL?.includes("vercel.app")
-              ? "noindex, nofollow"
-              : "index, follow",
+            value: process.env.VERCEL_ENV === "production"
+              ? "index, follow"
+              : "noindex, nofollow",
           },
         ],
       },

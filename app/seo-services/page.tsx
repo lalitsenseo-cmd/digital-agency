@@ -1,20 +1,13 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { WhatsAppButton } from "@/components/PremiumFeatures";
-import { getPageData, buildMetadata } from "@/lib/get-page-data";
 import { ArrowRight, Phone, CheckCircle, TrendingUp, Shield, Zap, Star, Award } from "lucide-react";
 import Link from "next/link";
 import type { Metadata } from "next";
-
-export const revalidate = 0;
-
-export async function generateMetadata(): Promise<Metadata> {
-  const page = await getPageData("seo-services");
-  return buildMetadata(page, {
-    title: "SEO Services for Business Growth | Clickbriz Digital",
-    description: "SEO services help improve website visibility on search engines. Includes keyword research, audit, on-page SEO, and link building for better rankings.",
-  });
-}
+export const metadata: Metadata = {
+  title: "SEO Services for Business Growth | Clickbriz Digital",
+  description: "SEO services help improve website visibility on search engines. Includes keyword research, audit, on-page SEO, and link building for better rankings.",
+};
 
 const SEO_CONTENT = `
 <h2>SEO Services That Drive Organic Traffic, Rankings, and Qualified Leads</h2>

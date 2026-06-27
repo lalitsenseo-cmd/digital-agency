@@ -7,8 +7,8 @@ import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import { WhatsAppButton } from "@/components/PremiumFeatures";
+import { JsonLd, localBusinessNode, websiteNode } from "@/lib/schema";
 import type { Metadata } from "next";
-import { getPageData, buildMetadata } from "@/lib/get-page-data";
 import StatsBar from "@/components/StatsBar";
 import AboutSection from "@/components/AboutSection";
 import CTAForm from "@/components/CTAForm";
@@ -16,19 +16,16 @@ import StatsNumbers from "@/components/StatsNumbers";
 import TrustedBrands from "@/components/TrustedBrands";
 import Industries from "@/components/Industries";
 
-export const revalidate = 0;
-
-export async function generateMetadata(): Promise<Metadata> {
-  const page = await getPageData("home");
-  return buildMetadata(page, {
-    title: "Clickbriz Digital — Digital Marketing Agency in Faridabad",
-    description: "SEO, Google Ads, Social Media, Website Development & Python Automation for Indian businesses.",
-  });
-}
+// ✅ Supabase hataya — direct hardcode
+export const metadata: Metadata = {
+  title: "Clickbriz Digital — Digital Marketing Agency in Faridabad",
+  description: "SEO, Google Ads, Social Media, Website Development & Python Automation for Indian businesses.",
+};
 
 export default function Home() {
   return (
     <main style={{ background: "#080808", minHeight: "100vh" }}>
+      <JsonLd graph={[localBusinessNode(), websiteNode()]} />
       <WhatsAppButton />
       <Navbar />
       <Hero />

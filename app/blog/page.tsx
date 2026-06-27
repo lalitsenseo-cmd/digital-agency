@@ -1,24 +1,18 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
-import { getBlogPosts } from "@/lib/get-blog-posts";
-import { getPageData, buildMetadata } from "@/lib/get-page-data";
+import { getAllPosts } from "@/lib/posts";
 import { WhatsAppButton } from "@/components/PremiumFeatures";
 import { Sparkles, Calendar, ArrowRight, BookOpen } from "lucide-react";
 import type { Metadata } from "next";
 
-export const revalidate = 0;
-
-export async function generateMetadata(): Promise<Metadata> {
-  const page = await getPageData("blog");
-  return buildMetadata(page, {
-    title: "Blog | Clickbriz Digital",
-    description: "Digital marketing tips, guides, and case studies.",
-  });
-}
+export const metadata: Metadata = {
+  title: "Blog | Clickbriz Digital",
+  description: "Digital marketing tips, guides, and case studies.",
+};
 
 export default async function BlogPage() {
-  const posts = await getBlogPosts();
+  const posts = await getAllPosts();
 
   return (
     <>
@@ -264,14 +258,14 @@ export default async function BlogPage() {
               ) : (
                 <div className="blog-posts-grid">
                   {posts.map((post) => {
-                    const date = new Date(post.published_at).toLocaleDateString("en-IN", {
+                    const date = new Date(post.publishedDate).toLocaleDateString("en-IN", {
                       day: "numeric", month: "short", year: "numeric"
                     });
                     return (
-                      <Link key={post.id} href={`/blog/${post.slug}`} className="blog-post-card">
+                      <Link key={post.slug} href={`/blog/${post.slug}`} className="blog-post-card">
                         <div className="blog-post-img-wrap">
-                          {post.cover_image ? (
-                            <img src={post.cover_image} alt={post.title} className="blog-post-img" />
+                          {post.coverImage ? (
+                            <img src={post.coverImage} alt={post.title} className="blog-post-img" />
                           ) : (
                             <div className="blog-post-placeholder">
                               <div className="blog-post-placeholder-icon">

@@ -2,10 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
 import { AdminProvider } from "@/context/AdminContext";
-import AdminBar from "@/components/AdminBar";
-import TopBar from "@/components/TopBar";
-import Navbar from "@/components/Navbar";
-import Exitintentpopup from "@/components/Exitintentpopup";
+import { SiteHeader, SiteExtras } from "@/components/SiteChrome";
 
 export const metadata: Metadata = {
   title: "Clickbriz Digital — SEO, Ads, Web & Python Development Agency in Faridabad",
@@ -85,11 +82,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <AdminProvider>
-          <TopBar />
-          <Navbar />
+          <SiteHeader />
           {children}
-          <AdminBar />
-          <Exitintentpopup/>
+          <SiteExtras />
         </AdminProvider>
       </body>
     </html>
