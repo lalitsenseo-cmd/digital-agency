@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
-import { ChevronDown, ArrowRight, ChevronRight } from "lucide-react";
+import { ChevronDown, ArrowRight, ChevronRight, Menu, X } from "lucide-react";
 
 const megaMenu = [
   {
@@ -251,6 +251,16 @@ export default function Navbar() {
           white-space:nowrap; transition:all 0.3s;
         }
         .seo-audit-btn:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(30,58,138,0.6); }
+
+        .mobile-toggle {
+          display:none;
+          background:none; border:none; cursor:pointer;
+          color:#1e3a8a; padding:6px; align-items:center; justify-content:center;
+        }
+        @media (max-width:767px) {
+          .mobile-toggle { display:inline-flex; }
+          .seo-audit-btn { display:none; }
+        }
       `}</style>
 
       <nav
@@ -371,10 +381,20 @@ export default function Navbar() {
             <a href="/contact" className="nav-cta">Free Consultation</a>
           </div>
 
-          {/* ✅ SEO AUDIT BUTTON — hamburger ki jagah */}
+          {/* SEO AUDIT BUTTON (desktop) */}
           <a href="/seo-audit" className="seo-audit-btn">
             🔍 Free SEO Audit
           </a>
+
+          {/* MOBILE HAMBURGER TOGGLE */}
+          <button
+            className="mobile-toggle"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            onClick={() => setOpen(!open)}
+          >
+            {open ? <X size={26} /> : <Menu size={26} />}
+          </button>
 
         </div>
 

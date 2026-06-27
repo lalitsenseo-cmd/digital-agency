@@ -43,6 +43,9 @@ export default function ExitIntentPopup() {
   useEffect(() => {
     if (sessionStorage.getItem("exit_popup_shown")) return;
 
+    // Mobile / chhoti screen pe popup nahi dikhana (sirf desktop exit-intent)
+    if (typeof window !== "undefined" && window.innerWidth < 768) return;
+
     const handleMouseLeave = (e: MouseEvent) => {
       if (e.clientY <= 10) {
         setShow(true);
