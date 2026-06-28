@@ -116,8 +116,33 @@ export default function ContactPage() {
             infoHeading="Get In Touch"
             contactInfo={[]}
             formHeading="Free Consultation Form"
-            services={[]}
-            budgets={[]}
+            services={[
+              "SEO Services",
+              "Local SEO",
+              "Ecommerce SEO",
+              "Technical SEO",
+              "Amazon SEO",
+              "Google Ads (PPC)",
+              "Meta Ads",
+              "YouTube Ads",
+              "Social Media Marketing",
+              "Instagram Marketing",
+              "Website Development",
+              "WordPress Development",
+              "Ecommerce Store",
+              "Python Automation",
+              "Content Writing",
+              "Logo & Branding",
+              "Other",
+            ]}
+            budgets={[
+              "Under ₹10,000 / month",
+              "₹10,000 – ₹25,000 / month",
+              "₹25,000 – ₹50,000 / month",
+              "₹50,000 – ₹1,00,000 / month",
+              "₹1,00,000+ / month",
+              "Not sure yet",
+            ]}
             successMessage="We'll get back within 24 hours."
           />
 
