@@ -267,6 +267,17 @@ export default function ServicePageTemplate({ data }: { data: ServicePageData })
           box-shadow:0 3px 10px rgba(30,58,138,0.3);
         }
         .sp-article ol li:hover { background:#eff6ff; border-left-color:#3b82f6; }
+        .sp-article a { color:#2563eb; text-decoration:underline; text-underline-offset:3px; text-decoration-thickness:1.5px; font-weight:600; transition:color 0.2s; }
+        .sp-article a:hover { color:#1d4ed8; }
+        .sp-article table { width:100%; border-collapse:collapse; margin:1.75rem 0 2rem; font-size:15px; box-shadow:0 2px 14px rgba(0,0,0,0.05); border-radius:10px; overflow:hidden; }
+        .sp-article thead { background:linear-gradient(135deg,#1e3a8a,#3730a3); }
+        .sp-article th { color:#fff; font-weight:700; text-align:left; padding:13px 16px; font-family:'Plus Jakarta Sans',sans-serif; font-size:14px; }
+        .sp-article td { padding:12px 16px; border-top:1px solid #e2e8f0; color:#475569; line-height:1.6; }
+        .sp-article tbody tr:nth-child(even) { background:#f8fafc; }
+        .sp-article tbody tr:hover { background:#eff6ff; }
+        .sp-article blockquote { margin:1.75rem 0; padding:1.1rem 1.6rem; background:#eff6ff; border-left:4px solid #1e3a8a; border-radius:0 10px 10px 0; color:#1e293b; font-style:italic; box-shadow:0 2px 12px rgba(30,58,138,0.06); }
+        .sp-article blockquote p { margin:0; color:#1e293b; max-width:none; font-size:16px; line-height:1.8; }
+        .sp-article blockquote p + p { margin-top:0.8rem; }
 
         /* SIDEBAR */
         .sp-sidebar { position:sticky; top:120px; }
