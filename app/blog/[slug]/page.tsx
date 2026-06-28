@@ -222,6 +222,14 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
         .sp-article ol li { position:relative; padding:16px 18px 16px 62px; background:#f8fafc; border:1px solid #e2e8f0; border-left:3px solid #1e3a8a; border-radius:10px; color:#334155; font-size:15px; line-height:1.65; counter-increment:step; transition:all 0.2s; }
         .sp-article ol li::before { content:counter(step); position:absolute; left:14px; top:50%; transform:translateY(-50%); width:34px; height:34px; background:linear-gradient(135deg,#1e3a8a,#3730a3); color:#fff; border-radius:8px; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:14px; font-family:'Plus Jakarta Sans',sans-serif; box-shadow:0 3px 10px rgba(30,58,138,0.3); }
         .sp-article ol li:hover { background:#eff6ff; border-left-color:#3b82f6; }
+        .sp-article a { color:#2563eb; text-decoration:underline; text-underline-offset:3px; text-decoration-thickness:1.5px; font-weight:600; transition:color 0.2s; }
+        .sp-article a:hover { color:#1d4ed8; }
+        .sp-article table { width:100%; border-collapse:collapse; margin:1.75rem 0 2rem; font-size:15px; box-shadow:0 2px 14px rgba(0,0,0,0.05); border-radius:10px; overflow:hidden; }
+        .sp-article thead { background:linear-gradient(135deg,#1e3a8a,#3730a3); }
+        .sp-article th { color:#fff; font-weight:700; text-align:left; padding:13px 16px; font-family:'Plus Jakarta Sans',sans-serif; font-size:14px; }
+        .sp-article td { padding:12px 16px; border-top:1px solid #e2e8f0; color:#475569; line-height:1.6; }
+        .sp-article tbody tr:nth-child(even) { background:#f8fafc; }
+        .sp-article tbody tr:hover { background:#eff6ff; }
         .sp-sidebar { position:sticky; top:120px; }
         .sp-sidebar-card { background:#fff; border:1px solid #e2e8f0; border-radius:16px; padding:1.5rem; margin-bottom:1.25rem; box-shadow:0 4px 20px rgba(0,0,0,0.06); }
         .sp-sidebar-card-title { font-family:'Plus Jakarta Sans',sans-serif; font-size:14px; font-weight:800; color:#0f172a; margin-bottom:1rem; padding-bottom:0.75rem; border-bottom:2px solid #e2e8f0; }
