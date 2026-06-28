@@ -230,6 +230,9 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
         .sp-article td { padding:12px 16px; border-top:1px solid #e2e8f0; color:#475569; line-height:1.6; }
         .sp-article tbody tr:nth-child(even) { background:#f8fafc; }
         .sp-article tbody tr:hover { background:#eff6ff; }
+        .sp-article blockquote { margin:1.75rem 0; padding:1.1rem 1.6rem; background:#eff6ff; border-left:4px solid #1e3a8a; border-radius:0 10px 10px 0; color:#1e293b; font-style:italic; box-shadow:0 2px 12px rgba(30,58,138,0.06); }
+        .sp-article blockquote p { margin:0; color:#1e293b; max-width:none; font-size:16px; line-height:1.8; }
+        .sp-article blockquote p + p { margin-top:0.8rem; }
         .sp-sidebar { position:sticky; top:120px; }
         .sp-sidebar-card { background:#fff; border:1px solid #e2e8f0; border-radius:16px; padding:1.5rem; margin-bottom:1.25rem; box-shadow:0 4px 20px rgba(0,0,0,0.06); }
         .sp-sidebar-card-title { font-family:'Plus Jakarta Sans',sans-serif; font-size:14px; font-weight:800; color:#0f172a; margin-bottom:1rem; padding-bottom:0.75rem; border-bottom:2px solid #e2e8f0; }
