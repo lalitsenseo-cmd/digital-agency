@@ -530,6 +530,31 @@ export default function ServicePageTemplate({ data }: { data: ServicePageData })
           </div>
         </main>
 
+        {/* FAQ — content ke turant baad, left-aligned */}
+        {faqs.length > 0 && (
+          <section style={{padding:"0 2rem 4rem"}}>
+            <div style={{maxWidth:"1100px",margin:"0 auto"}}>
+              <div style={{maxWidth:"760px"}}>
+                <h2 style={{fontFamily:"'Plus Jakarta Sans',sans-serif",fontSize:"1.7rem",fontWeight:800,color:"#0f172a",marginBottom:"1.5rem",textAlign:"left"}}>
+                  Frequently Asked Questions
+                </h2>
+                <div style={{display:"flex",flexDirection:"column",gap:"12px"}}>
+                  {faqs.map((f, i) => (
+                    <details key={i} style={{border:"1px solid #e2e8f0",borderRadius:"12px",padding:"1rem 1.25rem",background:"#fff",boxShadow:"0 2px 10px rgba(30,58,138,0.05)"}}>
+                      <summary style={{fontFamily:"'Plus Jakarta Sans',sans-serif",fontWeight:700,fontSize:"15px",color:"#1e3a8a",cursor:"pointer",listStyle:"none"}}>
+                        {f.question}
+                      </summary>
+                      <p style={{marginTop:"0.75rem",fontSize:"14px",color:"#475569",lineHeight:1.7,whiteSpace:"pre-line"}}>
+                        {f.answer}
+                      </p>
+                    </details>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
+
         {/* PRICING SECTION */}
         <section style={{background:"#f8fafc",padding:"4rem 2rem"}}>
           <div style={{maxWidth:"1100px",margin:"0 auto"}}>
@@ -668,26 +693,6 @@ export default function ServicePageTemplate({ data }: { data: ServicePageData })
         </section>
 
         {/* FAQ SECTION (sirf jab FAQs hon) */}
-        {faqs.length > 0 && (
-          <section style={{maxWidth:"900px",margin:"0 auto",padding:"1rem 2rem 3rem"}}>
-            <h2 style={{fontFamily:"'Plus Jakarta Sans',sans-serif",fontSize:"1.7rem",fontWeight:800,color:"#0f172a",marginBottom:"1.5rem",textAlign:"center"}}>
-              Frequently Asked Questions
-            </h2>
-            <div style={{display:"flex",flexDirection:"column",gap:"12px"}}>
-              {faqs.map((f, i) => (
-                <details key={i} style={{border:"1px solid #e2e8f0",borderRadius:"12px",padding:"1rem 1.25rem",background:"#fff",boxShadow:"0 2px 10px rgba(30,58,138,0.05)"}}>
-                  <summary style={{fontFamily:"'Plus Jakarta Sans',sans-serif",fontWeight:700,fontSize:"15px",color:"#1e3a8a",cursor:"pointer",listStyle:"none"}}>
-                    {f.question}
-                  </summary>
-                  <p style={{marginTop:"0.75rem",fontSize:"14px",color:"#475569",lineHeight:1.7,whiteSpace:"pre-line"}}>
-                    {f.answer}
-                  </p>
-                </details>
-              ))}
-            </div>
-          </section>
-        )}
-
         {/* BOTTOM CTA */}
         <section className="sp-cta-section">
           <div className="sp-cta-inner">
