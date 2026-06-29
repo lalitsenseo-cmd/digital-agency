@@ -389,6 +389,7 @@ export default function Footer() {
                 { l: "About Us", h: "/about" },
                 { l: "Blog", h: "/blog" },
                 { l: "Contact", h: "/contact" },
+                { l: "Sitemap", h: "/sitemap" },
                 { l: "Privacy Policy", h: "#" },
                 { l: "Terms of Service", h: "#" },
               ].map(s => (
