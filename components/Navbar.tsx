@@ -9,16 +9,6 @@ const megaMenu = [
     items: [
       {
         label: "SEO Services", href: "/seo-services", desc: "All SEO solutions",
-        submenu: [
-          { label: "SEO Services in Faridabad",          href: "/seo-services-in-faridabad"          },
-          { label: "SEO Services in Noida",              href: "/seo-services-in-noida"              },
-          { label: "SEO Services in Delhi",              href: "/seo-services-in-delhi"              },
-          { label: "SEO Services in Delhi/NCR",          href: "/seo-services-in-delhi-ncr"          },
-          { label: "SEO Services in Gurgaon",            href: "/seo-services-in-gurgaon"            },
-          { label: "SEO Services in Ballabgarh",         href: "/seo-services-in-ballabgarh"         },
-          { label: "SEO Services in Naharpar Faridabad", href: "/seo-services-in-naharpar-faridabad" },
-          { label: "SEO Services in Ghaziabad",          href: "/seo-services-in-ghaziabad"          },
-        ],
       },
       { label: "Local SEO",     href: "/local-seo",     desc: "Dominate local search"    },
       { label: "Ecommerce SEO", href: "/ecommerce-seo", desc: "Boost product visibility" },
@@ -85,9 +75,8 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", h);
   }, []);
 
-  const activeSubmenu = megaMenu
-    .flatMap(c => c.items)
-    .find((item: any) => item.submenu && item.label === hoveredItem)?.submenu ?? null;
+  // City submenu removed — no items have submenus anymore
+  const activeSubmenu: { label: string; href: string }[] | null = null;
 
   return (
     <>
