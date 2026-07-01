@@ -3,10 +3,10 @@ import Footer from "@/components/Footer";
 import { WhatsAppButton } from "@/components/PremiumFeatures";
 import { JsonLd, webPageNode, breadcrumbNode } from "@/lib/schema";
 import type { Metadata } from "next";
-import { PenLine, Users, Link2, BadgeCheck, Mail, ArrowRight, CheckCircle2 } from "lucide-react";
+import { Users, Link2, BadgeCheck, Mail, CheckCircle2 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Write for Us — Digital Marketing & SEO Guest Post | Clickbriz",
+  title: "Write for Us — Digital Marketing & SEO Guest Post | Clickbriz Digital",
   description:
     "Write for us at Clickbriz Digital. We accept high-quality guest posts on SEO, digital marketing, PPC, social media, and web development. Read our guidelines and submit your pitch.",
   alternates: { canonical: "https://www.clickbriz.com/write-for-us" },
@@ -35,6 +35,22 @@ const guidelines = [
   "Max 1 relevant do-follow link to your site; no spammy/affiliate links.",
   "Add suggested title, meta description, and a 2–3 line author bio.",
   "Images must be original or royalty-free with source credit.",
+];
+
+// Guest-post search footprints — har niche + har common pattern
+const footprints = [
+  "Digital Marketing “Write for Us”", "Digital Marketing Guest Post",
+  "SEO “Write for Us”", "SEO Guest Post", "Local SEO Write for Us",
+  "PPC “Write for Us”", "PPC Guest Post", "Google Ads Write for Us",
+  "Social Media Marketing “Write for Us”", "Social Media Guest Post",
+  "Content Marketing “Write for Us”", "Content Marketing Guest Post",
+  "Web Development “Write for Us”", "Marketing “Write for Us”",
+  "Submit a Guest Post", "Submit an Article", "Suggest a Post",
+  "Become a Contributor", "Guest Author Wanted", "Contributing Writer",
+  "Accepting Guest Posts", "Guest Posts Wanted", "Guest Bloggers Wanted",
+  "Looking for Guest Bloggers", "Contribute to Our Blog", "Write for Us",
+  "Guest Post Guidelines", "Contributor Guidelines", "inurl:write-for-us",
+  "intitle:“write for us”", "Send a Guest Article",
 ];
 
 export default function WriteForUsPage() {
@@ -74,16 +90,18 @@ export default function WriteForUsPage() {
         .wfu-card p { font-size:14px; color:#64748b; line-height:1.6; }
         .wfu-topics { display:flex; flex-wrap:wrap; gap:10px; }
         .wfu-topic { background:#f8fafc; border:1px solid #e2e8f0; border-radius:999px; padding:8px 16px; font-size:14px; color:#334155; font-weight:500; }
+        .wfu-foot { display:flex; flex-wrap:wrap; gap:8px; max-width:820px; }
+        .wfu-fp { display:inline-flex; align-items:center; gap:7px; background:#eff6ff; border:1px solid #bfdbfe; border-radius:8px; padding:7px 13px; font-size:13px; color:#1e3a8a; font-weight:600; }
+        .wfu-fp::before { content:""; width:6px; height:6px; border-radius:50%; background:#e0521f; flex-shrink:0; }
+        .wfu-foot-note { font-size:14px; color:#64748b; margin-bottom:1.1rem; max-width:760px; line-height:1.7; }
         .wfu-list { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:12px; max-width:760px; }
         .wfu-list li { display:flex; gap:12px; align-items:flex-start; font-size:15px; color:#475569; line-height:1.6; }
         .wfu-list svg { flex-shrink:0; margin-top:2px; color:#16a34a; }
         .wfu-cta { margin-top:3rem; background:linear-gradient(135deg,#1e3a8a,#3730a3); border-radius:18px; padding:2.5rem 2rem; text-align:center; color:#fff; }
         .wfu-cta h2 { font-family:'Plus Jakarta Sans',sans-serif; font-size:1.6rem; font-weight:800; margin-bottom:0.6rem; color:#fff; }
-        .wfu-cta p { color:#c7d2fe; font-size:15px; margin-bottom:1.5rem; }
-        .wfu-btn { display:inline-flex; align-items:center; gap:8px; background:#fff; color:#1e3a8a; font-weight:700; padding:14px 26px; border-radius:12px; text-decoration:none; font-size:15px; transition:transform 0.2s; }
-        .wfu-btn:hover { transform:translateY(-2px); }
-        .wfu-email { display:inline-block; margin-top:1rem; color:#e0e7ff; font-size:14px; }
-        .wfu-email a { color:#fff; font-weight:700; }
+        .wfu-cta p { color:#c7d2fe; font-size:15px; margin-bottom:1.5rem; max-width:620px; margin-left:auto; margin-right:auto; }
+        .wfu-mail { display:inline-flex; align-items:center; gap:10px; flex-wrap:wrap; justify-content:center; background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.25); border-radius:12px; padding:14px 22px; font-size:15px; color:#e0e7ff; }
+        .wfu-mail strong { color:#fff; font-size:17px; font-weight:800; letter-spacing:0.3px; }
         @media (max-width:760px) {
           .wfu-wrap { padding:6rem 1.25rem 3rem; }
           .wfu-h1 { font-size:2rem; }
@@ -96,9 +114,11 @@ export default function WriteForUsPage() {
         <div className="wfu-badge">✍️ Guest Contributions</div>
         <h1 className="wfu-h1">Write for <span>Clickbriz Digital</span></h1>
         <p className="wfu-lead">
-          Got real expertise in digital marketing, SEO, or web development? We welcome
-          original, insight-packed guest posts from practitioners. Share what actually
-          works, reach a growing audience, and earn a credited author bio with a link back.
+          Looking for a digital marketing <strong>&ldquo;write for us&rdquo;</strong> page or an
+          SEO guest post opportunity? You&rsquo;re in the right place. Clickbriz Digital accepts
+          original, insight-packed guest posts from real practitioners in SEO, PPC, social media,
+          and web development. Share what actually works, reach a growing audience, and earn a
+          credited author bio with a do-follow link back.
         </p>
 
         <h2 className="wfu-h2">Why write for us</h2>
@@ -129,13 +149,23 @@ export default function WriteForUsPage() {
           ))}
         </ul>
 
+        <h2 className="wfu-h2">Searches that lead here</h2>
+        <p className="wfu-foot-note">
+          Found us while searching for guest post opportunities? These are the kinds of queries
+          across digital marketing, SEO, PPC, and social media that bring writers to this page:
+        </p>
+        <div className="wfu-foot">
+          {footprints.map((f) => (
+            <span key={f} className="wfu-fp">{f}</span>
+          ))}
+        </div>
+
         <div className="wfu-cta">
           <h2>Ready to pitch your idea?</h2>
-          <p>Send us your topic idea or full draft. We reply to accepted pitches within 3–5 days.</p>
-          <a className="wfu-btn" href={`mailto:${EMAIL}?subject=Guest Post Submission — Write for Us`}>
-            <Mail size={18} /> Email your pitch <ArrowRight size={16} />
-          </a>
-          <span className="wfu-email">or write to <a href={`mailto:${EMAIL}`}>{EMAIL}</a></span>
+          <p>Whether you want to submit a guest post, become a contributor, or pitch a fresh topic idea — we&rsquo;d love to hear from you. We reply to accepted pitches within 3&ndash;5 days.</p>
+          <div className="wfu-mail">
+            <Mail size={18} /> Email your pitch to <strong>{EMAIL}</strong>
+          </div>
         </div>
       </main>
 
