@@ -26,6 +26,7 @@ export default async function HtmlSitemapPage() {
     { href: "/seo-services", label: "SEO Services" },
     { href: "/blog", label: "Blog" },
     { href: "/contact", label: "Contact" },
+    { href: "/write-for-us", label: "Write for Us" },
     { href: "/seo-audit", label: "Free SEO Audit" },
   ];
 

@@ -366,6 +366,7 @@ export default function Navbar() {
             {["Blog", "About", "Contact"].map(item => (
               <a key={item} href={`/${item.toLowerCase()}`} className="nav-link">{item}</a>
             ))}
+            <a href="/write-for-us" className="nav-link">Write for Us</a>
 
             <a href="/contact" className="nav-cta">Free Consultation</a>
           </div>
@@ -417,6 +418,7 @@ export default function Navbar() {
             {["Blog","About","Contact"].map(item => (
               <a key={item} href={`/${item.toLowerCase()}`} onClick={() => setOpen(false)} className="mobile-link">{item}</a>
             ))}
+            <a href="/write-for-us" onClick={() => setOpen(false)} className="mobile-link">Write for Us</a>
             <a href="/contact" onClick={() => setOpen(false)} style={{
               display:"block", marginTop:"1.25rem",
               background:"linear-gradient(135deg,#1e3a8a,#3730a3)",

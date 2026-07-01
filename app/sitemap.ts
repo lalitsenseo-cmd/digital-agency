@@ -13,6 +13,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/seo-services", // main SEO hub (coded)
     "/seo-audit",    // tool (coded)
     "/sitemap",      // HTML sitemap page
+    "/write-for-us", // guest post page
   ];
 
   // Service + city pages — Keystatic se, sirf published
