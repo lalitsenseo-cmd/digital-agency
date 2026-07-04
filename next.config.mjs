@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-reactStrictMode: false,
+  reactStrictMode: false,
   images: {
     remotePatterns: [
       {
@@ -19,6 +19,15 @@ reactStrictMode: false,
             value: process.env.VERCEL_ENV === "production"
               ? "index, follow"
               : "noindex, nofollow",
+          },
+        ],
+      },
+      {
+        source: "/videos/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
           },
         ],
       },
