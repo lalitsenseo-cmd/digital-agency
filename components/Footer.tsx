@@ -14,14 +14,14 @@ export default function Footer() {
     { 
       name: "Instagram", 
       icon: Instagram, 
-      href: "https://www.instagram.com/clickbrizagency/",
+      href: "https://www.instagram.com/click_briz_digital_marketing/",
       color: "#E4405F",
       shadowColor: "rgba(228, 64, 95, 0.5)"
     },
     { 
       name: "LinkedIn", 
       icon: Linkedin, 
-      href: "https://www.linkedin.com/in/clickbriz/", 
+      href: "https://www.linkedin.com/company/clickbriz/", 
       color: "#0A66C2",
       shadowColor: "rgba(10, 102, 194, 0.5)"
     },

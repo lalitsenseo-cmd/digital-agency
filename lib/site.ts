@@ -29,8 +29,8 @@ export const SITE = {
   areaServed: ["Faridabad", "Delhi NCR", "Delhi", "Noida", "Gurgaon", "Ghaziabad", "Ballabgarh"],
   sameAs: [
     "https://www.facebook.com/profile.php?id=61562934023885",
-    "https://www.instagram.com/clickbrizagency/",
-    "https://www.linkedin.com/in/clickbriz/",
+    "https://www.instagram.com/click_briz_digital_marketing/",
+    "https://www.linkedin.com/company/clickbriz/",
     "https://www.youtube.com/@clickbriz",
   ],
 };
