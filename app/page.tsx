@@ -18,8 +18,8 @@ import Industries from "@/components/Industries";
 
 // ✅ Supabase hataya — direct hardcode
 export const metadata: Metadata = {
-  title: "Digital Marketing Agency | SEO, Google Ads & Web Development | Clickbriz",
-  description: "Grow your business with Clickbriz. We offer SEO, Google Ads, Social Media Marketing, Website Development, and Python Automation services to help businesses generate more traffic, leads, and sales.",
+  title: "Digital Marketing Agency | SEO Services | Clickbriz",
+  description: "Grow your business with Clickbriz. We offer SEO, Google Ads, Social Media Marketing, Website Development, and Python Automation services.",
 };
 
 export default function Home() {
