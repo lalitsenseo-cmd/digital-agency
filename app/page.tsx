@@ -18,8 +18,8 @@ import Industries from "@/components/Industries";
 
 // ✅ Supabase hataya — direct hardcode
 export const metadata: Metadata = {
-  title: "Clickbriz Digital — Digital Marketing Agency in Faridabad",
-  description: "SEO, Google Ads, Social Media, Website Development & Python Automation for Indian businesses.",
+  title: "Digital Marketing Agency | SEO, Google Ads & Web Development | Clickbriz",
+  description: "Grow your business with Clickbriz. We offer SEO, Google Ads, Social Media Marketing, Website Development, and Python Automation services to help businesses generate more traffic, leads, and sales.",
 };
 
 export default function Home() {
